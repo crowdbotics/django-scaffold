@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import environ
+
+env = environ.Env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x=+t5u&$xtwqycf7&s=i)9gj=&v4qn1i0y=(6__u5(m5@mp@h!'
+SECRET_KEY = env.str("SECRET_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -118,8 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-import environ
-env = environ.Env()
 ALLOWED_HOSTS = ['*']
 SITE_ID = 1
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
@@ -162,6 +163,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = None
+LOGIN_REDIRECT_URL = "users:redirect"
 
 if DEBUG:
     # output email to console instead of sending
@@ -173,5 +175,5 @@ EMAIL_HOST_PASSWORD = env.str("SENDGRID_PASSWORD", "")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+# Custom user model
 AUTH_USER_MODEL = "users.User"
-LOGIN_REDIRECT_URL = "users:redirect"
