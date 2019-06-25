@@ -1,0 +1,17 @@
+{
+  "name": "{{cookiecutter.project_name}}",
+  "description": "This django application was built with Crowdbotics www.crowdbotics.com",
+  "repository": "{{cookiecutter.repo_url}}",
+  "keywords": ["web", "django"],
+  "env": {
+    "DEBUG_COLLECTSTATIC": "1"
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "sendgrid:starter",
+    "papertrail:choklad"
+  ],
+  "scripts": {
+    "postdeploy": "./postdeploy.sh"
+  }
+}

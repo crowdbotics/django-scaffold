@@ -1,0 +1,9 @@
+{
+    "project_name": "",
+    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '')|replace('-', '_') }}",
+    "project_dash_slug": "{{ cookiecutter.project_slug|replace('_', '-') }}",
+    "custom_domain": "",
+    "repo_url": "",
+    "heroku_dyno_size": "",
+    "heroku_team": ""
+}

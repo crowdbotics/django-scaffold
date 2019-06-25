@@ -1,0 +1,19 @@
+[[source]]
+verify_ssl = true
+url = "https://pypi.org/simple"
+name = "pypi"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
+
+[packages]
+django = "==2.2.2"
+django-environ = "==0.4.4"
+psycopg2 = "==2.7.5"
+waitress = "==1.0.2"
+whitenoise = "==3.3.0"
+djangorestframework = "*"
+django-bootstrap4 = "*"
+django-allauth = "*"
