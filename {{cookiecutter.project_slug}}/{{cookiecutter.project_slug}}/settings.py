@@ -15,6 +15,9 @@ import environ
 
 env = environ.Env()
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env.bool("DEBUG", default=False)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,10 +28,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str("SECRET_KEY", "")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+SITE_ID = 1
 
 
 # Application definition
@@ -42,6 +43,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites'
 ]
+LOCAL_APPS = [
+    'home',
+    'users.apps.UsersConfig',
+]
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'bootstrap4',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+]
+INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +99,11 @@ DATABASES = {
     }
 }
 
+if env.str("DATABASE_URL", default=None):
+    DATABASES = {
+        'default': env.db()
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -108,9 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -121,17 +139,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-ALLOWED_HOSTS = ['*']
-SITE_ID = 1
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG", default=False)
-
-if env.str("DATABASE_URL", default=None):
-    DATABASES = {
-        'default': env.db()
-    }
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -143,20 +151,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-LOCAL_APPS = [
-    'home',
-    'users.apps.UsersConfig',
-]
-THIRD_PARTY_APPS = [
-    'rest_framework',
-    'rest_framework.authtoken',
-    'bootstrap4',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-]
-INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS
 
 # allauth
 ACCOUNT_EMAIL_REQUIRED = True
