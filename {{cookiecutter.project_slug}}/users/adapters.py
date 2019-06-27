@@ -13,4 +13,4 @@ class AccountAdapter(DefaultAccountAdapter):
 
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
     def is_open_for_signup(self, request: HttpRequest, sociallogin: Any):
-        return getattr(settings, "ACCOUNT_ALLOW_REGISTRATION", True)
+        return getattr(settings, "SOCIALACCOUNT_ALLOW_REGISTRATION", True)
