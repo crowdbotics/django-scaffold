@@ -1,7 +1,7 @@
 {
     "project_name": "",
     "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '')|replace('-', '_') }}",
-    "project_dash_slug": "{{ cookiecutter.project_slug|replace('_', '-') }}",
+    "project_generated_name": "",
     "custom_domain": "",
     "repo_url": "",
     "heroku_dyno_size": "",

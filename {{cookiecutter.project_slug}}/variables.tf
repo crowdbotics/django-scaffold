@@ -1,7 +1,7 @@
 variable "app_name" {
   description = "Unique name of the app"
   type = "string"
-  default = "{{cookiecutter.project_slug}}"
+  default = "{{cookiecutter.project_generated_name}}"
 }
 
 variable "custom_domain" {
