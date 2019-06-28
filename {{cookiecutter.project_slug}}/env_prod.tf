@@ -52,7 +52,7 @@ resource "heroku_build" "production" {
   app = "${heroku_app.production.id}"
 
   source = {
-    url = "${var.repo_url}/archive/master.tar.gz"
+    url = "${var.repo_url}"
   }
 }
 
