@@ -19,7 +19,7 @@ variable "dyno_size" {
 variable "repo_url" {
     description = "URL to the git repo"
     type = "string"
-    default = "{{cookiecutter.repo_url}}"
+    default = "{{cookiecutter.repo_url}}/archive/master.tar.gz"
 }
 
 variable "heroku_team" {
