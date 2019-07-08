@@ -21,6 +21,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('api/v1/', include('home.api.v1.urls')),
     path('admin/', admin.site.urls),
+    path("users/", include("users.urls", namespace="users")),
 ]
 
 admin.site.site_header = '{{cookiecutter.project_name}}'
