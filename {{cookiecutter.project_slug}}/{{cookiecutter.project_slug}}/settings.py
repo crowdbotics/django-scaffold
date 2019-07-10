@@ -40,8 +40,6 @@ SECURE_SSL_REDIRECT = env.bool("SECURE_REDIRECT", default=False)
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'rest_auth',
-    'rest_auth.registration',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -55,6 +53,8 @@ LOCAL_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_auth',
+    'rest_auth.registration',
     'bootstrap4',
     'allauth',
     'allauth.account',
