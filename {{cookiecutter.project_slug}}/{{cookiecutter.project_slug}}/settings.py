@@ -172,6 +172,11 @@ SOCIALACCOUNT_ADAPTER = "users.adapters.SocialAccountAdapter"
 ACCOUNT_ALLOW_REGISTRATION = env.bool("ACCOUNT_ALLOW_REGISTRATION", True)
 SOCIALACCOUNT_ALLOW_REGISTRATION = env.bool("SOCIALACCOUNT_ALLOW_REGISTRATION", True)
 
+REST_AUTH_REGISTER_SERIALIZERS = {
+    # Use custom serializer that has no username and matches web signup
+    "REGISTER_SERIALIZER": "home.api.v1.serializers.SignupSerializer",
+}
+
 # Custom user model
 AUTH_USER_MODEL = "users.User"
 
