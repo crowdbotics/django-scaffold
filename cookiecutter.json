@@ -5,5 +5,6 @@
     "custom_domain": "",
     "repo_url": "",
     "heroku_dyno_size": "",
-    "heroku_team": ""
+    "heroku_team": "",
+    "is_mobile": "n"
 }
