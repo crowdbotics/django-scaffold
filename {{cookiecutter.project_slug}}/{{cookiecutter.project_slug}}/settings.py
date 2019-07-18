@@ -60,6 +60,11 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+{% if cookiecutter.is_mobile %}
+    # start fcm_django push notifications
+    'fcm_django',
+    # end fcm_django push notifications
+{% endif %}
 ]
 INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -189,6 +194,14 @@ EMAIL_HOST_USER = env.str("SENDGRID_USERNAME", "")
 EMAIL_HOST_PASSWORD = env.str("SENDGRID_PASSWORD", "")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+{% if cookiecutter.is_mobile %}
+# start fcm_django push notifications
+FCM_DJANGO_SETTINGS = {
+    "FCM_SERVER_KEY": env.str("FCM_SERVER_KEY", "")
+}
+# end fcm_django push notifications
+{% endif %}
 
 if DEBUG:
     # output email to console instead of sending
