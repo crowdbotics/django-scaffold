@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from allauth.account.views import ConfirmEmailView
 
 urlpatterns = [
     path('', include('home.urls')),
@@ -24,7 +25,7 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),
     path('rest-auth/', include('rest_auth.urls')),
     # Override email confirm to use allauth's HTML view instead of rest_auth's API view
-    path('rest-auth/registration/account-confirm-email/<str:key>/', confirm_email),
+    path('rest-auth/registration/account-confirm-email/<str:key>/', ConfirmEmailView.as_view()),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
 ]
 
