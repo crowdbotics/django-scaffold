@@ -60,7 +60,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-{% if cookiecutter.is_mobile %}
+{% if cookiecutter.is_mobile == "y" %}
     # start fcm_django push notifications
     'fcm_django',
     # end fcm_django push notifications
@@ -195,7 +195,7 @@ EMAIL_HOST_PASSWORD = env.str("SENDGRID_PASSWORD", "")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-{% if cookiecutter.is_mobile %}
+{% if cookiecutter.is_mobile == "y" %}
 # start fcm_django push notifications
 FCM_DJANGO_SETTINGS = {
     "FCM_SERVER_KEY": env.str("FCM_SERVER_KEY", "")
