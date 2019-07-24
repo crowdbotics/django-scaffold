@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from allauth.account.views import confirm_email
 
 urlpatterns = [
     path('', include('home.urls')),
