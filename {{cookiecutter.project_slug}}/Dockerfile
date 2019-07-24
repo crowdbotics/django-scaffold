@@ -10,7 +10,11 @@ RUN apk add --no-cache --update \
   python3 \
   python3-dev \
   py3-pip \
-  curl
+  curl \
+# zlib, zlib-dev, and libjpeg are required by pillow
+  zlib \
+  zlib-dev \
+  libjpeg
 RUN pip3 install --no-cache-dir -q pipenv
 
 # Add our code
