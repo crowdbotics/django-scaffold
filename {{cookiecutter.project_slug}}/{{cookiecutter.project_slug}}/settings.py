@@ -60,6 +60,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_extensions',
 {% if cookiecutter.is_mobile == "y" %}
     # start fcm_django push notifications
     'fcm_django',
