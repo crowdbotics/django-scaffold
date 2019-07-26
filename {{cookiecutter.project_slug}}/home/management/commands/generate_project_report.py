@@ -12,7 +12,7 @@ class Command(BaseCommand):
         models = django.apps.apps.get_models(
             include_auto_created=True, include_swapped=True
         )
-        cmd = "python manage.py show_urls --format=json"
+        cmd = "python3 manage.py show_urls --format=json"
         loc = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE)
         print(
             json.dumps(
