@@ -6,7 +6,7 @@ from rest_framework.permissions import BasePermission
 
 class CrowboticsExclusive(BasePermission):
     def has_permission(self, request, view):
-        header_signature = request.META.get("HTTP_CB_SIGNATURE", None)
+        header_signature = request.META.get("HTTP_X_CB_SIGNATURE", None)
         secret = os.environ.get("CROWDBOTICS_SECRET", None)
         sha_name, signature = header_signature.split("=")
         mac = hmac.new(str(secret).encode("ascii"), digestmod="sha1")
