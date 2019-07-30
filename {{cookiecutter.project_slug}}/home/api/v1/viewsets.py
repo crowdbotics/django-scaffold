@@ -59,7 +59,7 @@ class AppReportView(APIView):
     DO NOT REMOVE THIS CODE SNIPPET, YOUR DASHBOARD MAY NOT REFLECT THE CORRECT
     RESOURCES IN YOUR APP.
     """
-    permissions_classes = [CrowboticsExclusive]
+    permission_classes = [CrowboticsExclusive]
 
     def _get_models(self):
         project_models = apps.apps.get_models(
