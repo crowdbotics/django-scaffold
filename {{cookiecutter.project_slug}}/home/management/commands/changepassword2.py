@@ -4,12 +4,12 @@ from django.contrib.auth import get_user_model
 
 
 class Command(BaseCommand):
-    help = 'Crate a superuser, and allow password to be provided'
+    help = 'Update password of the provided username.'
 
     def add_arguments(self, parser):
         parser.add_argument(
             '--username', dest='username', default=None,
-            help='Specifies the email for update.',
+            help='Specifies the username to be updated.',
         )
 
         parser.add_argument(
