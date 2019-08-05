@@ -22,8 +22,8 @@ class Command(BaseCommand):
         password = options.get('password')
         username = options.get('username')
 
-        if password and not username:
-            raise CommandError("--username is required if specifying --password.")
+        if not password or not username:
+            raise CommandError("You need to specify both password and username.")
 
         if password:
             try:
