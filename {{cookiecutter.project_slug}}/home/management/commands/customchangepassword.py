@@ -25,10 +25,9 @@ class Command(BaseCommand):
         if not password or not username:
             raise CommandError("You need to specify both password and username.")
 
-        if password:
-            try:
-                user = User.objects.get(username=username)
-                user.set_password(password)
-                user.save()
-            except User.DoesNotExist:
-                raise CommandError("User not found with the given username.")
+        try:
+            user = User.objects.get(username=username)
+            user.set_password(password)
+            user.save()
+        except User.DoesNotExist:
+            raise CommandError("User not found with the given username.")
