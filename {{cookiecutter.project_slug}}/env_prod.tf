@@ -2,6 +2,7 @@ resource "heroku_app" "production" {
   name   = "${var.app_name}-prod"
   region = "us"
   stack  = "container"
+  acm    = "true"
   organization = {
     name = "${var.heroku_team}"
     locked = "false"
