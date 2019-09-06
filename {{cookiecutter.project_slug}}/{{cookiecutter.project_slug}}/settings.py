@@ -190,9 +190,11 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 # Custom user model
 AUTH_USER_MODEL = "users.User"
 
+
+# Configuration sendgrid api start
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 
-DEFAULT_FROM_EMAIL = 'Crowdbotics <noreply@crowdbotics.com/>'
+DEFAULT_FROM_EMAIL = 'Crowdbotics <noreply@crowdbotics.com'
 SENDGRID_API_KEY = env.str('SENDGRID_API_KEY', '')
 SENDGRID_SANDBOX_MODE_IN_DEBUG=env.bool('SENDGRID_SANDBOX_MODE_IN_DEBUG', False)
 if SENDGRID_SANDBOX_MODE_IN_DEBUG:
@@ -203,6 +205,7 @@ EMAIL_HOST_USER = env.str('SENDGRID_USERNAME', '')
 EMAIL_HOST_PASSWORD = env.str('SENDGRID_PASSWORD', '')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
 
 {% if cookiecutter.is_mobile == "y" %}
 # start fcm_django push notifications
