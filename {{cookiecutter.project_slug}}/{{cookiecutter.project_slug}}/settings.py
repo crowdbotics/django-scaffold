@@ -194,7 +194,7 @@ AUTH_USER_MODEL = "users.User"
 # Configuration sendgrid api start
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 
-DEFAULT_FROM_EMAIL = 'Crowdbotics <noreply@crowdbotics.com'
+DEFAULT_FROM_EMAIL = 'Crowdbotics <noreply@crowdbotics.com>'
 SENDGRID_API_KEY = env.str('SENDGRID_API_KEY', '')
 SENDGRID_SANDBOX_MODE_IN_DEBUG=env.bool('SENDGRID_SANDBOX_MODE_IN_DEBUG', False)
 if SENDGRID_SANDBOX_MODE_IN_DEBUG:
