@@ -1,5 +1,9 @@
 FROM alpine:latest
 
+# Add the testing repo in case it's needed for additional dependencies
+# For example, gdal can be installed by using gdal@testing
+RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+
 # Install system dependencies
 RUN apk add --no-cache --update \
   bash \
