@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from allauth.account.views import confirm_email
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 urlpatterns = [
     path('', include('home.urls')),
@@ -32,3 +35,18 @@ urlpatterns = [
 admin.site.site_header = '{{cookiecutter.project_name}}'
 admin.site.site_title = '{{cookiecutter.project_name}} Admin Portal'
 admin.site.index_title = '{{cookiecutter.project_name}} Admin'
+
+# swagger
+schema_view = get_schema_view(
+    openapi.Info(
+        title="{{cookiecutter.project_name}} API",
+        default_version="v1",
+        description="API documentation for {{cookiecutter.project_name}} App",
+    ),
+    public=True,
+    permission_classes=(permissions.IsAuthenticated,),
+)
+
+urlpatterns += [
+    path("api-docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs")
+]

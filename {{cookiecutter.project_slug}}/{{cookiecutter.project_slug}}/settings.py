@@ -61,6 +61,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'django_extensions',
+    'drf_yasg',
 {% if cookiecutter.is_mobile == "y" %}
     # start fcm_django push notifications
     'fcm_django',
@@ -203,6 +204,10 @@ FCM_DJANGO_SETTINGS = {
 }
 # end fcm_django push notifications
 {% endif %}
+
+# swagger config
+# LOGIN_URL = "account_login"
+# LOGOUT_URL = "account_logout"
 
 if DEBUG:
     # output email to console instead of sending
