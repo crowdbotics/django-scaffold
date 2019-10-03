@@ -205,10 +205,6 @@ FCM_DJANGO_SETTINGS = {
 # end fcm_django push notifications
 {% endif %}
 
-# swagger config
-# LOGIN_URL = "account_login"
-# LOGOUT_URL = "account_logout"
-
 if DEBUG:
     # output email to console instead of sending
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
