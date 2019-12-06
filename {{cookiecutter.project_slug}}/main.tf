@@ -1,5 +1,5 @@
 provider "heroku" {
-  version = "~> 1.5"
+  version = "~> 2.2.1"
 }
 provider "cloudflare" {
   version = "~> 1.9"
