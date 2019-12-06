@@ -8,6 +8,9 @@ resource "heroku_app" "production" {
     locked = "false"
     personal = "false"
   }
+  sensitive_config_vars = {
+    SECRET_KEY = "${var.heroku_secret_key}"
+  }
 }
 
 resource "heroku_addon" "database_production" {

@@ -27,3 +27,9 @@ variable "heroku_team" {
   type = "string"
   default = "{{cookiecutter.heroku_team}}"
 }
+
+variable "heroku_secret_key" {
+  description = "SECRET_KEY env var for the Heroku app. OVERRIDE, DO NOT USE THE DEFAULT."
+  type = "string"
+  default = "change_me_123"
+}
