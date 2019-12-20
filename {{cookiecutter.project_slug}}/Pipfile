@@ -20,6 +20,6 @@ django-allauth = "~=0.39.1"
 django-rest-auth = "~=0.9.5"
 django-extensions = "~=2.1.9"
 packaging = "*"
-drf-yasg = "~=1.16.1"
+drf-yasg = "~=1.17.0"
 # fcm-django is used for mobile notifications. It can be removed if unneeded.
 fcm-django = "~=0.3.3"
