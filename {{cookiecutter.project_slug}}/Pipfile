@@ -21,6 +21,5 @@ django-rest-auth = "~=0.9.5"
 django-extensions = "~=2.1.9"
 packaging = "*"
 drf-yasg = "~=1.16.1"
-{% if cookiecutter.is_mobile == "y" %}
+# fcm-django is used for mobile notifications. It can be removed if unneeded.
 fcm-django = "~=0.2.21"
-{% endif %}
