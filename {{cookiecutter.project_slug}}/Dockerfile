@@ -1,8 +1,8 @@
-FROM alpine:latest
+FROM alpine:3.10
 
 # Add the testing repo in case it's needed for additional dependencies
-# For example, gdal can be installed by using gdal@testing
-RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+# For example, gdal can be installed by using gdal@community
+RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
 # Install system dependencies
 RUN apk add --no-cache --update \
@@ -11,9 +11,8 @@ RUN apk add --no-cache --update \
   build-base \
   musl-dev \
   postgresql-dev \
-  python3 \
-  python3-dev \
-  py3-pip \
+  'python3~=3.7.5' \
+  'python3-dev~=3.7.5' \
   curl \
 # zlib, zlib-dev, and libjpeg-turbo are required by pillow
   zlib \
