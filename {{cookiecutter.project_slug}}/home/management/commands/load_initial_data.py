@@ -17,7 +17,7 @@ def load_initial_data():
     site = Site.objects.first()
     if site:
         site.name = "{{cookiecutter.project_name}}"
-        site.domain = "{{custom_domain}}" or site.domain
+        site.domain = "{{cookiecutter.custom_domain}}" or site.domain
         site.save()
 
 
