@@ -1,7 +1,6 @@
 from django.contrib.sites.models import Site
 from django.core.management import BaseCommand
-from home.models import CustomText
-from home.models import HomePage
+from home.models import CustomText, HomePage
 
 
 def load_initial_data():
