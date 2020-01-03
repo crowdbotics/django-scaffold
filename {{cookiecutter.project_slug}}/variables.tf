@@ -33,3 +33,9 @@ variable "heroku_secret_key" {
   type = "string"
   default = "change_me_123"
 }
+
+variable "crowdbotics_domain" {
+  description = "Domain to use for Crowdbotics server"
+  type = "string"
+  default = ""
+}
