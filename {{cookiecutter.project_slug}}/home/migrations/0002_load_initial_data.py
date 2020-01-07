@@ -28,7 +28,7 @@ def create_site(apps, schema_editor):
         "name": "{{cookiecutter.project_name}}",
     }
     if custom_domain:
-        site_params.update({"domain": custom_domain})
+        site_params["domain"] = custom_domain
 
     Site.objects.update_or_create(defaults=site_params, id=1)
 
