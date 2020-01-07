@@ -26,10 +26,10 @@ def create_homepage(apps, schema_editor):
 def create_site(apps, schema_editor):
     Site = apps.get_model('sites', 'Site')
 
-    site, _ = Site.objects.get_or_create(
-        name="{{cookiecutter.project_name}}",
-        domain="{{cookiecutter.custom_domain}}" or site.domain,
-    )
+    project_name = "{{cookiecutter.project_name}}
+    domain = "{{cookiecutter.custom_domain}}" or site.domain
+
+    Site.objects.create(name=project_name, domain=domain)
 
 
 class Migration(migrations.Migration):
