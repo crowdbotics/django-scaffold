@@ -22,11 +22,13 @@ def create_homepage(apps, schema_editor):
 
 def create_site(apps, schema_editor):
     Site = apps.get_model("sites", "Site")
+    custom_domain = "{{cookiecutter.custom_domain}}"
 
     site_params = {
         "name": "{{cookiecutter.project_name}}",
-        "domain": "{{cookiecutter.custom_domain}}",
     }
+    if custom_domain:
+        site_params.update({"domain": custom_domain})
 
     Site.objects.update_or_create(defaults=site_params, id=1)
 
