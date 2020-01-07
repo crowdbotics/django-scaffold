@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cat > "home/migrations/0002_load_initial_data.py" << EOF
-from django.contrib.sites.models import Site
 from django.db import migrations
 
 
@@ -25,11 +24,12 @@ def create_homepage(apps, schema_editor):
 
 
 def create_site(apps, schema_editor):
-    site = Site.objects.first()
-    if site:
-        site.name = "{{cookiecutter.project_name}}"
-        site.domain = "{{cookiecutter.custom_domain}}" or site.domain
-        site.save()
+    Site = apps.get_model('sites', 'Site')
+
+    site, _ = Site.objects.get_or_create(
+        name="{{cookiecutter.project_name}}",
+        domain="{{cookiecutter.custom_domain}}" or site.domain,
+    )
 
 
 class Migration(migrations.Migration):
