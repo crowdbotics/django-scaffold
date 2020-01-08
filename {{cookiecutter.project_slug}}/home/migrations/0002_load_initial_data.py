@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("home", "0001_initial"),
-        ("django.contrib.sites", "0002_alter_domain_unique"),
+        ("sites", "0002_alter_domain_unique"),
     ]
 
     operations = [
