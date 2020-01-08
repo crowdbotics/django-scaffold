@@ -16,7 +16,7 @@ def update_site_name():
 
 class Command(BaseCommand):
     can_import_settings = True
-    help = "Update Site name, defaults to example.com otherwise"
+    help = "Load initial data to db"
 
     def handle(self, *args, **options):
         update_site_name()
