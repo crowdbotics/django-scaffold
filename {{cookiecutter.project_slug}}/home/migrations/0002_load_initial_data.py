@@ -1,4 +1,5 @@
 from django.db import migrations
+from django.contrib.sites.models import Site
 
 
 def create_customtext(apps, schema_editor):
@@ -21,7 +22,6 @@ def create_homepage(apps, schema_editor):
 
 
 def create_site(apps, schema_editor):
-    Site = apps.get_model("sites", "Site")
     custom_domain = "{{cookiecutter.custom_domain}}"
 
     site_params = {
