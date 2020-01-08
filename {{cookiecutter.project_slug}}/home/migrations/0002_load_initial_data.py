@@ -35,7 +35,10 @@ def create_site(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    dependencies = [("home", "0001_initial")]
+    dependencies = [
+        ("home", "0001_initial"),
+        ("sites", "0002_alter_domain_unique"),
+    ]
 
     operations = [
         migrations.RunPython(create_customtext),
