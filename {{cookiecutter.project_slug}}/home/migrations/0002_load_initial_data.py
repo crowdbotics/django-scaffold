@@ -1,5 +1,4 @@
 from django.db import migrations
-from django.contrib.sites.models import Site
 
 
 def create_customtext(apps, schema_editor):
