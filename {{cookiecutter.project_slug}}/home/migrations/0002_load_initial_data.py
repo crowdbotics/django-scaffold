@@ -21,18 +21,6 @@ def create_homepage(apps, schema_editor):
     HomePage.objects.create(body=homepage_body)
 
 
-def create_site(apps, schema_editor):
-    custom_domain = "{{cookiecutter.custom_domain}}"
-
-    site_params = {
-        "name": "{{cookiecutter.project_name}}",
-    }
-    if custom_domain:
-        site_params["domain"] = custom_domain
-
-    Site.objects.update_or_create(defaults=site_params, id=1)
-
-
 class Migration(migrations.Migration):
 
     dependencies = [("home", "0001_initial")]
@@ -40,5 +28,4 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(create_customtext),
         migrations.RunPython(create_homepage),
-        migrations.RunPython(create_site),
     ]
