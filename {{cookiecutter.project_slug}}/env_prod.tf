@@ -13,6 +13,13 @@ resource "heroku_app" "production" {
   }
 }
 
+resource "heroku_app_webhook" "webhooks_production" {
+  app_id  = "${heroku_app.production.id}"
+  level   = "sync"
+  url     = "https://${var.crowdbotics_domain}/api/v1/webhook/"
+  include = ["api:app", "api:build"]
+}
+
 resource "heroku_addon" "database_production" {
   app  = "${heroku_app.production.id}"
   plan = "heroku-postgresql:hobby-dev"
