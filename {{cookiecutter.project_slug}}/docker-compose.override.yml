@@ -15,9 +15,9 @@ services:
     image: "node:12"
     env_file: .env
     volumes:
-      - ./:/opt/webapp
+      - ./:/home/node/app
     ports:
-      - "3000:${NODE_PORT}"
+      - "3000:${REACT_PORT}"
     command: "npm start"
   postgres:
     environment:
