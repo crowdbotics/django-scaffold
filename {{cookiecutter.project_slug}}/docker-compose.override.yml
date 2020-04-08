@@ -10,7 +10,15 @@ services:
     volumes:
       - ./:/opt/webapp
     ports:
-      - "8000:${PORT}"
+      - "8000:${DJANGO_PORT}"
+  node:
+    image: "node:12"
+    env_file: .env
+    volumes:
+      - ./:/opt/webapp
+    ports:
+      - "3000:${NODE_PORT}"
+    command: "npm start"
   postgres:
     environment:
       POSTGRES_PASSWORD: <postgres_pwd>
