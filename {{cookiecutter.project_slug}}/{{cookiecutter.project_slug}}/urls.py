@@ -14,29 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
+
 from allauth.account.views import confirm_email
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from rest_framework import permissions
 
-urlpatterns = [
-    path("", include("home.urls")),
-    path("accounts/", include("allauth.urls")),
-    path("api/v1/", include("home.api.v1.urls")),
-    path("admin/", admin.site.urls),
-    path("users/", include("users.urls", namespace="users")),
-    path("rest-auth/", include("rest_auth.urls")),
-    # Override email confirm to use allauth's HTML view instead of rest_auth's API view
-    path("rest-auth/registration/account-confirm-email/<str:key>/", confirm_email),
-    path("rest-auth/registration/", include("rest_auth.registration.urls")),
-]
 
-admin.site.site_header = "{{cookiecutter.project_name}}"
-admin.site.site_title = "{{cookiecutter.project_name}} Admin Portal"
-admin.site.index_title = "{{cookiecutter.project_name}} Admin"
-
-# swagger
+# Swagger
 schema_view = get_schema_view(
     openapi.Info(
         title="{{cookiecutter.project_name}} API",
@@ -47,6 +34,22 @@ schema_view = get_schema_view(
     permission_classes=(permissions.IsAuthenticated,),
 )
 
-urlpatterns += [
-    path("api-docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs")
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("accounts/", include("allauth.urls")),
+    path("", include("home.urls")),
+    path("users/", include("users.urls", namespace="users")),
+    path("api/v1/", include("home.api.v1.urls")),
+    path("api/auth/", include("rest_auth.urls")),
+    path("api/auth/registration/", include("rest_auth.registration.urls")),
+    # Override email confirm to use allauth's HTML view instead of rest_auth's API view
+    path("api/auth/registration/account-confirm-email/<str:key>/", confirm_email),
+    path("api/docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs"),
+    # React views
+    path("", TemplateView.as_view(template_name="index.html")),
+    re_path(r"^(?:.*)/?$", TemplateView.as_view(template_name="index.html")),
 ]
+
+admin.site.site_header = "{{cookiecutter.project_name}}"
+admin.site.site_title = "{{cookiecutter.project_name}} Admin Portal"
+admin.site.index_title = "{{cookiecutter.project_name}} Admin"

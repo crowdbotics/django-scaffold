@@ -1,0 +1,13 @@
+{
+  "short_name": "{{cookiecutter.project_slug}}",
+  "name": "{{cookiecutter.project_name}}",
+  "icons": [{
+    "src": "./assets/img/favicon.png",
+    "sizes": "100x100",
+    "type": "image/png"
+  }],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

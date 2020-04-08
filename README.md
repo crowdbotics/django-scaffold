@@ -10,3 +10,4 @@ It includes:
 * Bootstrap 4
 * Sendgrid for email via env vars
 * Whitenoise for static files
+* React

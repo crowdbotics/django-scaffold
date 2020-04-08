@@ -1,6 +1,6 @@
 # {{cookiecutter.project_slug}}
 
-This is a repository for a web application developed with Django, built with [Crowdbotics](https://crowdbotics.com)
+This is a repository for a web application developed with Django and React, built with [Crowdbotics](https://crowdbotics.com)
 
 ### Features
 
@@ -10,6 +10,7 @@ This is a repository for a web application developed with Django, built with [Cr
 4. Bootstrap4
 5. Toast Notification
 6. Inline content editor in homepage
+7. React
 
 # Development
 
@@ -61,6 +62,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 
 1. [Postgresql](https://www.postgresql.org/download/)
 2. [Python](https://www.python.org/downloads/release/python-365/)
+3. [NodeJS](https://nodejs.org/en/)
 
 ### Installation
 
@@ -69,8 +71,9 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 3. Run `pip install --user --upgrade pipenv` to get the latest pipenv version.
 4. Run `pipenv --python 3.6`
 5. Run `pipenv install`
-6. Run `cp .env.example .env`
-7. Update .env file `DATABASE_URL` with your `database_name`, `database_user`, `database_password`, if you use postgresql.
+6. Run `npm install`
+7. Run `cp .env.example .env`
+8. Update .env file `DATABASE_URL` with your `database_name`, `database_user`, `database_password`, if you use postgresql.
    Can alternatively set it to `sqlite:////tmp/my-tmp-sqlite.db`, if you want to use sqlite for local development.
 
 ### Getting Started
@@ -79,3 +82,4 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 2. Run `python manage.py makemigrations`
 3. Run `python manage.py migrate`
 4. Run `python manage.py runserver`
+5. Run `npm run start`
