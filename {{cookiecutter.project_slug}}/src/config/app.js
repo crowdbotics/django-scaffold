@@ -1,4 +1,4 @@
 export const appConfig = {
-    apiUrl: 'https://{{cookiecutter.custom_domain}}/api',
-    defaultTimeout: 5000,
-}
+  apiUrl: process.env.REACT_APP_API_URL,
+  defaultTimeout: 5000,
+};

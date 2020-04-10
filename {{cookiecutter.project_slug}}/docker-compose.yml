@@ -5,6 +5,9 @@ services:
     depends_on:
       - postgres
       - redis
+  node:
+    depends_on:
+      - web
   postgres:
     image: postgres:12
   redis:

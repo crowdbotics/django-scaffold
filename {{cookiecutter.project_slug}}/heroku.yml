@@ -4,6 +4,7 @@ build:
   config:
     DEBUG_COLLECTSTATIC: 1
     SECRET_KEY: build
+    REACT_APP_API_URL: https://{{cookiecutter.custom_domain}}/api
 release:
   image: web
   command:

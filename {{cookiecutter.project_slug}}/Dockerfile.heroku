@@ -4,6 +4,7 @@ ENV LANG C.UTF-8
 ARG DEBIAN_FRONTEND=noninteractive
 # Allow SECRET_KEY to be passed via arg so collectstatic can run during build time
 ARG SECRET_KEY
+ARG REACT_APP_API_URL
 
 # libpq-dev and python3-dev help with psycopg2
 RUN apt-get update \

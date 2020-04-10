@@ -8,22 +8,27 @@ services:
         SECRET_KEY: ${SECRET_KEY}
     env_file: .env
     volumes:
-      - ./:/opt/webapp
+      - ./:/opt/webapp:cached
     ports:
-      - "8000:${DJANGO_PORT}"
+      - 8000:${PORT}
   node:
-    image: "node:12"
-    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    stdin_open: true
+    tty: true
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
     volumes:
-      - ./:/home/node/app
+      - ./src:/app/src:cached
+      - ./public:/app/public:cached
     ports:
-      - "3000:${REACT_PORT}"
-    command: "npm start"
+      - 3000:3000
   postgres:
     environment:
       POSTGRES_PASSWORD: <postgres_pwd>
     volumes:
-      - ./postgres-data/postgres:/var/lib/postgresql/data
+      - ./postgres-data/postgres:/var/lib/postgresql/data:cached
     ports:
       - "5432:5432"
   redis:
