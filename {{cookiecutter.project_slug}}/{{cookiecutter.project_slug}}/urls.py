@@ -37,12 +37,19 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
-    path("api/v1/", include(("home.api.v1.urls", "home"), namespace="home-v1")),
+    path("api/docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs"),
     path("api/auth/", include("rest_auth.urls")),
     # Override email confirm to use allauth's HTML view instead of rest_auth's API view
     path("api/auth/registration/account-confirm-email/<str:key>/", confirm_email),
     path("api/auth/registration/", include("rest_auth.registration.urls")),
-    path("api/docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs"),
+    path(
+        "api/v1/",
+        include(
+            [
+                path("", include(("home.api.v1.urls", "home"), namespace="home-v1")),
+            ]
+        ),
+    ),
     # React views
     path("", TemplateView.as_view(template_name="index.html")),
     re_path(r"^(?:.*)/?$", TemplateView.as_view(template_name="index.html")),
