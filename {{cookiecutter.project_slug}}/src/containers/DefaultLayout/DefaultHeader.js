@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -15,6 +16,7 @@ const defaultProps = {};
 class DefaultHeader extends Component {
   render() {
     // eslint-disable-next-line
+    const { loggedIn } = this.props
     const { children, ...attributes } = this.props;
 
     return (
@@ -29,15 +31,21 @@ class DefaultHeader extends Component {
 
         <Nav className="ml-auto" navbar>
 
-          <UncontrolledDropdown nav direction="down">
-            <DropdownToggle nav>
-            <i className="icon-user" style={{width: 100, height: '100%'}}></i>
-            </DropdownToggle>
-            <DropdownMenu right>
-              <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
-              <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i> Logout</DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
+          {/* Hide if user is authenticated */}
+          {loggedIn
+          ? 
+            <UncontrolledDropdown nav direction="down">
+              <DropdownToggle nav>
+              <i className="icon-user" style={{width: 100, height: '100%'}}></i>
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
+                <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i> Logout</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          : null
+          }
+          
         </Nav>
 
         {/*<AppAsideToggler className="d-lg-none" mobile />*/}
@@ -50,4 +58,8 @@ class DefaultHeader extends Component {
 DefaultHeader.propTypes = propTypes;
 DefaultHeader.defaultProps = defaultProps;
 
-export default DefaultHeader;
+const mapStateToProps = state => ({
+  loggedIn: state.EmailAuth.loggedIn
+})
+
+export default connect(mapStateToProps, null)(DefaultHeader);

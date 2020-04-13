@@ -102,6 +102,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "{{cookiecutter.project_slug}}.wsgi.application"
 
+# Handles CSRF issue from frontend
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

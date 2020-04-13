@@ -1,9 +1,11 @@
 import * as actions from "./constants";
 
+const accessToken = localStorage.getItem('accessToken')
+
 const initialState = {
   user: null,
-  accessToken: null,
-  loggedIn: false,
+  accessToken: accessToken ? accessToken: null,
+  loggedIn: !!accessToken,
   errors: { SignIn: null, SignUp: null, PasswordRecover: null }
 };
 
