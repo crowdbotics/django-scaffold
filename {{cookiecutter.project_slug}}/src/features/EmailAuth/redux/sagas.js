@@ -43,11 +43,11 @@ function sendPasswordRecovery(email) {
 
 function* handleLogout(action) {
   try {
-    const { status, data } = yield call(sendLogout, {})
-    localStorage.removeItem('accessToken')
-    push('/')
+    const { status, data } = yield call(sendLogout, {});
+    localStorage.removeItem('accessToken');
+    push('/');
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
@@ -60,9 +60,9 @@ function* handleLogin(action) {
     if (status === 200) {
       yield put({
         type: EMAIL_AUTH_LOGIN_SUCCESS,
-        accessToken: data.token,
+        accessToken: data.key,
       });
-
+      localStorage.setItem('accessToken', data.key);
       // you can change the navigate for navigateAndResetStack to go to a protected route
       push('/');
     } else {
