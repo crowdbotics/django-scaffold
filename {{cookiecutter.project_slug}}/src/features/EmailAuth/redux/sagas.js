@@ -23,6 +23,10 @@ function sendLogin({ email, password }) {
   });
 }
 
+function sendLogout({}) {
+  return request.post('/auth/logout/');
+}
+
 function sendSignUp({ email, password }) {
   return request.post('/auth/registration/', {
     email,
@@ -37,13 +41,22 @@ function sendPasswordRecovery(email) {
   });
 }
 
+function* handleLogout(action) {
+  try {
+    const { status, data } = yield call(sendLogout, {})
+    localStorage.removeItem('accessToken')
+    push('/')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 function* handleLogin(action) {
   const {
     user: { email, password },
   } = action;
   try {
     const { status, data } = yield call(sendLogin, { email, password });
-    debugger
     if (status === 200) {
       yield put({
         type: EMAIL_AUTH_LOGIN_SUCCESS,
@@ -126,6 +139,7 @@ function* handlePasswordRecovery(action) {
 
 export default all([
   takeLatest(EMAIL_AUTH_LOGIN_REQUEST, handleLogin),
+  takeLatest(EMAIL_AUTH_LOGOUT_REQUEST, handleLogout),
   takeLatest(EMAIL_AUTH_SIGNUP_REQUEST, handleSignUp),
   takeLatest(EMAIL_AUTH_PASSWORD_RECOVER_REQUEST, handlePasswordRecovery),
 ]);

@@ -38,10 +38,9 @@ class DefaultLayout extends Component {
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
-  signOut(e) {
-    // Remove token and redirect to home
-    localStorage.removeItem('accessToken');
-    window.location.href="/"
+  signOut = async (e) => {
+    const {logout} = this.props
+    await logout()
   }
 
   render() {
@@ -104,7 +103,9 @@ const mapStateToProps = state => ({
   loggedIn: state.EmailAuth.loggedIn,
 });
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = {
+  logout: emailAuthActions.logout
+};
 
 export default connect(
   mapStateToProps,

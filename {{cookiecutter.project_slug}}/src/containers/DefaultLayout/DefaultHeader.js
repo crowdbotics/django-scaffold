@@ -59,7 +59,7 @@ DefaultHeader.propTypes = propTypes;
 DefaultHeader.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
-  loggedIn: state.EmailAuth.loggedIn
+  loggedIn: state.EmailAuth.loggedIn,
 })
 
 export default connect(mapStateToProps, null)(DefaultHeader);

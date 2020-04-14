@@ -11,7 +11,7 @@ export const login = user => ({
 });
 
 export const logout = _ => ({
-  type: actions.EMAIL_AUTH_LOGOUT,
+  type: actions.EMAIL_AUTH_LOGOUT_REQUEST,
 });
 
 export const resetPassword = email => ({
