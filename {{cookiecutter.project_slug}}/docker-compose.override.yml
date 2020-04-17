@@ -10,7 +10,7 @@ services:
     volumes:
       - ./:/opt/webapp:cached
     ports:
-      - 8000:${PORT}
+      - 8000:${DJANGO_PORT}
   node:
     build:
       context: .
