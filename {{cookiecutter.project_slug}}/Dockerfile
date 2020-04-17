@@ -21,4 +21,4 @@ RUN python3 manage.py collectstatic --no-input
 RUN adduser --disabled-password --gecos "" django
 USER django
 
-CMD waitress-serve --port=$DJANGO_PORT {{cookiecutter.project_slug}}.wsgi:application
+CMD waitress-serve --port=$PORT {{cookiecutter.project_slug}}.wsgi:application
