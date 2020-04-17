@@ -2,7 +2,7 @@ import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
 import { Container } from 'reactstrap';
-
+import { connect } from 'react-redux';
 import {
   AppAside,
   AppFooter,
@@ -15,11 +15,12 @@ import {
   AppBreadcrumb2 as AppBreadcrumb,
   AppSidebarNav2 as AppSidebarNav,
 } from '@coreui/react';
+
 // sidebar nav config
 import navigation from '../../_nav';
 // routes config
 import routes from '../../routes';
-import { connect } from 'react-redux';
+import * as emailAuthActions from '../../features/EmailAuth/redux/actions';
 
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));

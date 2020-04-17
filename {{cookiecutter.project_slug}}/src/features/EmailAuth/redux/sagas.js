@@ -1,13 +1,14 @@
-import {all, takeLatest, put, call} from 'redux-saga/effects';
+import { all, takeLatest, put, call } from 'redux-saga/effects';
 // import * as NavigationService from '../../../navigator/NavigationService';
 import { push } from 'react-router-redux';
 
 import {
   EMAIL_AUTH_LOGIN_REQUEST,
   EMAIL_AUTH_LOGIN_ERROR,
-  EMAIL_AUTH_SIGNUP_REQUEST,
-  EMAIL_AUTH_PASSWORD_RECOVER_REQUEST,
   EMAIL_AUTH_LOGIN_SUCCESS,
+  EMAIL_AUTH_LOGOUT_REQUEST,
+  EMAIL_AUTH_PASSWORD_RECOVER_REQUEST,
+  EMAIL_AUTH_SIGNUP_REQUEST,
   EMAIL_AUTH_SIGNUP_ERROR,
   EMAIL_AUTH_SIGNUP_SUCCESS,
   EMAIL_AUTH_PASSWORD_RECOVER_SUCCESS,
