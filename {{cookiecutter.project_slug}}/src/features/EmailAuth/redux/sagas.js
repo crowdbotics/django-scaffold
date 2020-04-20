@@ -24,7 +24,7 @@ function sendLogin({ email, password }) {
   });
 }
 
-function sendLogout({}) {
+function sendLogout() {
   return request.post('/auth/logout/');
 }
 
@@ -44,7 +44,7 @@ function sendPasswordRecovery(email) {
 
 function* handleLogout(action) {
   try {
-    const { status, data } = yield call(sendLogout, {});
+    yield call(sendLogout, null);
     localStorage.removeItem('accessToken');
     push('/');
   } catch (error) {

@@ -16,8 +16,8 @@ const defaultProps = {};
 class DefaultHeader extends Component {
   render() {
     // eslint-disable-next-line
-    const { loggedIn } = this.props;
-    const { children, ...attributes } = this.props;
+    const { loggedin } = this.props;
+    const { children } = this.props;
 
     return (
       {% raw %}
@@ -32,7 +32,7 @@ class DefaultHeader extends Component {
         <Nav className="ml-auto" navbar>
 
           {/* Hide if user is authenticated */}
-          {loggedIn
+          {loggedin
           ? 
             <UncontrolledDropdown nav direction="down">
               <DropdownToggle nav>
@@ -59,7 +59,7 @@ DefaultHeader.propTypes = propTypes;
 DefaultHeader.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
-  loggedIn: state.EmailAuth.loggedIn,
+  loggedin: state.EmailAuth.loggedIn,
 })
 
 export default connect(mapStateToProps, null)(DefaultHeader);
