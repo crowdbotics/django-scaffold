@@ -105,7 +105,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  logout: emailAuthActions.logout
+  logout: emailAuthActions.logout,
 };
 
 export default connect(
