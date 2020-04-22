@@ -14,7 +14,7 @@ const Register = React.lazy(() => import('./features/EmailAuth/Register'));
 
 
 class App extends Component {
-  async componentWillMount() {
+  async componentDidMount() {
     setupHttpConfig();
   }
 
