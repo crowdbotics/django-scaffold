@@ -7,6 +7,7 @@ import {
   EMAIL_AUTH_LOGIN_ERROR,
   EMAIL_AUTH_LOGIN_SUCCESS,
   EMAIL_AUTH_LOGOUT_REQUEST,
+  EMAIL_AUTH_LOGOUT,
   EMAIL_AUTH_PASSWORD_RECOVER_REQUEST,
   EMAIL_AUTH_SIGNUP_REQUEST,
   EMAIL_AUTH_SIGNUP_ERROR,
@@ -46,7 +47,9 @@ function* handleLogout(action) {
   try {
     yield call(sendLogout, null);
     localStorage.removeItem('accessToken');
-    push('/');
+    yield put({
+      type: EMAIL_AUTH_LOGOUT
+    })
   } catch (error) {
     console.log(error);
   }
@@ -92,8 +95,8 @@ function* handleSignUp(action) {
       yield put({
         type: EMAIL_AUTH_SIGNUP_SUCCESS,
         user: data,
+        message: 'Kindly check your email to verify the registration.'
       });
-
       push('/login');
     } else {
       yield put({

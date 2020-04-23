@@ -1,4 +1,4 @@
-export default {
+export const loggedRoutes = {
   items: [
     {
       title: true,
@@ -8,8 +8,16 @@ export default {
       name: "Hello World",
       url: "/welcome",
       icon: "icon-star"
+    }
+  ]
+};
+
+export const publicRoutes = {
+  items: [
+    {
+      title: true,
+      name: "Modules"
     },
-    //@InsertNav
     {
       name: 'Email Auth',
       url: '/email-auth',

@@ -63,11 +63,16 @@ class Register extends Component {
 
   render() {
     let { message, messageType } = this.state;
-    const { signUpErrors, loggedIn } = this.props;
+    const { signUpErrors, loggedIn, signUpMessage } = this.props;
 
     if (!message && signUpErrors) {
       message = signUpErrors;
       messageType = "error";
+    }
+
+    if (!message && signUpMessage) {
+      message = signUpMessage;
+      messageType = "success"
     }
 
     if (loggedIn) {
@@ -172,7 +177,8 @@ class Register extends Component {
 }
 
 const mapStateToProps = state => ({
-  signUpErrors: state.EmailAuth.errors.SignUp
+  signUpErrors: state.EmailAuth.errors.SignUp,
+  signUpMessage: state.EmailAuth.message.SignUp
 });
 
 const mapDispatchToProps = {

@@ -17,7 +17,7 @@ import {
 } from '@coreui/react';
 
 // sidebar nav config
-import navigation from '../../_nav';
+import {loggedRoutes, publicRoutes} from '../../_nav';
 // routes config
 import routes from '../../routes';
 import * as emailAuthActions from '../../features/EmailAuth/redux/actions';
@@ -27,13 +27,34 @@ const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 class DefaultLayout extends Component {
-  async componentDidMount() {
-    try {
-      if (!this.props.loggedIn) {
-        this.props.history.push(`/login`);
-      }
-    } catch (error) {
-      console.log(error);
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      navItems: publicRoutes
+    };
+  }
+
+  authCheck() {
+    if (!this.props.loggedIn) {
+      this.setState({
+        navItems: publicRoutes
+      })
+      this.props.history.push(`/login`);
+    } else {
+      this.setState({
+        navItems: loggedRoutes
+      })
+    }
+  }
+
+  componentDidMount() {
+    this.authCheck()
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.loggedIn !== prevProps.loggedIn) {
+      this.authCheck()
     }
   }
 
@@ -42,9 +63,11 @@ class DefaultLayout extends Component {
   signOut = async (e) => {
     const { logout } = this.props;
     await logout();
+    this.props.history.push(`/login`);
   }
 
   render() {
+
     return (
       <div className="app">
         <AppHeader fixed>
@@ -57,7 +80,7 @@ class DefaultLayout extends Component {
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
-            <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+            <AppSidebarNav navConfig={this.state.navItems} {...this.props} router={router}/>
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />

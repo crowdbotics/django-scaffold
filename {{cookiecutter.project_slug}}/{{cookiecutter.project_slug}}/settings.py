@@ -161,14 +161,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MIDDLEWARE += ["whitenoise.middleware.WhiteNoiseMiddleware"]
 
 
-# Rest Framework
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.TokenAuthentication",
-    )
-}
-
 
 # Allauth
 
