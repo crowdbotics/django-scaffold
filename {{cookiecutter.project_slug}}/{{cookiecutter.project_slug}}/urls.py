@@ -20,7 +20,7 @@ from django.views.generic import TemplateView
 from allauth.account.views import confirm_email
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
-from rest_framework import permissions
+from rest_framework import authentication, permissions
 
 
 # Swagger
@@ -31,6 +31,8 @@ schema_view = get_schema_view(
         description="API documentation for {{cookiecutter.project_name}} App",
     ),
     public=True,
+    permission_classes=(permissions.IsAuthenticated,),
+    authentication_classes=(authentication.SessionAuthentication,),
 )
 
 urlpatterns = [
