@@ -161,6 +161,24 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MIDDLEWARE += ["whitenoise.middleware.WhiteNoiseMiddleware"]
 
 
+# Authentication
+
+AUTH_USER_MODEL = "users.User"
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
+# Rest Framework
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.TokenAuthentication",
+    )
+}
+
 
 # Allauth
 
@@ -181,7 +199,6 @@ SOCIALACCOUNT_ALLOW_REGISTRATION = env.bool("SOCIALACCOUNT_ALLOW_REGISTRATION", 
 
 # Rest Auth
 
-REST_SESSION_LOGIN = False
 REST_AUTH_SERIALIZERS = {
     "USER_DETAILS_SERIALIZER": "home.api.v1.serializers.UserSerializer",
     # Replace password reset serializer to fix 500 error
@@ -191,16 +208,6 @@ REST_AUTH_REGISTER_SERIALIZERS = {
     # Use custom serializer that has no username and matches web signup
     "REGISTER_SERIALIZER": "home.api.v1.serializers.SignupSerializer",
 }
-
-
-# Authentication
-
-AUTH_USER_MODEL = "users.User"
-
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
 
 
 # Email

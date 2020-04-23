@@ -31,7 +31,6 @@ schema_view = get_schema_view(
         description="API documentation for {{cookiecutter.project_name}} App",
     ),
     public=True,
-    permission_classes=(permissions.IsAuthenticated,),
 )
 
 urlpatterns = [
