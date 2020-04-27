@@ -67,6 +67,7 @@ class DefaultLayout extends Component {
   }
 
   render() {
+    const { logout, loggedIn, ...rest } = this.props
 
     return (
       <div className="app">
@@ -80,7 +81,7 @@ class DefaultLayout extends Component {
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
-            <AppSidebarNav navConfig={this.state.navItems} {...this.props} router={router}/>
+            <AppSidebarNav navConfig={this.state.navItems}  {...rest} router={router}/>
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
