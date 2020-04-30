@@ -50,6 +50,7 @@ function* handleLogout(action) {
     yield put({
       type: EMAIL_AUTH_LOGOUT
     })
+    push('/login');
   } catch (error) {
     console.log(error);
   }

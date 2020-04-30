@@ -23,7 +23,7 @@ export const EmailAuthReducer = (state = initialState, action) => {
     case actions.EMAIL_AUTH_SIGNUP_ERROR:
       return { ...state, errors: { SignUp: action.error } };
     case actions.EMAIL_AUTH_LOGOUT:
-      return initialState;
+      return { ...state, accessToken: null, loggedIn: false, errors: { SignIn: null, SignUp: null, PasswordRecover: null } };
     default:
       return state;
   }

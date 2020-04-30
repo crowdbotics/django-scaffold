@@ -24,9 +24,28 @@ class Login extends Component {
   state = {
     email: "",
     password: "",
+    message: "",
+    messageType: ""
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.loggedIn !== prevProps.loggedIn) {
+      const {loggedIn, signInErrors} = this.props
+    
+      if (signInErrors) {
+        this.setState({
+          message: signInErrors,
+          messageType: "error"
+        })
+      }
+
+      if (loggedIn) {
+        this.props.history.push(`/`);
+      }
+    }
+  }
 
   submitLogin = async () => {
     try {
@@ -54,16 +73,6 @@ class Login extends Component {
 
   render() {
     let { message, messageType } = this.state;
-    const { signInErrors, loggedIn } = this.props
-
-    if (!message && signInErrors) {
-      message = signInErrors;
-      messageType = "error";
-    }
-
-    if (loggedIn) {
-      this.props.history.push(`/`);
-    }
 
     return (
       <div className="app flex-row align-items-center">
