@@ -27,17 +27,18 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 1. Install Docker:
    - Linux - [get.docker.com](https://get.docker.com/)
    - Windows or MacOS - [Docker Desktop](https://www.docker.com/products/docker-desktop)
-1. Clone this repo and `cd {{cookiecutter.project_slug}}`
-1. Make sure `Pipfile.lock` exists. If it doesn't, generate it with:
+2. Clone this repo and `cd {{cookiecutter.project_slug}}`
+3. Make sure `Pipfile.lock` exists. If it doesn't, generate it with:
+
    ```sh
    $ docker run -it --rm -v "$PWD":/django:cached -w /django python:3.7 /bin/bash -c "pip3 install --no-cache-dir -q pipenv; pipenv lock"
    ```
-1. Use `.env.example` to create `.env`:
+4. Use `.env.example` to create `.env`:
    ```sh
    $ cp .env.example .env
    ```
-1. Update `.env` and `docker-compose.override.yml` replacing all `<placeholders>`
-1. Start up the containers:
+5. Update `.env` and `docker-compose.override.yml` replacing all `<placeholders>`
+6. Start up the containers:
 
    ```sh
    $ docker-compose up
@@ -47,16 +48,17 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 
    Current (project) directroy will be mapped with the container meaning any edits you make will be picked up by the container.
 
-1. Seed the Postgres DB (in a separate terminal):
+7. Seed the Postgres DB (in a separate terminal):
    ```sh
    $ docker-compose exec web python3 manage.py makemigrations
    $ docker-compose exec web python3 manage.py migrate
    ```
-1. Create a superuser if required:
+8. Create a superuser if required:
    ```sh
    $ docker-compose exec web python3 manage.py createsuperuser
    ```
    You will find an activation link in the server log output.
+9. Go to http://localhost:8000/admin/sites/site/1/change/ and update domain name to `localhost:3000`.
 
 ## Local Setup (Alternative to Docker)
 
@@ -83,3 +85,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 3. Run `python manage.py migrate`
 4. Run `python manage.py runserver`
 5. Run `npm run start`
+
+### Initial Project Setup
+
+1. Go to http://localhost:8000/admin/sites/site/1/change/ and update domain name to `localhost:3000`.
