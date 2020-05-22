@@ -7,7 +7,7 @@ ARG SECRET_KEY
 
 # libpq-dev and python3-dev help with psycopg2
 RUN apt-get update \
-  && apt-get install -y python3.7-dev python3-pip libpq-dev \
+  && apt-get install -y python3.7-dev python3-pip libpq-dev curl \
   && apt-get clean all \
   && rm -rf /var/lib/apt/lists/*
 
