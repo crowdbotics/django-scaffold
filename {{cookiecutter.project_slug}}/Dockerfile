@@ -1,19 +1,19 @@
-FROM ubuntu:bionic
+FROM python:3.7-slim-buster
 
-ENV LANG C.UTF-8
-ARG DEBIAN_FRONTEND=noninteractive
-# Allow SECRET_KEY to be passed via arg so collectstatic can run during build time
-ARG SECRET_KEY
-
-# libpq-dev and python3-dev help with psycopg2
 RUN apt-get update \
-  && apt-get install -y python3.7-dev python3-pip libpq-dev curl \
-  && apt-get clean all \
-  && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y --no-install-recommends \
+        postgresql-client \
+        curl \
+    && apt-get clean all \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/webapp
-COPY . .
+
+COPY Pipfil* ./
 RUN pip3 install --no-cache-dir -q 'pipenv==2018.11.26' && pipenv install --deploy --system
+
+COPY . .
+ARG SECRET_KEY
 RUN python3 manage.py collectstatic --no-input
 
 # Run the image as a non-root user
