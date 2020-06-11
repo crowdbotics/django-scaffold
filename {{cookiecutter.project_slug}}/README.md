@@ -1,4 +1,4 @@
-# unimog_1
+# {{cookiecutter.project_slug}}
 
 This is a repository for a web application developed with Django, built with [Crowdbotics](https://crowdbotics.com)
 
@@ -66,7 +66,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 ### Installation
 
 1. Install [pipenv](https://pypi.org/project/pipenv/)
-2. Clone this repo and `cd unimog_1`
+2. Clone this repo and `cd {{cookiecutter.project_slug}}`
 3. Run `pip install --user --upgrade pipenv` to get the latest pipenv version.
 4. Run `pipenv --python 3.6`
 5. Run `pipenv install`
