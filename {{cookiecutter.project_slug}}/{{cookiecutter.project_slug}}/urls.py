@@ -37,12 +37,14 @@ admin.site.site_title = "{{cookiecutter.project_name}} Admin Portal"
 admin.site.index_title = "{{cookiecutter.project_name}} Admin"
 
 # swagger
+api_info = openapi.Info(
+    title="{{cookiecutter.project_name}} API",
+    default_version="v1",
+    description="API documentation for {{cookiecutter.project_name}} App",
+)
+
 schema_view = get_schema_view(
-    openapi.Info(
-        title="{{cookiecutter.project_name}} API",
-        default_version="v1",
-        description="API documentation for {{cookiecutter.project_name}} App",
-    ),
+    api_info,
     public=True,
     permission_classes=(permissions.IsAuthenticated,),
 )
