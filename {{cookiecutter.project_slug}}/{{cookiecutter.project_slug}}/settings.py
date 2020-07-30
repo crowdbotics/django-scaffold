@@ -205,6 +205,11 @@ FCM_DJANGO_SETTINGS = {
 # end fcm_django push notifications
 {% endif %}
 
+# Swagger settings for api docs
+SWAGGER_SETTINGS = {
+    "DEFAULT_INFO": f"{ROOT_URLCONF}.api_info",
+}
+
 if DEBUG:
     # output email to console instead of sending
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
