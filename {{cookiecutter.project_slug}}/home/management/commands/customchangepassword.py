@@ -29,5 +29,6 @@ class Command(BaseCommand):
             user = User.objects.get(username=username)
             user.set_password(password)
             user.save()
+            self.stdout.write("Superuser password reset successful.")
         except User.DoesNotExist:
             raise CommandError("User not found with the given username.")
