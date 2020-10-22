@@ -1,0 +1,33 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/{{cookiecutter.project_slug}}/django', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/{{cookiecutter.project_slug}}/django']
+# Run the migrations
+- name: "gcr.io/google-appengine/exec-wrapper"
+  args: ["-i", "gcr.io/{{cookiecutter.project_slug}}/django",
+         "-e", "SECRET_KEY=migration",
+         "-e", "DJANGO_SETTINGS_MODULE=gcp4_dev_12099.settings.gcp",
+         "-s", "{{cookiecutter.project_slug}}:us-east4:django-instance",
+         "--", "python3", "manage.py", "migrate"]
+# Collect static files
+- name: "gcr.io/google-appengine/exec-wrapper"
+  args: ["-i", "gcr.io/{{cookiecutter.project_slug}}/django",
+         "-e", "SECRET_KEY=migration",
+         "-e", "DJANGO_SETTINGS_MODULE=gcp4_dev_12099.settings.gcp",
+         "-s", "{{cookiecutter.project_slug}}:us-east4:django-instance",
+         "--", "python3", "manage.py", "collectstatic", "--no-input"]
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'crowdbotics-django',
+    '--image', 'gcr.io/{{cookiecutter.project_slug}}/django',
+    '--region', 'us-east4',
+    '--platform', 'managed',
+    '--set-env-vars=DJANGO_SETTINGS_MODULE=gcp4_dev_12099.settings.gcp',
+    '--add-cloudsql-instances', '{{cookiecutter.project_slug}}:us-east4:django-instance',
+    '--allow-unauthenticated']
+images:
+- gcr.io/{{cookiecutter.project_slug}}/django

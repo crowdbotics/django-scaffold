@@ -4,3 +4,4 @@ env/
 .env
 staticfiles/
 postgres-data/
+*.sw*

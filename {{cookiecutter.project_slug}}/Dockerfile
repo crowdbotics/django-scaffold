@@ -1,5 +1,11 @@
 FROM python:3.7-slim-buster
 
+ENV LANG C.UTF-8
+ENV PYTHONUNBUFFERED TRUE
+ENV PORT 8080
+
+ARG SECRET_KEY=build
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         postgresql-client \
@@ -13,12 +19,6 @@ COPY Pipfil* ./
 RUN pip3 install --no-cache-dir -q 'pipenv==2018.11.26' && pipenv install --deploy --system
 
 COPY . .
-ARG SECRET_KEY
-RUN python3 manage.py collectstatic --no-input
-
-# Run the image as a non-root user
-RUN adduser --disabled-password --gecos "" django
-USER django
 
 # Run the web server on port $PORT
 CMD waitress-serve --port=$PORT {{cookiecutter.project_slug}}.wsgi:application
