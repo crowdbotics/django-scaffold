@@ -63,6 +63,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount.providers.google',
     'django_extensions',
     'drf_yasg',
+    'storages',
 {% if cookiecutter.is_mobile == "y" %}
     # start fcm_django push notifications
     'fcm_django',
@@ -160,9 +161,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # allauth / users
@@ -197,6 +196,23 @@ EMAIL_HOST_USER = env.str("SENDGRID_USERNAME", "")
 EMAIL_HOST_PASSWORD = env.str("SENDGRID_PASSWORD", "")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+# AWS S3 config
+AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID", "test_access_key")
+AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY", "test_secret_key")
+AWS_STORAGE_BUCKET_NAME = env.str("AWS_STORAGE_BUCKET_NAME", "test-bucket")
+AWS_S3_CUSTOM_DOMAIN = env.str("AWS_S3_CUSTOM_DOMAIN", "")
+AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
+AWS_DEFAULT_ACL = env.str("AWS_DEFAULT_ACL", None)
+AWS_MEDIA_LOCATION = env.str("AWS_MEDIA_LOCATION", "media")
+AWS_AUTO_CREATE_BUCKET = env.bool("AWS_AUTO_CREATE_BUCKET", True)
+DEFAULT_FILE_STORAGE = env.str(
+    "DEFAULT_FILE_STORAGE", "home.storage_backends.MediaStorage"
+)
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
 
 {% if cookiecutter.is_mobile == "y" %}
 # start fcm_django push notifications
