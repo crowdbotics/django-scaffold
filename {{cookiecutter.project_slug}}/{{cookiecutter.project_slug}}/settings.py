@@ -214,7 +214,7 @@ USE_S3 = (
 if USE_S3:
     AWS_S3_CUSTOM_DOMAIN = env.str("AWS_S3_CUSTOM_DOMAIN", "")
     AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
-    AWS_DEFAULT_ACL = env.str("AWS_DEFAULT_ACL", None)
+    AWS_DEFAULT_ACL = env.str("AWS_DEFAULT_ACL", "public-read")
     AWS_MEDIA_LOCATION = env.str("AWS_MEDIA_LOCATION", "media")
     AWS_AUTO_CREATE_BUCKET = env.bool("AWS_AUTO_CREATE_BUCKET", True)
     DEFAULT_FILE_STORAGE = env.str(
