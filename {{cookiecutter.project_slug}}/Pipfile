@@ -10,7 +10,7 @@ python_version = "3.7"
 
 [packages]
 django = "~=2.2.3"
-"boto3" = "~=1.16.25"
+"boto3" = "~=1.16.30"
 django-environ = "~=0.4.5"
 django-storages = "~=1.10.1"
 psycopg2 = "~=2.8.6"
