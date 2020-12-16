@@ -25,6 +25,7 @@ from drf_yasg import openapi
 urlpatterns = [
     path("", include("home.urls")),
     path("accounts/", include("allauth.urls")),
+    path("modules/", include("modules.urls")),
     path("api/v1/", include("home.api.v1.urls")),
     path("admin/", admin.site.urls),
     path("users/", include("users.urls", namespace="users")),
@@ -54,16 +55,3 @@ schema_view = get_schema_view(
 urlpatterns += [
     path("api-docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs")
 ]
-
-
-# BE CAREFUL! Do not remove or change this code snippet, this is needed to get
-# Crowdbotics' official modules working properly.
-
-try:
-    import modules
-    urls = Path(modules.__path__[0]).rglob('urls.py')
-    for url in urls:
-        module_name, _ = url.as_posix().split('/')[-2:]
-        urlpatterns += [path(f"modules/{module_name}/", include(f"{module_name}.urls"))]
-except (ImportError, IndexError):
-    pass
