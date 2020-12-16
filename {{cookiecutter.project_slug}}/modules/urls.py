@@ -14,6 +14,7 @@ try:
     urls = Path(modules_dir).rglob('urls.py')
     for url in urls:
         module_name, _ = url.as_posix().split('/')[-2:]
-        urlpatterns += [path(f"{module_name}/", include(f"{module_name}.urls"))]
+        if not module_name == "modules":
+            urlpatterns += [path(f"{module_name}/", include(f"{module_name}.urls"))]
 except (ImportError, IndexError):
     pass
