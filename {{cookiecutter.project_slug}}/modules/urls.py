@@ -16,7 +16,7 @@ try:
         module_name, _ = url.as_posix().split('/')[-2:]
         if not module_name == "modules":
             urlpatterns += [
-                path(f"{module_name}/", include(f"modules.{module_name}.urls"))
+                path(f"{module_name}/", include(f"modules.{module_name}.urls"))  # noqa
             ]
 except (ImportError, IndexError):
     pass
