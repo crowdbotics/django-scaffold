@@ -24,8 +24,6 @@ class Command(createsuperuser.Command):
         database = options.get('database')
         email = options.get('email')
 
-        if password and not username:
-            raise CommandError("--username is required if specifying --password")
         User = self.UserModel
         username_field_type = type(User._meta.get_field(User.USERNAME_FIELD))
         username = email if username_field_type == EmailField else username
