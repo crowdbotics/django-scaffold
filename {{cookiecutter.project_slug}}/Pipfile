@@ -9,8 +9,9 @@ name = "pypi"
 python_version = "3.7"
 
 [packages]
+cryptography = "<3.4"
 django = "~=2.2.3"
-"boto3" = "~=1.16.63"
+"boto3" = "~=1.17.3"
 django-environ = "~=0.4.5"
 django-storages = "~=1.11"
 psycopg2 = "~=2.8.6"
