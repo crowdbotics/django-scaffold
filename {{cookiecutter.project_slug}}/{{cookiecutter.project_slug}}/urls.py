@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic.base import TemplateView
 from allauth.account.views import confirm_email
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -54,3 +55,9 @@ schema_view = get_schema_view(
 urlpatterns += [
     path("api-docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs")
 ]
+
+{% if cookiecutter.is_mobile == "y" %}
+urlpatterns += [path("", TemplateView.as_view(template_name='index.html'))]
+urlpatterns += [re_path(r"^(?:.*)/?$",
+                TemplateView.as_view(template_name='index.html'))]
+{% endif %}
