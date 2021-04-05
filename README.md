@@ -34,3 +34,11 @@ AWS_STORAGE_REGION
 To use transactional emails, you might need to setup a SMTP manager library. We
  recommend usage of `Sendgrid`. It's easily configurable and have a great integration
   with Django apps. You can refer to their official tutorial [here](https://sendgrid.com/docs/for-developers/sending-email/django/).
+
+# Web
+
+The web frontend is a reactJS app. 
+
+When you import you web page design in figma file in CB app, the importer will generate code using React-Native-Web and add it to the web frontend. 
+
+After you deployed the app, you might access to the pages with URL convention below: https://{your-app-url}/{component-name}. please check the web/src/routes.js to see component-name
