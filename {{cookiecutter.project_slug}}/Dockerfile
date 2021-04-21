@@ -15,15 +15,10 @@ RUN apt-get update \
   # WARNING: Changes to this file may cause unexpected behaviors when building the app.
   # Change it at your own risk.
   
-RUN apt-get install -y curl \
-  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-  && apt-get install -y nodejs \
-  && curl -L https://www.npmjs.com/install.sh | sh
-  
 WORKDIR /opt/webapp
 COPY . .
 RUN pip3 install --no-cache-dir -q 'pipenv==2018.11.26' && pipenv install --deploy --system
-RUN cd web && npm install && npm audit fix && npm run build
+RUN cd web && npm install && npm run build
 RUN cp web/build web_build
 RUN python3 manage.py collectstatic --no-input
 
