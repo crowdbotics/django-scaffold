@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "340a11c76e55086d06918d883d6467cc65dbee783dbaf4e0758a45efeac62ed6"
+            "sha256": "faa1a8238b771942f7276fde36ea1a85af134fcbd70adc9aa524f0c61bd94af8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,7 +26,6 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:ae6f4753cc8bc970a8e50c4a7115a26bb49dfb84a0355351fc495bf6aec07c6f",
                 "sha256:edd2f14f64e0afd2373cd9b2c839004c751afedc593ea3baca3ab36f7206644d"
             ],
             "index": "pypi",
@@ -208,11 +207,11 @@
         },
         "fcm-django": {
             "hashes": [
-                "sha256:93127171482065a3bfd84018cc24e3804036bc429dfe24635a169402b1661a1a",
-                "sha256:ebc81a4a06b84fab0baddeca7e43a9d047b1b16eaeb13e6f7fffb1426eb6c1da"
+                "sha256:8c8c1cb44acdb3a47ec57ea0a4de1a84513959621f1c1ac8e698a77da527d044",
+                "sha256:ad599e30f2ace14f23efc3b5735afcc53764ac171f5b7623c0a2f16373e889e2"
             ],
             "index": "pypi",
-            "version": "==0.3.7"
+            "version": "==0.3.10"
         },
         "idna": {
             "hashes": [
