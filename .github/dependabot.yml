@@ -5,34 +5,4 @@ updates:
   schedule:
     interval: weekly
     day: sunday
-    time: "13:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: boto3
-    versions:
-    - 1.17.17
-    - 1.17.33
-    - 1.17.39
-    - 1.17.49
-    - 1.17.53
-  - dependency-name: fcm-django
-    versions:
-    - 0.3.8
-  - dependency-name: django-extensions
-    versions:
-    - 3.1.2
-  - dependency-name: urllib3
-    versions:
-    - 1.26.4
-  - dependency-name: cryptography
-    versions:
-    - 3.4.5
-    - 3.4.6
-  - dependency-name: djangorestframework
-    versions:
-    - 3.12.2
-  - dependency-name: django
-    versions:
-    - 3.1.5
-    - 3.1.6
-    - 3.1.7
