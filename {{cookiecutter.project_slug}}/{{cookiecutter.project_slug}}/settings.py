@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import environ
 import logging
+from modules.manifest import get_modules
 
 env = environ.Env()
 
@@ -71,7 +72,9 @@ THIRD_PARTY_APPS = [
     # end fcm_django push notifications
 {% endif %}
 ]
-INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS
+MODULES_APPS = get_modules()
+
+INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS + MODULES_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
