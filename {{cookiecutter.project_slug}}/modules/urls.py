@@ -16,7 +16,7 @@ try:
     for url in urls:
         module_name, _ = url.as_posix().split("/")[-2:]
         if not module_name == "modules":
-            module_name.replace("_", "-")
+            module_name = module_name.replace("_", "-")
             urlpatterns += [
                 path(f"{module_name}/", include(f"modules.{module_name}.urls"))  # noqa
             ]
