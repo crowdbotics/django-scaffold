@@ -3,6 +3,7 @@
 This is a repository for a web application developed with Django, built with [Crowdbotics](https://crowdbotics.com)
 
 ## Table of Contents
+
 1. [Project Structure](#project-structure)
 2. [Features](#features)
 3. [Getting Started: Backend](#getting-started-backend)
@@ -67,7 +68,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 
    This will build the necessary containers and start them, including the web server on the host and port you specified in `.env`.
 
-   Current (project) directroy will be mapped with the container meaning any edits you make will be picked up by the container.
+   Current (project) directory will be mapped with the container meaning any edits you make will be picked up by the container.
 
 1. Seed the Postgres DB (in a separate terminal):
    ```sh
