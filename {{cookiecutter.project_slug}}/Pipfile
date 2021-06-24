@@ -6,7 +6,7 @@ name = "pypi"
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
 
 [packages]
 cryptography = "<3.4"
@@ -30,3 +30,4 @@ pyyaml = "~=5.4.1"
 pillow = "~=8.2.0"
 pytest = "==6.2.4"
 factory-boy = "==3.2.0"
+cookiecutter= "1.6.0"

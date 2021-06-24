@@ -1,4 +1,4 @@
-FROM python:3.7-slim-buster as base
+FROM python:3.8-slim-buster as base
 
 RUN apt-get update \
   && apt-get install -y python3.7-dev python3-pip libpq-dev \
@@ -18,13 +18,14 @@ COPY . .
 ARG SECRET_KEY
 RUN python3 manage.py collectstatic --no-input
 
-FROM python:3.7-slim-buster
+FROM base as release
 
 WORKDIR /opt/webapp
-RUN apt-get update \
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
+RUN apt-get update --no-install-recommends -y \
+    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY --from=base /usr/local/lib/python3.7/site-packages/ /usr/local/lib/python3.7/site-packages/
+COPY --from=base /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
 COPY --from=base /usr/local/bin/ /usr/local/bin/
 COPY --from=base /opt/webapp/static/ /opt/webapp/static/ 
 
