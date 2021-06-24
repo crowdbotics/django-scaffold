@@ -1,11 +1,13 @@
 FROM python:3.7-slim-buster
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        postgresql-client \
-        curl \
-    && apt-get clean all \
-    && rm -rf /var/lib/apt/lists/*
+  && apt-get install -y python3.7-dev python3-pip libpq-dev curl \
+  && apt-get clean all \
+  && rm -rf /var/lib/apt/lists/*
+  # You can add additional steps to the build by appending commands down here using the
+  # format `&& <command>`. Remember to add a `\` at the end of LOC 12.
+  # WARNING: Changes to this file may cause unexpected behaviors when building the app.
+  # Change it at your own risk.
 
 WORKDIR /opt/webapp
 

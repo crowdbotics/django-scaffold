@@ -10,3 +10,27 @@ It includes:
 * Bootstrap 4
 * Sendgrid for email via env vars
 * Whitenoise for static files
+
+
+# Recommendations
+
+## Storing media files
+
+If you need to use media files, any file should be stored in AWS S3 (Refer to `django
+-storages` lib documentation to detailed info). Heroku file system is ephemeral
+, which means that any media file will be deleted after some time. 
+  
+  For most basic usage of AWS S3, you need to set these environment variables:
+  
+```python
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME
+AWS_STORAGE_REGION
+```
+
+## Outgoing email
+
+To use transactional emails, you might need to setup a SMTP manager library. We
+ recommend usage of `Sendgrid`. It's easily configurable and have a great integration
+  with Django apps. You can refer to their official tutorial [here](https://sendgrid.com/docs/for-developers/sending-email/django/).

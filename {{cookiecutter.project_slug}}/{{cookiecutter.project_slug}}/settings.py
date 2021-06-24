@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import environ
+import logging
+from modules.manifest import get_modules
 
 env = environ.Env()
 
@@ -62,13 +64,16 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount.providers.google',
     'django_extensions',
     'drf_yasg',
+    'storages',
 {% if cookiecutter.is_mobile == "y" %}
     # start fcm_django push notifications
     'fcm_django',
     # end fcm_django push notifications
 {% endif %}
 ]
-INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS
+MODULES_APPS = get_modules()
+
+INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS + MODULES_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +90,7 @@ ROOT_URLCONF = '{{cookiecutter.project_slug}}.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [{% if cookiecutter.is_mobile == "y" %}os.path.join(BASE_DIR, 'web_build'){% endif %}],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -159,16 +164,14 @@ AUTHENTICATION_BACKENDS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'){% if cookiecutter.is_mobile == "y" %}, os.path.join(BASE_DIR, 'web_build/static'){% endif %}]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # allauth / users
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "optional"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_UNIQUE_EMAIL = True
@@ -197,6 +200,33 @@ EMAIL_HOST_PASSWORD = env.str("SENDGRID_PASSWORD", "")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+
+# AWS S3 config
+AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID", "")
+AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY", "")
+AWS_STORAGE_BUCKET_NAME = env.str("AWS_STORAGE_BUCKET_NAME", "")
+AWS_STORAGE_REGION = env.str("AWS_STORAGE_REGION", "")
+
+USE_S3 = (
+    AWS_ACCESS_KEY_ID and
+    AWS_SECRET_ACCESS_KEY and
+    AWS_STORAGE_BUCKET_NAME and
+    AWS_STORAGE_REGION
+)
+
+if USE_S3:
+    AWS_S3_CUSTOM_DOMAIN = env.str("AWS_S3_CUSTOM_DOMAIN", "")
+    AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
+    AWS_DEFAULT_ACL = env.str("AWS_DEFAULT_ACL", "public-read")
+    AWS_MEDIA_LOCATION = env.str("AWS_MEDIA_LOCATION", "media")
+    AWS_AUTO_CREATE_BUCKET = env.bool("AWS_AUTO_CREATE_BUCKET", True)
+    DEFAULT_FILE_STORAGE = env.str(
+        "DEFAULT_FILE_STORAGE", "home.storage_backends.MediaStorage"
+    )
+    MEDIA_URL = '/mediafiles/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+
 {% if cookiecutter.is_mobile == "y" %}
 # start fcm_django push notifications
 FCM_DJANGO_SETTINGS = {
@@ -205,6 +235,13 @@ FCM_DJANGO_SETTINGS = {
 # end fcm_django push notifications
 {% endif %}
 
-if DEBUG:
+# Swagger settings for api docs
+SWAGGER_SETTINGS = {
+    "DEFAULT_INFO": f"{ROOT_URLCONF}.api_info",
+}
+
+if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
     # output email to console instead of sending
+    if not DEBUG:
+        logging.warning("You should setup `SENDGRID_USERNAME` and `SENDGRID_PASSWORD` env vars to send emails.")
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

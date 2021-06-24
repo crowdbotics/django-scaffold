@@ -13,8 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic.base import TemplateView
 from allauth.account.views import confirm_email
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -23,6 +25,7 @@ from drf_yasg import openapi
 urlpatterns = [
     path("", include("home.urls")),
     path("accounts/", include("allauth.urls")),
+    path("modules/", include("modules.urls")),
     path("api/v1/", include("home.api.v1.urls")),
     path("admin/", admin.site.urls),
     path("users/", include("users.urls", namespace="users")),
@@ -37,12 +40,14 @@ admin.site.site_title = "{{cookiecutter.project_name}} Admin Portal"
 admin.site.index_title = "{{cookiecutter.project_name}} Admin"
 
 # swagger
+api_info = openapi.Info(
+    title="{{cookiecutter.project_name}} API",
+    default_version="v1",
+    description="API documentation for {{cookiecutter.project_name}} App",
+)
+
 schema_view = get_schema_view(
-    openapi.Info(
-        title="{{cookiecutter.project_name}} API",
-        default_version="v1",
-        description="API documentation for {{cookiecutter.project_name}} App",
-    ),
+    api_info,
     public=True,
     permission_classes=(permissions.IsAuthenticated,),
 )
@@ -50,3 +55,9 @@ schema_view = get_schema_view(
 urlpatterns += [
     path("api-docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs")
 ]
+
+{% if cookiecutter.is_mobile == "y" %}
+urlpatterns += [path("", TemplateView.as_view(template_name='index.html'))]
+urlpatterns += [re_path(r"^(?:.*)/?$",
+                TemplateView.as_view(template_name='index.html'))]
+{% endif %}

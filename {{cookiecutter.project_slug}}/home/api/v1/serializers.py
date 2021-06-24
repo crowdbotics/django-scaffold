@@ -9,7 +9,6 @@ from allauth.account.utils import setup_user_email
 from rest_framework import serializers
 from rest_auth.serializers import PasswordResetSerializer
 
-from home.models import CustomText, HomePage
 
 User = get_user_model()
 
@@ -64,18 +63,6 @@ class SignupSerializer(serializers.ModelSerializer):
     def save(self, request=None):
         """rest_auth passes request so we must override to accept it"""
         return super().save()
-
-
-class CustomTextSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CustomText
-        fields = '__all__'
-
-
-class HomePageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = HomePage
-        fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):
