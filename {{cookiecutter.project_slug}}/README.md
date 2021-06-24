@@ -31,7 +31,7 @@ This is a repository for a web application developed with Django, built with [Cr
 1. **Local Authentication** using email and password with [allauth](https://pypi.org/project/django-allauth/)
 2. **Rest API** using [django rest framework](http://www.django-rest-framework.org/)
 3. **Forgot Password**
-4. Bootstrap4
+4. [Bootstrap4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 5. Toast Notification
 6. Inline content editor in homepage
 
