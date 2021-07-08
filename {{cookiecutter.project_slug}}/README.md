@@ -2,16 +2,40 @@
 
 This is a repository for a web application developed with Django, built with [Crowdbotics](https://crowdbotics.com)
 
-### Features
+## Table of Contents
+
+1. [Project Structure](#project-structure)
+2. [Features](#features)
+3. [Getting Started: Backend](#getting-started-backend)
+   - [Docker Setup (recommended)](#docker-setup-recommended)
+   - [Local Setup](#local-setup-alternative-to-docker)
+4. [Usage](#usage)
+   - [Admin Panel](#admin-panel)
+   - [API Documentation](#api-documentation)
+
+## Project Structure
+
+    ..
+    ├── home                           # Starter home app
+    ├── modules                        # Crowdbotics Modules app
+    ├── {{cookiecutter.project_slug}}  # Django project configurations
+    ├── static                         # Static assets
+    ├── users                          # Starter users app
+    ├── web_build                      # React Native Web build
+    ├── ...
+    ├── README.md
+    └── ...
+
+## Features
 
 1. **Local Authentication** using email and password with [allauth](https://pypi.org/project/django-allauth/)
 2. **Rest API** using [django rest framework](http://www.django-rest-framework.org/)
 3. **Forgot Password**
-4. Bootstrap4
+4. [Bootstrap4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 5. Toast Notification
 6. Inline content editor in homepage
 
-# Development
+# Getting Started: Backend
 
 Following are instructions on setting up your development environment.
 
@@ -44,7 +68,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 
    This will build the necessary containers and start them, including the web server on the host and port you specified in `.env`.
 
-   Current (project) directroy will be mapped with the container meaning any edits you make will be picked up by the container.
+   Current (project) directory will be mapped with the container meaning any edits you make will be picked up by the container.
 
 1. Seed the Postgres DB (in a separate terminal):
    ```sh
@@ -79,3 +103,13 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 2. Run `python manage.py makemigrations`
 3. Run `python manage.py migrate`
 4. Run `python manage.py runserver`
+
+# Usage
+
+## Admin Panel
+
+Admin Panel can be accessed through http://localhost:8000/admin/. If you are the Project Owner, admin credentials can be generated from App > Settings on [Crowdbotics App Dashboard](https://app.crowdbotics.com/). If not, please request your PM or Project Owner to generate admin credentials and share with you.
+
+## API Documentation
+
+API Documentation is generated automatically and can be access through http://localhost:8000/api-docs/. Please make sure you are signed in to the admin panel before navigating to this page.
