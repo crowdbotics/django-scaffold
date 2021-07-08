@@ -27,7 +27,7 @@ COPY --from=base /usr/local/bin/ /usr/local/bin/
 ARG SECRET_KEY
 RUN python3 manage.py collectstatic --no-input
 
-CMD waitress-serve --port=$PORT {{cookiecutter.project_slug}}.wsgi:application
 # Run the image as a non-root user
 RUN adduser --disabled-password --gecos "" django
 USER django
+CMD waitress-serve --port=$PORT {{cookiecutter.project_slug}}.wsgi:application
