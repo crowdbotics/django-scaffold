@@ -5,4 +5,5 @@ updates:
     schedule:
       interval: weekly
       day: sunday
+      time: "13:00"
     open-pull-requests-limit: 10
