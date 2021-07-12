@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ed6f187cbd5dac58f3605ed866706c13f7d801eb349852a84c49e85d95abcde6"
+            "sha256": "1584009324fa1faf41bcd0db9c78d72bdf4b8b71bb9f7fb8dcaf93d210f90070"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.8"
         },
         "sources": [
             {
@@ -236,14 +236,6 @@
             "markers": "python_version >= '3.6'",
             "version": "==8.10.1"
         },
-        "fcm-django": {
-            "hashes": [
-                "sha256:8c8c1cb44acdb3a47ec57ea0a4de1a84513959621f1c1ac8e698a77da527d044",
-                "sha256:ad599e30f2ace14f23efc3b5735afcc53764ac171f5b7623c0a2f16373e889e2"
-            ],
-            "index": "pypi",
-            "version": "==0.3.10"
-        },
         "idna": {
             "hashes": [
                 "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6",
@@ -432,13 +424,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.20"
-        },
-        "pyfcm": {
-            "hashes": [
-                "sha256:cc20db92a6a37950c167d2d98b1ff319fd8fe1e1fd4f5bb5ca0d1e439daff628",
-                "sha256:fc54ec0f830314a251580c1445e9e4e3eaa10d46a5685a9fe861c5a6328c77df"
-            ],
-            "version": "==1.4.9"
         },
         "pyjwt": {
             "extras": [
@@ -634,7 +619,7 @@
                 "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4",
                 "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
             "version": "==1.26.6"
         },
         "waitress": {
