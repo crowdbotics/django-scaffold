@@ -1,4 +1,4 @@
-FROM python:3.8-slim as base
+FROM python:3.8-slim-buster as base
 
 # libpq-dev and python3-dev help with psycopg2
 RUN apt-get update \
@@ -26,7 +26,7 @@ COPY --from=base /opt/webapp/manage.py /opt/webapp/manage.py
 
 WORKDIR /opt/webapp
 ENV PATH=/root/.local/bin:$PATH
-ARG SECRET_KEY
+ARG SECRET_KEY="sshjbjhbhbjsds"
 RUN python3 manage.py collectstatic --no-input
 
 # Run the image as a non-root user
