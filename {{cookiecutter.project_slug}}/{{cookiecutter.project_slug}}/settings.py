@@ -65,11 +65,6 @@ THIRD_PARTY_APPS = [
     'django_extensions',
     'drf_yasg',
     'storages',
-{% if cookiecutter.is_mobile == "y" %}
-    # start fcm_django push notifications
-    'fcm_django',
-    # end fcm_django push notifications
-{% endif %}
 ]
 MODULES_APPS = get_modules()
 
@@ -225,15 +220,6 @@ if USE_S3:
     )
     MEDIA_URL = '/mediafiles/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
-
-{% if cookiecutter.is_mobile == "y" %}
-# start fcm_django push notifications
-FCM_DJANGO_SETTINGS = {
-    "FCM_SERVER_KEY": env.str("FCM_SERVER_KEY", "")
-}
-# end fcm_django push notifications
-{% endif %}
 
 # Swagger settings for api docs
 SWAGGER_SETTINGS = {
