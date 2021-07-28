@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster as base
+FROM python:3.8-slim as base
 
 # libpq-dev and python3-dev help with psycopg2
 RUN apt-get update \
