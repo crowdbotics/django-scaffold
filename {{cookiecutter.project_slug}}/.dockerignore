@@ -1,1 +1,13 @@
 postgres-data/
+.env
+*.pyc
+*.mo
+*.db
+*.css.map
+.cache
+.sass-cache
+.idea
+.vagrant
+.git
+.DS_Store
+__pycache__

@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 services:
   web:
@@ -15,9 +15,13 @@ services:
     environment:
       POSTGRES_PASSWORD: <postgres_pwd>
     volumes:
-      - ./postgres-data/postgres:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
   redis:
     ports:
       - "6379:6379"
+
+volumes: 
+  postgres-data:
+
