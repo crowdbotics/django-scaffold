@@ -1,7 +1,7 @@
 import django.contrib.auth.models
 import django.contrib.auth.validators
-from django.db import migrations, models
 import django.utils.timezone
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -68,12 +68,6 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 (
-                    "email",
-                    models.EmailField(
-                        blank=True, max_length=254, verbose_name="email address"
-                    ),
-                ),
-                (
                     "is_staff",
                     models.BooleanField(
                         default=False,
@@ -93,6 +87,12 @@ class Migration(migrations.Migration):
                     "date_joined",
                     models.DateTimeField(
                         default=django.utils.timezone.now, verbose_name="date joined"
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        max_length=254, unique=True, verbose_name="email address"
                     ),
                 ),
                 (
@@ -132,6 +132,8 @@ class Migration(migrations.Migration):
                 "verbose_name_plural": "users",
                 "abstract": False,
             },
-            managers=[("objects", django.contrib.auth.models.UserManager()),],
+            managers=[
+                ("objects", django.contrib.auth.models.UserManager()),
+            ],
         ),
     ]
