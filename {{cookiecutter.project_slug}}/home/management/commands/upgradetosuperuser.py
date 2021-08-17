@@ -6,7 +6,6 @@ class Command(BaseCommand):
     help = "Upgrade user to a superuser previlage"
 
     def add_arguments(self, parser: CommandParser) -> None:
-        super().add_arguments(parser)
         parser.add_argument(
             "--email",
             dest="email",
