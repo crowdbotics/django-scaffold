@@ -18,7 +18,6 @@ class User(AbstractUser):
     everything that relates with an `User` is represented by this model.
     """
 
-    email = models.EmailField(_("email address"), unique=True)
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_("Name of User"), blank=True, null=True, max_length=255)
