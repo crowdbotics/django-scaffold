@@ -1,30 +1,66 @@
 # {{cookiecutter.project_slug}}
 
-This is a repository for a web application developed with Django, built with [Crowdbotics](https://crowdbotics.com)
+Welcome to your new Crowdbotics app. This is a repository for a web application developed with Django, built with [Crowdbotics](https://crowdbotics.com)
 
+## What is Crowdbotics?
+
+Crowdbotics is an easy way to build software applications of all kinds.  You can build production, high-caliber software applications in minutes, rather than weeks or months, even if you're not a software developer.
+
+The reason this works is that most software applications and features we want to build are similar to applications that have been built before. We've crawled hundreds of thousands of public code repositories to teach the Crowdbotics engine how to create software.
+
+As a result, Crowdbotics can generate new applications automatically in a standardized way.
 ## Table of Contents
 
-1. [Project Structure](#project-structure)
-2. [Features](#features)
-3. [Getting Started: Backend](#getting-started-backend)
-   - [Docker Setup (recommended)](#docker-setup-recommended)
-   - [Local Setup](#local-setup-alternative-to-docker)
-4. [Usage](#usage)
-   - [Admin Panel](#admin-panel)
-   - [API Documentation](#api-documentation)
+- [{{cookiecutter.project_slug}}](#cookiecutterproject_slug)
+  - [What is Crowdbotics?](#what-is-crowdbotics)
+  - [Table of Contents](#table-of-contents)
+    - [Useful Links](#useful-links)
+  - [Project Description](#project-description)
+  - [Project Structure](#project-structure)
+  - [Features](#features)
+- [Getting Started: Backend](#getting-started-backend)
+  - [Docker Setup (Recommended)](#docker-setup-recommended)
+  - [Local Setup (Alternative to Docker)](#local-setup-alternative-to-docker)
+    - [Installation](#installation)
+    - [Getting Started](#getting-started)
+- [Usage](#usage)
+  - [Admin Panel](#admin-panel)
+  - [API Documentation](#api-documentation)
+- [License](#license)
+
+### Useful Links
+
+- [App Dashboard](https://app.crowdbotics.com/)
+- [Knowledgebase](https://knowledge.crowdbotics.com/)
+- [Developer Training](https://knowledge.crowdbotics.com/crowdbotics-developer-training)
+- [Forum](https://discuss.crowdbotics.com/)
+- [Tech Support](https://crowdbotics.slack.com/archives/CGSAV319V)
+
+## Project Description
+
+{{cookiecutter.project_description}}
 
 ## Project Structure
 
-    ..
-    ├── home                           # Starter home app
-    ├── modules                        # Crowdbotics Modules app
-    ├── {{cookiecutter.project_slug}}  # Django project configurations
-    ├── static                         # Static assets
-    ├── users                          # Starter users app
-    ├── web_build                      # React Native Web build
-    ├── ...
+    .
+    ├── .github
+    │   └── dependabot.yml
     ├── README.md
-    └── ...
+    ├── backend
+    │   ├── .env.example
+    │   ├── Dockerfile
+    │   ├── Pipfile
+    │   ├── docker-compose.override.yml
+    │   ├── docker-compose.yml
+    │   ├── home                              # Starter home app
+    │   ├── manage.py
+    │   ├── modules                           # Crowdbotics Modules app
+    │   ├── static                            # Static assets
+    │   ├── users                             # Starter users app
+    │   ├── web_build                         # React Native Web build
+    │   └── {{cookiecutter.project_slug}}     # Django project configurations
+    └── heroku.yml
+
 
 ## Features
 
@@ -50,7 +86,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 1. Install Docker:
    - Linux - [get.docker.com](https://get.docker.com/)
    - Windows or MacOS - [Docker Desktop](https://www.docker.com/products/docker-desktop)
-1. Clone this repo and `cd {{cookiecutter.project_slug}}`
+1. Clone this repo and `cd {{cookiecutter.project_slug}}/backend`
 1. Make sure `Pipfile.lock` exists. If it doesn't, generate it with:
    ```sh
    $ docker run -it --rm -v "$PWD":/django -w /django python:3.7 pip3 install --no-cache-dir -q pipenv && pipenv lock
@@ -90,7 +126,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 ### Installation
 
 1. Install [pipenv](https://pypi.org/project/pipenv/)
-2. Clone this repo and `cd {{cookiecutter.project_slug}}`
+2. Clone this repo and `cd {{cookiecutter.project_slug}}/backend`
 3. Run `pip install --user --upgrade pipenv` to get the latest pipenv version.
 4. Run `pipenv --python 3.6`
 5. Run `pipenv install`
@@ -114,3 +150,9 @@ Admin Panel can be accessed through http://localhost:8000/admin/. If you are the
 ## API Documentation
 
 API Documentation is generated automatically and can be access through http://localhost:8000/api-docs/. Please make sure you are signed in to the admin panel before navigating to this page.
+
+# License
+
+The use of code in this repository is governed by Crowdbotics [Terms and Conditions](https://www.crowdbotics.com/terms-of-service).
+
+Created with ❤️ by [Crowdbotics](https://www.crowdbotics.com/)
