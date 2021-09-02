@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./modules
+
+    steps:
+      - name: Initialize packages
+        run: |
+          sudo apt update
+          sudo apt install jo git -y
+
+      - name: Checkout
+        run: |
+          git clone github.com:crowdbotics/modules.git
+
+      - name: Generate Json data
+        working-directory: ${{ env.working-directory }}
+        run: |
+          jo -p -- -s tag_name="$(date '+%Y%m%d'.1)" name="Production Release" body="$(git log --oneline --no-decorate HEAD...$(git tag -l '202[0-9]????.*' --sort=-v:refname | head -n 1))" > data.json
+
+      - name: Set scaffold release version on prod Heroku App
+        run: |
+          heroku config:set SCAFFOLD_VERSION=$(date '+%Y%m%d'.1) -a crowdbotics-slack-app
+
+      - name: Add Release Notes
+        working-directory: ${{ env.working-directory }}
+        run: |
+          cat data.json
+          curl  -i -X POST -H "Content-Type:application/json" -H "Authorization:token ${{ secrets.GIT_TOKEN }} " https://api.github.com/repos/$GITHUB_REPOSITORY/releases -d @data.json
