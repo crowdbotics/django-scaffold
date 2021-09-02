@@ -4,14 +4,18 @@ This is a repository for a web application developed with Django, built with [Cr
 
 ## Table of Contents
 
-1. [Project Structure](#project-structure)
-2. [Features](#features)
-3. [Getting Started: Backend](#getting-started-backend)
-   - [Docker Setup (recommended)](#docker-setup-recommended)
-   - [Local Setup](#local-setup-alternative-to-docker)
-4. [Usage](#usage)
-   - [Admin Panel](#admin-panel)
-   - [API Documentation](#api-documentation)
+- [{{cookiecutter.project_slug}}](#cookiecutterproject_slug)
+  - [Table of Contents](#table-of-contents)
+  - [Project Structure](#project-structure)
+  - [Features](#features)
+- [Getting Started: Backend](#getting-started-backend)
+  - [Docker Setup (Recommended)](#docker-setup-recommended)
+  - [Local Setup (Alternative to Docker)](#local-setup-alternative-to-docker)
+    - [Installation](#installation)
+    - [Getting Started](#getting-started)
+- [Usage](#usage)
+  - [Admin Panel](#admin-panel)
+  - [API Documentation](#api-documentation)
 
 ## Project Structure
 
@@ -114,3 +118,5 @@ Admin Panel can be accessed through http://localhost:8000/admin/. If you are the
 ## API Documentation
 
 API Documentation is generated automatically and can be access through http://localhost:8000/api-docs/. Please make sure you are signed in to the admin panel before navigating to this page.
+
+__Scaffold Version:__ {{cookiecutter.scaffold_version}}
