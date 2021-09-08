@@ -1,0 +1,32 @@
+steps:
+  - id: 'build'
+    name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/${_PROJECT_ID}/${_SERVICE}', '-f', '../Dockerfile', '.' ]
+
+  - id: 'push'
+    name: 'gcr/cloud-builders/docker'
+    args: [ 'push', 'gcr.io/${_PROJECT_ID}/${_SERVICE}' ]
+
+  - id: 'deploy'
+    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args: [
+      'run', 'deploy', '${_SERVICE}',
+      '--platform', 'manageed',
+      '--region', '${_REGION}',
+      '--image', 'gcr.io/${_PROJECT_ID}/{_SERVICE}'
+    ]
+
+images:
+  - 'gcr.io/${_PROJECT_ID}/${_SERVICE}'
+
+# Substitutions #
+# Defaults:
+
+substitutions:
+   _REGION: us-east4
+
+# User provided:
+#  _SERVICE
+#  
+#  _PROJECT_ID: (the project)

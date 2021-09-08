@@ -1,0 +1,24 @@
+steps:
+  - id: 'migrate'
+    name: 'gcr.io/google-appengine/exec-wrapper'
+    args: [
+      '-i', 'gcr.io/${_PROJECT_ID}/${_SERVICE}',
+      '-s', '${_PROJECT_ID}:${_REGION}:${_DB_INSTANCE_NAME}',
+      '-e', '_PROJECT_ID=${_PROJECT_ID}',
+      '--', 'sh', '.cloudbuild/run-migrate.sh'
+    ]
+
+images:
+  - 'gcr.io/${_PROJECT_ID}/${_SERVICE}'
+
+# Substitutions #
+# Defaults:
+
+substitutions:
+   _REGION: us-east4
+
+# User provided:
+#  _SERVICE
+#  _DB_INSTANCE_NAME
+#      - (just the name, _SERVICE:_DB_INSTANCE_NAME, since we already have the other values)
+#  _PROJECT_ID: (the project)
