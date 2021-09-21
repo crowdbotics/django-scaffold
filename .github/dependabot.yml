@@ -4,5 +4,4 @@ updates:
   directory: "/{{cookiecutter.project_slug}}"
   schedule:
     interval: weekly
-    day: sunday
   open-pull-requests-limit: 10
