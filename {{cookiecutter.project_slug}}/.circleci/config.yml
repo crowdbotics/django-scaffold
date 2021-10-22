@@ -10,7 +10,9 @@ jobs:
       - run:
           name: Give Secret Access to Compute and Cloud Build Service Accounts
           command:  |
-            export PROJECT_NUMBER=$(gcloud projects describe ${GOOGLE_PROJECT_ID} --format='value(projectNumber)')
+            PROJECT_NUMBER=$(gcloud projects describe ${GOOGLE_PROJECT_ID} --format='value(projectNumber)')
+            echo "export PROJECT_NUMBER=$PROJECT_NUMBER" >> $BASH_ENV
+            source $BASH_ENV
             gcloud secrets add-iam-policy-binding django_settings \
             --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
             --role roles/secretmanager.secretAccessor
@@ -33,6 +35,16 @@ jobs:
           region: ${GOOGLE_REGION}
           service-name: '${GOOGLE_PROJECT_ID}'
           unauthenticated: true
+      
+      - run:
+          name: Webhook Success
+          command: bash .circleci/webhook_callback.sh "success"
+          when: on_success
+
+      - run:
+          name: Webhook Failed
+          command: bash .circleci/webhook_callback.sh "failure"
+          when: on_fail
 
 orbs:
   cloudrun: circleci/gcp-cloud-run@1.0.2
