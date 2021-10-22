@@ -1,0 +1,42 @@
+version: 2.1
+
+jobs:
+  build_and_deploy:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - cloudrun/init
+      - run:
+          name: Give Secret Access to Compute and Cloud Build Service Accounts
+          command:  |
+            export PROJECT_NUMBER=$(gcloud projects describe ${GOOGLE_PROJECT_ID} --format='value(projectNumber)')
+            gcloud secrets add-iam-policy-binding django_settings \
+            --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+            --role roles/secretmanager.secretAccessor
+            gcloud secrets add-iam-policy-binding django_settings \
+            --member serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com \
+            --role roles/secretmanager.secretAccessor
+
+      - cloudrun/build:
+          tag: 'gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME}'
+
+      - run:
+          name: Run collectstatic and migrations
+          command: |
+            gcloud builds submit --config .cloudbuild/migrate_collectstatic.yaml \
+            --substitutions _INSTANCE_NAME=${GOOGLE_PROJECT_ID},_REGION=${GOOGLE_REGION},_SERVICE_NAME=${GOOGLE_PROJECT_ID}
+      
+      - cloudrun/deploy:
+          image: 'gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME}'
+          platform: managed
+          region: ${GOOGLE_REGION}
+          service-name: '${GOOGLE_PROJECT_ID}'
+          unauthenticated: true
+
+orbs:
+  cloudrun: circleci/gcp-cloud-run@1.0.2
+workflows:
+  build_and_deploy_to_managed_workflow:
+    jobs:
+      - build_and_deploy
