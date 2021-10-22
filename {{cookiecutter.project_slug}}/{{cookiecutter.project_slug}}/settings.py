@@ -15,6 +15,7 @@ import environ
 import logging
 import google.auth
 from google.cloud import secretmanager
+from google.auth.exceptions import DefaultCredentialsError
 from google.api_core.exceptions import PermissionDenied
 from modules.manifest import get_modules
 
@@ -36,7 +37,7 @@ try:
     name = client.secret_version_path(project, settings_name, "latest")
     payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
     env.read_env(io.StringIO(payload))
-except PermissionDenied:
+except (DefaultCredentialsError, PermissionDenied):
     pass
 
 
