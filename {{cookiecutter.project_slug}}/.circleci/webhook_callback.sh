@@ -12,7 +12,7 @@ cat <<EOM
     "compare_url": "$CIRCLE_COMPARE_URL",
     "sha1": "$CIRCLE_SHA1",
     "platform_id": "$PLATFORM_ID",
-    "app_url": "$GCP_DEPLOY_ENDPOINT",
+    "app_url": "$GCP_DEPLOY_ENDPOINT"
 }
 EOM
 )
