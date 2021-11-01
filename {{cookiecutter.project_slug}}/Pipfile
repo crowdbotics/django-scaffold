@@ -11,7 +11,7 @@ python_version = "3.8"
 [packages]
 cryptography = "~=3.4.8"
 django = "~=2.2.24"
-"boto3" = "~=1.18.63"
+"boto3" = "~=1.19.2"
 django-environ = "~=0.8.0"
 django-storages = "~=1.12"
 psycopg2 = "<2.9"
