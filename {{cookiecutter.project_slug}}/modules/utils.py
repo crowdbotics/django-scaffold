@@ -1,3 +1,4 @@
+import importlib
 import json
 
 from pathlib import Path
@@ -15,5 +16,8 @@ def get_options(module_slug, option_key):
         if module.get("slug") == module_slug
     ]
 
-    # if option not in global options file then read default value from options.py
-    return option_value[0] if option_value else "read from options.py"
+    default_value = getattr(
+        importlib.import_module(f"modules.{module_slug}.options"), option_key
+    )
+
+    return option_value[0] if option_value else default_value
