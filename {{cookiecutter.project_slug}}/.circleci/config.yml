@@ -1,41 +1,20 @@
 version: 2.1
-
+setup: true
+orbs:
+  continuation: circleci/continuation@0.1.0
 jobs:
-  build_and_deploy:
-    docker:
-      - image: 'cimg/base:stable'
+  generate-config:
+    executor: continuation/default
     steps:
       - checkout
-      - cloudrun/init
-      - cloudrun/build:
-          tag: 'gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME}'
-
-      - run:
-          name: Run collectstatic and migrations
+      - run: 
+          name: Generate Pipeline generated_config.yml file
           command: |
-            gcloud builds submit --config .cloudbuild/migrate_collectstatic.yaml \
-            --substitutions _INSTANCE_NAME=${GOOGLE_PROJECT_ID},_REGION=${GOOGLE_REGION},_SERVICE_NAME=${GOOGLE_PROJECT_ID}
-      
-      - cloudrun/deploy:
-          image: 'gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME}'
-          platform: managed
-          region: ${GOOGLE_REGION}
-          service-name: '${GOOGLE_PROJECT_ID}'
-          unauthenticated: true
-      
-      - run:
-          name: Webhook Success
-          command: bash .circleci/webhook_callback.sh "success"
-          when: on_success
-
-      - run:
-          name: Webhook Failed
-          command: bash .circleci/webhook_callback.sh "failure"
-          when: on_fail
-
-orbs:
-  cloudrun: circleci/gcp-cloud-run@1.0.2
+            ./scripts/generate_circle_config
+      - continuation/continue:
+          parameters: '{}'
+          configuration_path: configs/generated_config.yml
 workflows:
-  build_and_deploy_to_managed_workflow:
+  setup-workflow:
     jobs:
-      - build_and_deploy
+      - generate-config
