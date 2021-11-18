@@ -10,7 +10,7 @@ jobs:
       - run: 
           name: Generate Pipeline generated_config.yml file
           command: |
-            ./scripts/generate_circle_config
+            .circleci/generate_circle_config.sh
       - continuation/continue:
           parameters: '{}'
           configuration_path: configs/generated_config.yml
