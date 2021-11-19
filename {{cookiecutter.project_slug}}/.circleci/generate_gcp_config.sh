@@ -1,6 +1,8 @@
 #!/bin/bash 
 set -o pipefail
 
+BACKEND_PATH=$1
+
 mkdir configs/
 cat << EOF > configs/generated_config.yml
 version: 2.1
@@ -21,7 +23,7 @@ jobs:
       - run:
           name: Run collectstatic and migrations
           command: |
-            gcloud builds submit --config .cloudbuild/migrate_collectstatic.yaml \
+            gcloud builds submit --config "$BACKEND_PATH.cloudbuild/migrate_collectstatic.yaml" \
             --substitutions _INSTANCE_NAME=${GOOGLE_PROJECT_ID},_REGION=${GOOGLE_REGION},_SERVICE_NAME=${GOOGLE_PROJECT_ID}
       
       - cloudrun/deploy:
@@ -33,12 +35,12 @@ jobs:
       
       - run:
           name: Webhook Success
-          command: bash .circleci/webhook_callback.sh "success"
+          command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "success"
           when: on_success
 
       - run:
           name: Webhook Failed
-          command: bash .circleci/webhook_callback.sh "failure"
+          command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "failure"
           when: on_fail
 
 workflows:
