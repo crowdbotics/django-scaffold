@@ -33,6 +33,11 @@ jobs:
           region: ${GOOGLE_REGION}
           service-name: '${GOOGLE_PROJECT_ID}'
           unauthenticated: true
+
+      - run:
+          name: Enable DNS Mapping
+          command: |
+            gcloud beta run domain-mappings create --region=${GOOGLE_REGION} --service=${GOOGLE_PROJECT_ID} --domain=${GOOGLE_PROJECT_ID}.botics.co --project=${GOOGLE_PROJECT_ID}
       
       - run:
           name: Webhook Success
