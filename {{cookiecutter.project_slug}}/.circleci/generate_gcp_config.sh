@@ -10,10 +10,14 @@ version: 2.1
 orbs:
   cloudrun: circleci/gcp-cloud-run@1.0.2
 
-jobs:
-  build_and_deploy:
+executors:
+  my-executor:
     docker:
       - image: 'cimg/base:stable'
+
+jobs:
+  build_and_deploy:
+    executor: my-executor
     steps:
       - checkout
       - cloudrun/init
@@ -33,7 +37,7 @@ jobs:
           region: ${GOOGLE_REGION}
           service-name: '${GOOGLE_PROJECT_ID}'
           unauthenticated: true
-      
+          
       - run:
           name: Webhook Success
           command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "success"
@@ -43,9 +47,27 @@ jobs:
           name: Webhook Failed
           command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "failure"
           when: on_fail
+  dns_mapping:
+    executor: my-executor
+    steps:
+      - cloudrun/init
+      - run:
+          name: Check DNS Mapping
+          command: |
+            gcloud beta run domain-mappings describe --region ${GOOGLE_REGION} --domain ${GOOGLE_PROJECT_ID}.botics.co --format="json" | jq -r '.spec.routeName' |grep ${GOOGLE_PROJECT_ID}
+          
+      - run:
+          name: Enable DNS Mapping
+          command: |
+            gcloud beta run domain-mappings create --region=${GOOGLE_REGION} --service=${GOOGLE_PROJECT_ID} --domain=${GOOGLE_PROJECT_ID}.botics.co --project=${GOOGLE_PROJECT_ID}
+          when: on_fail
+
 
 workflows:
   build_and_deploy_to_managed_workflow:
     jobs:
       - build_and_deploy
+      - dns_mapping:
+          requires:
+            - build_and_deploy
 EOF
