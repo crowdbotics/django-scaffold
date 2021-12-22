@@ -11,17 +11,35 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import io
 import environ
 import logging
+import google.auth
+from google.cloud import secretmanager
+from google.auth.exceptions import DefaultCredentialsError
+from google.api_core.exceptions import PermissionDenied
 from modules.manifest import get_modules
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+env_file = os.path.join(BASE_DIR, ".env")
 env = environ.Env()
+env.read_env(env_file)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+try:
+    # Pull secrets from Secret Manager
+    _, project = google.auth.default()
+    client = secretmanager.SecretManagerServiceClient()
+    settings_name = os.environ.get("SETTINGS_NAME", "django_settings")
+    name = client.secret_version_path(project, settings_name, "latest")
+    payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
+    env.read_env(io.StringIO(payload))
+except (DefaultCredentialsError, PermissionDenied):
+    pass
 
 
 # Quick-start development settings - unsuitable for production
@@ -231,3 +249,11 @@ if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
     if not DEBUG:
         logging.warning("You should setup `SENDGRID_USERNAME` and `SENDGRID_PASSWORD` env vars to send emails.")
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+# GCP config 
+GS_BUCKET_NAME = env.str("GS_BUCKET_NAME", "")
+if GS_BUCKET_NAME:
+    DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+    STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+    GS_DEFAULT_ACL = "publicRead"
