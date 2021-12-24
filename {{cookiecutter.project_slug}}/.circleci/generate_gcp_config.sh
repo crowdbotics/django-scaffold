@@ -54,12 +54,12 @@ jobs:
       - run:
           name: Check DNS Mapping
           command: |
-            gcloud beta run domain-mappings describe --region ${GOOGLE_REGION} --domain ${GOOGLE_PROJECT_ID}.botics.co --format="json" | jq -r '.spec.routeName' |grep ${GOOGLE_PROJECT_ID}
+            gcloud beta run domain-mappings describe --region ${GOOGLE_REGION} --domain ${GOOGLE_PROJECT_ID}-gcp.botics.co --format="json" | jq -r '.spec.routeName' |grep ${GOOGLE_PROJECT_ID}
           
       - run:
           name: Enable DNS Mapping
           command: |
-            gcloud beta run domain-mappings create --region=${GOOGLE_REGION} --service=${GOOGLE_PROJECT_ID} --domain=${GOOGLE_PROJECT_ID}.botics.co --project=${GOOGLE_PROJECT_ID}
+            gcloud beta run domain-mappings create --region=${GOOGLE_REGION} --service=${GOOGLE_PROJECT_ID} --domain=${GOOGLE_PROJECT_ID}-gcp.botics.co --project=${GOOGLE_PROJECT_ID}
           when: on_fail
 
 
