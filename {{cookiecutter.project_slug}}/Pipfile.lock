@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "243706f69b39110bac909f59ee2aec02deb6ae3faf598e04ecea68f7a16f7644"
+            "sha256": "e1d9dc5b14c4cf36fd8d610fed5f052d64f0068a26a8ef6528c37a067ac62b8e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -297,11 +297,11 @@
         },
         "google-cloud-storage": {
             "hashes": [
-                "sha256:a81ecc0f382b8e4437cc7f152f74d77ef917c8280a5d1040f5dcfbd0502c7906",
-                "sha256:cd4c9039eb0017fdc75c3f96b0b5ea57759ceefe3a0401d514bcf0111cd7a508"
+                "sha256:bb3e4088054d50616bd57e4b81bb158db804c91faed39279d666e2fd07d2c118",
+                "sha256:f3b4f4be5c8a1b5727a8f7136c94d3bacdd4b7bf11f9553f51ae4c1d876529d3"
             ],
             "index": "pypi",
-            "version": "==1.41.1"
+            "version": "==1.43.0"
         },
         "google-crc32c": {
             "hashes": [
@@ -362,7 +362,7 @@
         },
         "googleapis-common-protos": {
             "extras": [
-                "grpc"
+
             ],
             "hashes": [
                 "sha256:a4031d6ec6c2b1b6dc3e0be7e10a1bd72fb0b18b07ef9be7b51f2c1004ce2437",
@@ -440,14 +440,6 @@
             ],
             "markers": "python_version >= '3'",
             "version": "==3.3"
-        },
-        "importlib-metadata": {
-            "hashes": [
-                "sha256:09db40742204610ef6826af16e49f0479d11d0d54687d0169ff7fddf8b3f557f",
-                "sha256:cd6a92d78385dd145f5f233b3a6919acf5e8e43922aa9b9dbe78573e3540eb56"
-            ],
-            "markers": "python_version < '3.8'",
-            "version": "==2.1.2"
         },
         "inflection": {
             "hashes": [
@@ -683,7 +675,7 @@
                 "sha256:e813b1c9006b6399308e917ac5d298f345d95bb31f46f02b60cd92970a9afa17",
                 "sha256:fd390367fc211cc0ffcf3a9e149dfeca78fecc62adb911371db0cec5c8b7472d"
             ],
-            "markers": "python_version >= '3.5'",
+            "markers": "python_version >= '3.6'",
             "version": "==3.19.1"
         },
         "psycopg2": {
@@ -873,11 +865,11 @@
         },
         "ruamel.yaml": {
             "hashes": [
-                "sha256:9751de4cbb57d4bfbf8fc394e125ed4a2f170fbff3dc3d78abf50be85924f8be",
-                "sha256:9af3ec5d7f8065582f3aa841305465025d0afd26c5fb54e15b964e11838fc74f"
+                "sha256:92ac00b312c9a83ff3253a8f7b86dfe6f9996b4082b103af84b8df99175945bc",
+                "sha256:b9ce9a925d0f0c35a1dbba56b40f253c53cd526b0fa81cf7b1d24996f28fb1d7"
             ],
             "markers": "python_version >= '3'",
-            "version": "==0.17.17"
+            "version": "==0.17.19"
         },
         "ruamel.yaml.clib": {
             "hashes": [
@@ -907,7 +899,7 @@
                 "sha256:dc6a613d6c74eef5a14a214d433d06291526145431c3b964f5e16529b1842bed",
                 "sha256:de9c6b8a1ba52919ae919f3ae96abb72b994dd0350226e28f3686cb4f142165c"
             ],
-            "markers": "python_version < '3.10' and platform_python_implementation == 'CPython'",
+            "markers": "python_version < '3.11' and platform_python_implementation == 'CPython'",
             "version": "==0.2.6"
         },
         "s3transfer": {
@@ -917,6 +909,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==0.5.0"
+        },
+        "setuptools": {
+            "hashes": [
+                "sha256:a4377723c53721515f72a3dfc1bfacdcd61edfa19a4cccf82e72e4f50d9cecbd",
+                "sha256:ad0ea3d172404abb14d8f7bd7f54f2ccd4ed9dd00c9da0b1398862e69eb22c03"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==60.1.0"
         },
         "six": {
             "hashes": [
@@ -962,7 +962,7 @@
                 "sha256:4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e",
                 "sha256:7f001e5ac290a0c0401508864c7ec868be4e701886d5b573a9528ed3973d9d3b"
             ],
-            "markers": "python_version < '3.8'",
+            "markers": "python_version >= '3.6'",
             "version": "==4.0.1"
         },
         "typing-inspect": {
@@ -1004,14 +1004,6 @@
             ],
             "index": "pypi",
             "version": "==5.3.0"
-        },
-        "zipp": {
-            "hashes": [
-                "sha256:71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832",
-                "sha256:9fe5ea21568a0a70e50f273397638d39b03353731e6cbbb3fd8502a33fec40bc"
-            ],
-            "markers": "python_version >= '3.6'",
-            "version": "==3.6.0"
         }
     },
     "develop": {}
