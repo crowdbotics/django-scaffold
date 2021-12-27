@@ -31,12 +31,13 @@ jobs:
             gcloud builds submit --config "$BACKEND_PATH.cloudbuild/migrate_collectstatic.yaml" \
             --substitutions _INSTANCE_NAME=${GOOGLE_PROJECT_ID},_REGION=${GOOGLE_REGION},_SERVICE_NAME=${GOOGLE_PROJECT_ID}
       
-      - cloudrun/deploy:
-          image: 'gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME}'
-          platform: managed
-          region: ${GOOGLE_REGION}
-          service-name: '${GOOGLE_PROJECT_ID}'
-          unauthenticated: true
+      - run:
+          name: Deploy to CloudRun
+          command: |
+            gcloud run deploy ${GOOGLE_PROJECT_ID} --platform managed --region ${GOOGLE_REGION} \
+            --image gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME} \
+            --add-cloudsql-instances ${GOOGLE_PROJECT_ID}:${GOOGLE_REGION}:${GOOGLE_PROJECT_ID} \
+            --allow-unauthenticated
           
       - run:
           name: Webhook Success
