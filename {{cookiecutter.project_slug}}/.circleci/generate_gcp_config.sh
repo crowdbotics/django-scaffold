@@ -43,7 +43,7 @@ jobs:
             echo "export GCP_DEPLOY_ENDPOINT=$GET_GCP_DEPLOY_ENDPOINT" >> $BASH_ENV
             source $BASH_ENV
             echo $GCP_DEPLOY_ENDPOINT
-          
+      
       - run:
           name: Webhook Success
           command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "success"
