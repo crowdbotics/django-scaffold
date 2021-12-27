@@ -10,10 +10,14 @@ version: 2.1
 orbs:
   cloudrun: circleci/gcp-cloud-run@1.0.2
 
-jobs:
-  build_and_deploy:
+executors:
+  my-executor:
     docker:
       - image: 'cimg/base:stable'
+
+jobs:
+  build_and_deploy:
+    executor: my-executor
     steps:
       - checkout
       - cloudrun/init
@@ -27,18 +31,19 @@ jobs:
             gcloud builds submit --config "$BACKEND_PATH.cloudbuild/migrate_collectstatic.yaml" \
             --substitutions _INSTANCE_NAME=${GOOGLE_PROJECT_ID},_REGION=${GOOGLE_REGION},_SERVICE_NAME=${GOOGLE_PROJECT_ID}
       
-      - cloudrun/deploy:
-          image: 'gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME}'
-          platform: managed
-          region: ${GOOGLE_REGION}
-          service-name: '${GOOGLE_PROJECT_ID}'
-          unauthenticated: true
-
       - run:
-          name: Enable DNS Mapping
+          name: Deploy to CloudRun
           command: |
-            gcloud beta run domain-mappings create --region=${GOOGLE_REGION} --service=${GOOGLE_PROJECT_ID} --domain=${GOOGLE_PROJECT_ID}.botics.co --project=${GOOGLE_PROJECT_ID}
-      
+            gcloud run deploy ${GOOGLE_PROJECT_ID} --platform managed --region ${GOOGLE_REGION} \
+            --image gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME} \
+            --add-cloudsql-instances ${GOOGLE_PROJECT_ID}:${GOOGLE_REGION}:${GOOGLE_PROJECT_ID} \
+            --allow-unauthenticated
+            echo "Service deployed"
+            GET_GCP_DEPLOY_ENDPOINT=$(gcloud beta run services describe <<parameters.service-name>> --platform <<parameters.platform>><<# parameters.region>> --region <<parameters.region>><</ parameters.region>> --format="value(status.address.url)")
+            echo "export GCP_DEPLOY_ENDPOINT=$GET_GCP_DEPLOY_ENDPOINT" >> $BASH_ENV
+            source $BASH_ENV
+            echo $GCP_DEPLOY_ENDPOINT
+          
       - run:
           name: Webhook Success
           command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "success"
@@ -48,9 +53,27 @@ jobs:
           name: Webhook Failed
           command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "failure"
           when: on_fail
+  dns_mapping:
+    executor: my-executor
+    steps:
+      - cloudrun/init
+      - run:
+          name: Check DNS Mapping
+          command: |
+            gcloud beta run domain-mappings describe --region ${GOOGLE_REGION} --domain ${GOOGLE_PROJECT_ID}-gcp.botics.co --format="json" | jq -r '.spec.routeName' |grep ${GOOGLE_PROJECT_ID}
+          
+      - run:
+          name: Enable DNS Mapping
+          command: |
+            gcloud beta run domain-mappings create --region=${GOOGLE_REGION} --service=${GOOGLE_PROJECT_ID} --domain=${GOOGLE_PROJECT_ID}-gcp.botics.co --project=${GOOGLE_PROJECT_ID}
+          when: on_fail
+
 
 workflows:
   build_and_deploy_to_managed_workflow:
     jobs:
       - build_and_deploy
+      - dns_mapping:
+          requires:
+            - build_and_deploy
 EOF
