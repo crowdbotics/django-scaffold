@@ -38,11 +38,11 @@ jobs:
             --image gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME} \
             --add-cloudsql-instances ${GOOGLE_PROJECT_ID}:${GOOGLE_REGION}:${GOOGLE_PROJECT_ID} \
             --allow-unauthenticated
-            echo "Service deployed"
-            GET_GCP_DEPLOY_ENDPOINT=$(gcloud beta run services describe ${GOOGLE_SERVICE_NAME} --platform managed --region ${GOOGLE_REGION} --format="value(status.address.url)")
-            echo "export GCP_DEPLOY_ENDPOINT=$GET_GCP_DEPLOY_ENDPOINT" >> $BASH_ENV
-            source $BASH_ENV
-            echo $GCP_DEPLOY_ENDPOINT
+            echo "Service Deployed"
+            GET_GCP_DEPLOY_ENDPOINT=\$(gcloud beta run services describe ${GOOGLE_SERVICE_NAME} --platform managed --region ${GOOGLE_REGION} --format="value(status.address.url)")
+            echo "export GCP_DEPLOY_ENDPOINT=\$GET_GCP_DEPLOY_ENDPOINT" >> \$BASH_ENV
+            source \$BASH_ENV
+            echo \$GCP_DEPLOY_ENDPOINT
       
       - run:
           name: Webhook Success
