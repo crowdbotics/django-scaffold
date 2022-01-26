@@ -14,6 +14,9 @@ import os
 import io
 import environ
 import logging
+import json
+import base64
+import binascii
 import google.auth
 from google.cloud import secretmanager
 from google.auth.exceptions import DefaultCredentialsError
@@ -180,6 +183,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'){% if cookiecutter.is_mobile == "y" %}, os.path.join(BASE_DIR, 'web_build/static'){% endif %}]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 # allauth / users
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -236,8 +241,6 @@ if USE_S3:
     DEFAULT_FILE_STORAGE = env.str(
         "DEFAULT_FILE_STORAGE", "home.storage_backends.MediaStorage"
     )
-    MEDIA_URL = '/mediafiles/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Swagger settings for api docs
 SWAGGER_SETTINGS = {
@@ -252,6 +255,18 @@ if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
 
 
 # GCP config 
+def google_service_account_config():
+    # base64 encoded service_account.json file
+    service_account_config = env.str("GS_CREDENTIALS", "")
+    if not service_account_config:
+        return {}
+    try:
+        return json.loads(base64.b64decode(service_account_config))
+    except (binascii.Error, ValueError):
+        return {}
+GOOGLE_SERVICE_ACCOUNT_CONFIG = google_service_account_config()
+if GOOGLE_SERVICE_ACCOUNT_CONFIG:
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_info(GOOGLE_SERVICE_ACCOUNT_CONFIG)
 GS_BUCKET_NAME = env.str("GS_BUCKET_NAME", "")
 if GS_BUCKET_NAME:
     DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
