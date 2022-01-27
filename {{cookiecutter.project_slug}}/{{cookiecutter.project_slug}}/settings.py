@@ -18,6 +18,7 @@ import json
 import base64
 import binascii
 import google.auth
+from google.oauth2 import service_account
 from google.cloud import secretmanager
 from google.auth.exceptions import DefaultCredentialsError
 from google.api_core.exceptions import PermissionDenied
