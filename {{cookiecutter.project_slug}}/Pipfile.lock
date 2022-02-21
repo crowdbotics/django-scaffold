@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "355f6e74c77ba748161b5b1c245ce321296d86cad97708f934e05196628eace4"
+            "sha256": "3b84c77d188a85428b68da372db7eade207d08b420bcab780bd3ac9e36837d9d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -261,9 +261,6 @@
             "version": "==13.0.0"
         },
         "google-api-core": {
-            "extras": [
-
-            ],
             "hashes": [
                 "sha256:7d030edbd3a0e994d796e62716022752684e863a6df9864b6ca82a1616c2a5a6",
                 "sha256:f33863a6709651703b8b18b67093514838c79f2b04d02aa501203079f24b8018"
@@ -983,11 +980,11 @@
         },
         "whitenoise": {
             "hashes": [
-                "sha256:d234b871b52271ae7ed6d9da47ffe857c76568f11dd30e28e18c5869dbd11e12",
-                "sha256:d963ef25639d1417e8a247be36e6aedd8c7c6f0a08adcb5a89146980a96b577c"
+                "sha256:08c42bc535f9777eea1a599289d9433f081921f97887eaf6f559446b2a080374",
+                "sha256:5a4aff543ee860fbe40d743e556adf92ccd41b7df45697cae074afdf657056b9"
             ],
             "index": "pypi",
-            "version": "==5.3.0"
+            "version": "==6.0.0"
         }
     },
     "develop": {}
