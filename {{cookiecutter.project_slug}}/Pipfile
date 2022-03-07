@@ -28,7 +28,7 @@ pyyaml = "~=6.0"
 pillow = "~=9.0.1"
 pytest = "==7.0.1"
 factory-boy = "==3.2.1"
-google-cloud-secret-manager = "==2.8.0"
+google-cloud-secret-manager = "==2.9.0"
 google-auth = "==1.34.0"
 google-cloud-storage = "==2.1.0"
 
