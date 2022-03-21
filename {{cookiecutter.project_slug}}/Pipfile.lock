@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "866bf96b54c74eb350e7d8f8c4093d498872a2e0a6423a704574760e1154e308"
+            "sha256": "662507ec7966a0b825bae8d18dce133e07947891948a2326fcdcd9e9fffd154a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -262,7 +262,7 @@
         },
         "google-api-core": {
             "extras": [
-
+                "grpc"
             ],
             "hashes": [
                 "sha256:6be1fc59e2a7ba9f66808bbc22f976f81e4c3e7ab20fa0620ce42686288787d0",
@@ -763,11 +763,11 @@
         },
         "pytest": {
             "hashes": [
-                "sha256:b555252a95bbb2a37a97b5ac2eb050c436f7989993565f5e0c9128fcaacadd0e",
-                "sha256:f1089d218cfcc63a212c42896f1b7fbf096874d045e1988186861a1a87d27b47"
+                "sha256:841132caef6b1ad17a9afde46dc4f6cfa59a05f9555aae5151f73bdf2820ca63",
+                "sha256:92f723789a8fdd7180b6b06483874feca4c48a5c76968e03bb3e7f806a1869ea"
             ],
             "index": "pypi",
-            "version": "==7.1.0"
+            "version": "==7.1.1"
         },
         "python-dateutil": {
             "hashes": [
