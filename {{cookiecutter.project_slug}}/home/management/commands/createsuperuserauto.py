@@ -1,6 +1,8 @@
 from django.contrib.auth.management.commands import createsuperuser
 from django.core.management import CommandError
 from django.db.models import EmailField
+from allauth.account.models import EmailAddress
+
 
 
 class Command(createsuperuser.Command):
@@ -33,7 +35,10 @@ class Command(createsuperuser.Command):
         options.update({User.USERNAME_FIELD: username})
         super(Command, self).handle(*args, **options)
 
+        user = self.UserModel._default_manager.db_manager(database).get(**{User.USERNAME_FIELD: username})
         if password:
-            user = self.UserModel._default_manager.db_manager(database).get(**{User.USERNAME_FIELD: username})
             user.set_password(password)
             user.save()
+
+        if email:
+            EmailAddress.objects.create(user=user, email=email, primary=True, verified=True)
