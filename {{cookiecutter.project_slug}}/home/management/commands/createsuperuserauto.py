@@ -4,7 +4,6 @@ from django.db.models import EmailField
 from allauth.account.models import EmailAddress
 
 
-
 class Command(createsuperuser.Command):
     help = 'Crate a superuser, and allow password to be provided'
 
