@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "00498966a375dc6ef4c90267b28b8a774df77ba6497c31b4f265e7f5223c4d2d"
+            "sha256": "b39fb80e77af4742624031d52ac9a0405501c70c91570fd56d6a582582d9b92e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -42,19 +42,19 @@
         },
         "botocore": {
             "hashes": [
-                "sha256:03c41d26d1e765380b8175d4b136d3144aa051f17a86eebfdf9a885a5a9a6a72",
-                "sha256:102eb24b44d473adea6bb8728b20fb9547fa5858c3293df7cad67ef17ea736a7"
+                "sha256:af4bdc51eeecbe9fdcdadbed9ad58c5c91380ef30f3560022bbc2ee1d78f0ad6",
+                "sha256:c622751093e3d0bf61343e66d6d06190ef30bf42b1557d5070ca84e9efa06d4b"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==1.24.28"
+            "version": "==1.24.30"
         },
         "cachetools": {
             "hashes": [
-                "sha256:89ea6f1b638d5a73a4f9226be57ac5e4f399d22770b92355f92dcb0f7f001693",
-                "sha256:92971d3cb7d2a97efff7c7bb1657f21a8f5fb309a37530537c71b1774189f2d1"
+                "sha256:486471dfa8799eb7ec503a8059e263db000cdda20075ce5e48903087f79d5fd6",
+                "sha256:8fecd4203a38af17928be7b90689d8083603073622229ca7077b72d8e5a976e4"
             ],
-            "markers": "python_version ~= '3.5'",
-            "version": "==4.2.4"
+            "markers": "python_version ~= '3.7'",
+            "version": "==5.0.0"
         },
         "certifi": {
             "hashes": [
@@ -273,11 +273,11 @@
         },
         "google-auth": {
             "hashes": [
-                "sha256:bd6aa5916970a823e76ffb3d5c3ad3f0bedafca0a7fa53bc15149ab21cb71e05",
-                "sha256:f1094088bae046fb06f3d1a3d7df14717e8d959e9105b79c57725bd4e17597a2"
+                "sha256:3ba4d63cb29c1e6d5ffcc1c0623c03cf02ede6240a072f213084749574e691ab",
+                "sha256:60d449f8142c742db760f4c0be39121bc8d9be855555d784c252deaca1ced3f5"
             ],
             "index": "pypi",
-            "version": "==1.34.0"
+            "version": "==2.6.2"
         },
         "google-cloud-core": {
             "hashes": [
@@ -910,14 +910,6 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==0.5.2"
-        },
-        "setuptools": {
-            "hashes": [
-                "sha256:8f4813dd6a4d6cc17bde85fb2e635fe19763f96efbb0ddf5575562e5ee0bc47a",
-                "sha256:c3d4e2ab578fbf83775755cd76dae73627915a22832cf4ea5de895978767833b"
-            ],
-            "markers": "python_version >= '3.7'",
-            "version": "==61.2.0"
         },
         "six": {
             "hashes": [
