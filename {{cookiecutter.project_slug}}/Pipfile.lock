@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "83abcf4bfae1a339cb4630d1901f32c24edc9f80507d3fb497aad7bdbdf4aafc"
+            "sha256": "3a858c53d46089d6b4ee6e6f175eb2fd02c92b0fef9ad14444072dbe81c04da5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -34,19 +34,19 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:222cfb68bd4f46f4beae7770f1f6b066786254462f289027ca123fe77eb50ff9",
-                "sha256:a6925fe88cc9cd6aab35ea950cdb1678a88210ece5271bb64c1593a46ed6de6c"
+                "sha256:441b619067cb205bfcd0e66fe085c16989ab65bd348823013e11bef991c00a5c",
+                "sha256:65e45029d234ff94ba8aa3bacb9df00fbbb2f1d9ee7fd1c2e40f4815d12ec3f5"
             ],
             "index": "pypi",
-            "version": "==1.22.8"
+            "version": "==1.22.9"
         },
         "botocore": {
             "hashes": [
-                "sha256:5b342da3487e5669801f5589cc15e379fc9f7803a426584d08a6329575644da3",
-                "sha256:f0a7e9fb6000a6cfc7ca63971d8d1ab4ed3c38514ded439bcf1fc8bca162dc1b"
+                "sha256:71962de55b053a0124a0514155f4cdcf0bce81795ffc2bd6e000c1594e99125a",
+                "sha256:a1d26b95aaa5b2e126df74b223d774fae7e6597bb55c363782178f5b87f0cad3"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==1.25.8"
+            "version": "==1.25.9"
         },
         "cachetools": {
             "hashes": [
@@ -256,11 +256,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:0301ace8365d98f3d0bf6e9a40200c8548e845d3812402ae1daf589effe3fb01",
-                "sha256:b1903db92175d78051858128ada397c7dc76f376f6967975419da232b3ebd429"
+                "sha256:97092f2df86f9d384d4dcdb03fc9b9547aae92e38957d0f740d5fa8b995fca4b",
+                "sha256:b5d64e8032a1954306ce4d3c570adf9861e341b3fb8c2d80a40d6d82038d66f6"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==13.7.0"
+            "version": "==13.10.0"
         },
         "google-api-core": {
             "extras": [
@@ -479,7 +479,7 @@
                 "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852",
                 "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"
             ],
-            "markers": "python_full_version >= '3.7.0'",
+            "markers": "python_version >= '3.7'",
             "version": "==3.1.2"
         },
         "jmespath": {
@@ -487,7 +487,7 @@
                 "sha256:a490e280edd1f57d6de88636992d05b71e97d69a26a19f058ecf7d304474bf5e",
                 "sha256:e8dcd576ed616f14ec02eed0005c85973b5890083313860136657e24784e4c04"
             ],
-            "markers": "python_full_version >= '3.7.0'",
+            "markers": "python_version >= '3.7'",
             "version": "==1.0.0"
         },
         "markupsafe": {
@@ -533,7 +533,7 @@
                 "sha256:f121a1420d4e173a5d96e47e9a0c0dcff965afdf1626d28de1460815f7c4ee7a",
                 "sha256:fc7b548b17d238737688817ab67deebb30e8073c95749d55538ed473130ec0c7"
             ],
-            "markers": "python_full_version >= '3.7.0'",
+            "markers": "python_version >= '3.7'",
             "version": "==2.1.1"
         },
         "oauthlib": {
@@ -639,7 +639,7 @@
                 "sha256:e250a42f15bf9d5b09fe1b293bdba2801cd520a9f5ea2d7fb7536d4441811d20",
                 "sha256:ff8d8fa42675249bb456f5db06c00de6c2f4c27a065955917b28c4f15978b9c3"
             ],
-            "markers": "python_full_version >= '3.7.0'",
+            "markers": "python_version >= '3.7'",
             "version": "==3.20.1"
         },
         "psycopg2": {
@@ -903,7 +903,7 @@
                 "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc",
                 "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
             ],
-            "markers": "python_full_version >= '3.7.0'",
+            "markers": "python_version >= '3.7'",
             "version": "==2.0.1"
         },
         "uritemplate": {
