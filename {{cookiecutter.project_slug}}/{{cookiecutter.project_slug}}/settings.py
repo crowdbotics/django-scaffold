@@ -19,7 +19,7 @@ import base64
 import binascii
 import google.auth
 from google.oauth2 import service_account
-from google.cloud import secretmanager
+# from google.cloud import secretmanager
 from google.auth.exceptions import DefaultCredentialsError
 from google.api_core.exceptions import PermissionDenied
 from modules.manifest import get_modules
@@ -37,11 +37,11 @@ DEBUG = env.bool("DEBUG", default=False)
 try:
     # Pull secrets from Secret Manager
     _, project = google.auth.default()
-    client = secretmanager.SecretManagerServiceClient()
+    # client = secretmanager.SecretManagerServiceClient()
     settings_name = os.environ.get("SETTINGS_NAME", "django_settings")
-    name = client.secret_version_path(project, settings_name, "latest")
-    payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
-    env.read_env(io.StringIO(payload))
+    # name = client.secret_version_path(project, settings_name, "latest")
+    # payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
+    # env.read_env(io.StringIO(payload))
 except (DefaultCredentialsError, PermissionDenied):
     pass
 
