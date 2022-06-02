@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "faff04089f7946e77e4b04256db4e57f689fa5b0d28670855e2e578da0da903e"
+            "sha256": "9995e73f6e9e476a07ff7d399bf07f776a6b27b937ee77ffb46be4a778e4fa79"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -264,9 +264,6 @@
             "version": "==13.12.0"
         },
         "google-api-core": {
-            "extras": [
-
-            ],
             "hashes": [
                 "sha256:958024c6aa3460b08f35741231076a4dd9a4c819a6a39d44da9627febe8b28f0",
                 "sha256:ce1daa49644b50398093d2a9ad886501aa845e2602af70c3001b9f402a9d7359"
@@ -925,11 +922,11 @@
         },
         "waitress": {
             "hashes": [
-                "sha256:c549f5b2b4afd44d9d97d7cec79f3ef581e25d832827f415dc175327af674aa8",
-                "sha256:e2e60576cf14a1539da79f7b7ee1e79a71e64f366a0b47db54a15e971f57bb16"
+                "sha256:7500c9625927c8ec60f54377d590f67b30c8e70ef4b8894214ac6e4cad233d2a",
+                "sha256:780a4082c5fbc0fde6a2fcfe5e26e6efc1e8f425730863c04085769781f51eba"
             ],
             "index": "pypi",
-            "version": "==2.1.1"
+            "version": "==2.1.2"
         },
         "whitenoise": {
             "hashes": [
