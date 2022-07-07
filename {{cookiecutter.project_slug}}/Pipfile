@@ -29,6 +29,6 @@ pillow = "~=9.2.0"
 pytest = "==7.1.2"
 factory-boy = "==3.2.1"
 google-cloud-secret-manager = "==2.10.0"
-google-auth = "==2.6.6"
+google-auth = "==2.9.0"
 google-cloud-storage = "==2.4.0"
 
