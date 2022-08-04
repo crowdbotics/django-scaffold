@@ -10,7 +10,7 @@ try:
     admins = Path(".").rglob('admin.py')
 
     for admin in admins:
-        module = import_module(posixpath_to_modulepath(admin))
+        module = import_module(posixpath_to_modulepath(admin), package="modules")
         from module import *  # noqa
 except (ImportError, IndexError):
     pass
