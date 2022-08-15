@@ -42,11 +42,11 @@
         },
         "botocore": {
             "hashes": [
-                "sha256:5958ef6dd3b0f84eb1ee0aac75499ac504fcc0787fd6611be727968d51dcbfa7",
-                "sha256:8de2f4285046ed306439723a11706067d6901c3f7be418b7b104ba8e002b5638"
+                "sha256:328d2baca30e66016acdf9ad3c5e6fa6522fca249f54c5affce8774c0faa564f",
+                "sha256:4ba1678bc78fbdac9a7e1c010b057ad9ed96dc6534d1c82718af08d746b652ed"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.27.48"
+            "version": "==1.27.51"
         },
         "cachetools": {
             "hashes": [
@@ -278,11 +278,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:172e45220b7a46743f4fb58cf380adb306d5c3ab1c0b0d97062508474cec5ff8",
-                "sha256:7c3f8ee807d3916415568169a172bf0893ea9cc3371ab55e4e5f5170d2185bea"
+                "sha256:0c7d283a96c49af64fe319f70d2b68927873c9173e922f8eda6001e7757cb63b",
+                "sha256:f1558ecb1770d8c871ea01cc2edc7b5e86148b0fa0466731f0e1e8953165d179"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==13.15.1"
+            "version": "==14.0.0"
         },
         "filelock": {
             "hashes": [
@@ -635,21 +635,13 @@
             "index": "pypi",
             "version": "==9.2.0"
         },
-        "pip": {
-            "hashes": [
-                "sha256:3fd1929db052f056d7a998439176d3333fa1b3f6c1ad881de1885c0717608a4b",
-                "sha256:b61a374b5bc40a6e982426aede40c9b5a08ff20e640f5b56977f4f91fed1e39a"
-            ],
-            "markers": "python_version >= '3.7'",
-            "version": "==22.2.2"
-        },
         "pipenv": {
             "hashes": [
-                "sha256:374e63450220d7abb298cbaee06c4b02274e6f1cb2ce7b7b677fd5fd3dd30841",
-                "sha256:79d7cf8709b0c165ed3f136acc8ca4ff9771ee32117117cc21969e39911becf8"
+                "sha256:26c1dd6156953a37715c7f962719cc25ea8c7815f6c833bfc8f12cdf3508aae8",
+                "sha256:bd9bf3963290bfd2e3bcd0dc453b819ffcbe9e849852d86683c9bb385fb271cb"
             ],
             "index": "pypi",
-            "version": "==2022.7.24"
+            "version": "==2022.8.15"
         },
         "platformdirs": {
             "hashes": [
@@ -669,11 +661,11 @@
         },
         "proto-plus": {
             "hashes": [
-                "sha256:449b4537e83f4776bd69051c4d776db8ffe3f9d0641f1e87b06c116eb94c90e9",
-                "sha256:c6c43c3fcfc360fdab46b47e2e9e805ff56e13169f9f2e45caf88b6b593215ab"
+                "sha256:a27192d8cdc54e044f137b4c9053c9108cf5c065b46d067f1bcd389a911faf5b",
+                "sha256:c2e6693fdf68c405a6428226915a8625d21d0513793598ae3287a1210478d8ec"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==1.20.6"
+            "version": "==1.22.0"
         },
         "protobuf": {
             "hashes": [
@@ -822,10 +814,10 @@
         },
         "pytz": {
             "hashes": [
-                "sha256:1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7",
-                "sha256:e68985985296d9a66a881eb3193b0906246245294a881e7c8afe623866ac6a5c"
+                "sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197",
+                "sha256:cea221417204f2d1a2aa03ddae3e867921971d0d76f14d87abb4414415bbdcf5"
             ],
-            "version": "==2022.1"
+            "version": "==2022.2.1"
         },
         "pyyaml": {
             "hashes": [
@@ -939,11 +931,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:73bfae4791da7c1c56882ab17577d00f7a37a0347162aeb9360058de0dc25083",
-                "sha256:abcb76aa4decd7a17cbe0e4b31bdf549d106ba7f668e87e0860f5f7b84b9b3fe"
+                "sha256:d73f8cd714a1a6691f5eb5abeeacbf313242b7aa2f5eba93776542c1aad90c6f",
+                "sha256:fe9a97f68b064a6ddd4bacfb0b4b93a4c65a556d97ce906255540439d0c35cef"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==63.4.2"
+            "version": "==65.0.0"
         },
         "six": {
             "hashes": [
