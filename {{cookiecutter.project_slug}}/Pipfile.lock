@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "991845dbfb745df0900817482c165532c17a89cd6c1c553358e627edd58a95c0"
+            "sha256": "772a45178f455df152d3597bfa7b3fb199b375254e400b2fe873335e3637d3e3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -294,7 +294,7 @@
         },
         "google-api-core": {
             "extras": [
-                "grpc"
+
             ],
             "hashes": [
                 "sha256:92d17123cfe399b5ef7e026c63babf978d8475e1ac877919eb7933e25dea2273",
@@ -305,11 +305,11 @@
         },
         "google-auth": {
             "hashes": [
-                "sha256:be62acaae38d0049c21ca90f27a23847245c9f161ff54ede13af2cb6afecbac9",
-                "sha256:ed65ecf9f681832298e29328e1ef0a3676e3732b2e56f41532d45f70a22de0fb"
+                "sha256:98f601773978c969e1769f97265e732a81a8e598da3263895023958d456ee625",
+                "sha256:f12d86502ce0f2c0174e2e70ecc8d36c69593817e67e1d9c5e34489120422e4b"
             ],
             "index": "pypi",
-            "version": "==2.11.0"
+            "version": "==2.12.0"
         },
         "google-cloud-core": {
             "hashes": [
