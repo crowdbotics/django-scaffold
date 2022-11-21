@@ -92,7 +92,7 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 1. Install [pipenv](https://pypi.org/project/pipenv/)
 2. Clone this repo and `cd {{cookiecutter.project_slug}}`
 3. Run `pip install --user --upgrade pipenv` to get the latest pipenv version.
-4. Run `pipenv --python 3.6`
+4. Run `pipenv --python 3.8`
 5. Run `pipenv install`
 6. Run `cp .env.example .env`
 7. Update .env file `DATABASE_URL` with your `database_name`, `database_user`, `database_password`, if you use postgresql.
