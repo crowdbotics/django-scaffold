@@ -19,8 +19,7 @@ from django.urls import path, include, re_path
 from django.views.generic.base import TemplateView
 from allauth.account.views import confirm_email
 from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
+from drf_spectacular.views import SpectacularJSONAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("", include("home.urls")),
@@ -40,20 +39,9 @@ admin.site.site_title = "{{cookiecutter.project_name}} Admin Portal"
 admin.site.index_title = "{{cookiecutter.project_name}} Admin"
 
 # swagger
-api_info = openapi.Info(
-    title="{{cookiecutter.project_name}} API",
-    default_version="v1",
-    description="API documentation for {{cookiecutter.project_name}} App",
-)
-
-schema_view = get_schema_view(
-    api_info,
-    public=True,
-    permission_classes=(permissions.IsAuthenticated,),
-)
-
 urlpatterns += [
-    path("api-docs/", schema_view.with_ui("swagger", cache_timeout=0), name="api_docs")
+    path("api-docs/schema/", SpectacularJSONAPIView.as_view(), name="schema"),
+    path("api-docs/", SpectacularSwaggerView.as_view(url_name='schema'), name="api_docs")
 ]
 
 {% if cookiecutter.is_mobile == "y" %}

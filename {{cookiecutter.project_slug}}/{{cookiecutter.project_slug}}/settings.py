@@ -85,7 +85,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'django_extensions',
-    'drf_yasg',
+    'drf_spectacular',
     'storages',
     'import_export',
 ]
@@ -211,6 +211,10 @@ REST_AUTH_REGISTER_SERIALIZERS = {
     "REGISTER_SERIALIZER": "home.api.v1.serializers.SignupSerializer",
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
 # Custom user model
 AUTH_USER_MODEL = "users.User"
 
@@ -244,9 +248,18 @@ if USE_S3:
         "DEFAULT_FILE_STORAGE", "home.storage_backends.MediaStorage"
     )
 
-# Swagger settings for api docs
-SWAGGER_SETTINGS = {
-    "DEFAULT_INFO": f"{ROOT_URLCONF}.api_info",
+SPECTACULAR_SETTINGS = {
+    # available SwaggerUI configuration parameters
+    # https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/
+    "SWAGGER_UI_SETTINGS": {
+        "deepLinking": True,
+        "persistAuthorization": True,
+        "displayOperationId": True,
+    },
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAuthenticated"],\
+    "TITLE": "{{cookiecutter.project_slug}} API",
+    "DESCRIPTION": "API documentation for {{cookiecutter.project_slug}} App",
+    "VERSION": "v1",
 }
 
 if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
