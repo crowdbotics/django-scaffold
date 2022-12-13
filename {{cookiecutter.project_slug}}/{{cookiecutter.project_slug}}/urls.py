@@ -22,9 +22,7 @@ from rest_framework import permissions
 from drf_spectacular.views import SpectacularJSONAPIView, SpectacularSwaggerView
 
 urlpatterns = [
-    {% if cookiecutter.is_mobile != "y" %}
-    path("", include("home.urls")),
-    {% endif %}
+    {% if cookiecutter.is_mobile != "y" %}path("", include("home.urls")),{% endif %}
     path("accounts/", include("allauth.urls")),
     path("modules/", include("modules.urls")),
     path("api/v1/", include("home.api.v1.urls")),
