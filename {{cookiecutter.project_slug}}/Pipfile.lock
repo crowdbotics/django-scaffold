@@ -42,11 +42,11 @@
         },
         "botocore": {
             "hashes": [
-                "sha256:03ead47c52c5caee4c69498a655444569e9d86c0e15e3884ce8c3eca01b4f658",
-                "sha256:0932b22d8737b11037adf7e734f9b90425b575d0757e4c1a035e99f382955221"
+                "sha256:97a6d059e688ff9caa7c0a4e30cc58fa27be8bf3347578ce7c62fb808380fb55",
+                "sha256:dca2daf108aae6c847d8ec99b7e918b46ae81713bf70b2199ab94627faf935a1"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.29.27"
+            "version": "==1.29.29"
         },
         "cachetools": {
             "hashes": [
@@ -311,9 +311,6 @@
             "version": "==3.8.2"
         },
         "google-api-core": {
-            "extras": [
-
-            ],
             "hashes": [
                 "sha256:10c06f7739fe57781f87523375e8e1a3a4674bf6392cd6131a3222182b971320",
                 "sha256:34f24bd1d5f72a8c4519773d99ca6bf080a6c4e041b4e9f024fe230191dda62e"
@@ -659,11 +656,11 @@
         },
         "pipenv": {
             "hashes": [
-                "sha256:1259d6c7053b1086d9aaabc81a9feb739bd2d17e81bb2020489a32ec141862ee",
-                "sha256:421a90dcc4c3e7b5cf27a4ced6b7c04a69f1b8ed8a67ad24cb71571895b4d017"
+                "sha256:2d9d0c97e6ac356f3aeefda7322f36e017ea0b8ab3542cd23ced25e6f1546872",
+                "sha256:7fd8aa14d0e63fa3f82b4d35ded0dc070df1b18731434173ced50fc4298163da"
             ],
             "index": "pypi",
-            "version": "==2022.11.25"
+            "version": "==2022.11.30"
         },
         "pkgutil-resolve-name": {
             "hashes": [
