@@ -656,11 +656,11 @@
         },
         "pipenv": {
             "hashes": [
-                "sha256:2d9d0c97e6ac356f3aeefda7322f36e017ea0b8ab3542cd23ced25e6f1546872",
-                "sha256:7fd8aa14d0e63fa3f82b4d35ded0dc070df1b18731434173ced50fc4298163da"
+                "sha256:56a0e9305912293a8205e23b836b4abb9bca912fd5ef131214cdcdbc1861a1cc",
+                "sha256:eed9c479d918a809deec23a4136f2b66091f035c849012acca3a9898d5f0938f"
             ],
             "index": "pypi",
-            "version": "==2022.11.30"
+            "version": "==2022.12.19"
         },
         "pkgutil-resolve-name": {
             "hashes": [
