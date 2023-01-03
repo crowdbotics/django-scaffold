@@ -12,6 +12,7 @@ This is a repository for a web application developed with Django, built with [Cr
 4. [Usage](#usage)
    - [Admin Panel](#admin-panel)
    - [API Documentation](#api-documentation)
+   - [Security Configuration](#security-config)
 
 ## Project Structure
 
@@ -114,3 +115,9 @@ Admin Panel can be accessed through http://localhost:8000/admin/. If you are the
 ## API Documentation
 
 API Documentation is generated automatically and can be access through http://localhost:8000/api-docs/. Please make sure you are signed in to the admin panel before navigating to this page.
+
+## Security Configuration
+
+The Django Backend is pre-configured to enabled certain security configurations through the use of environment variables. This can be done through the Crowdbotics Dashboard's App Settings page.
+
+      SECURE_REDIRECT = True # https://docs.djangoproject.com/en/3.2/ref/settings/#secure-ssl-redirect
