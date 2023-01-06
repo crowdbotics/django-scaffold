@@ -12,7 +12,7 @@ This is a repository for a web application developed with Django, built with [Cr
 4. [Usage](#usage)
    - [Admin Panel](#admin-panel)
    - [API Documentation](#api-documentation)
-   - [Security Configuration](#security-config)
+   - [Security Configuration](#security-configuration)
 
 ## Project Structure
 
@@ -120,4 +120,6 @@ API Documentation is generated automatically and can be access through http://lo
 
 The Django Backend is pre-configured to enabled certain security configurations through the use of environment variables. This can be done through the Crowdbotics Dashboard's App Settings page.
 
-      SECURE_REDIRECT = True # https://docs.djangoproject.com/en/3.2/ref/settings/#secure-ssl-redirect
+1. https://docs.djangoproject.com/en/3.2/ref/settings/#secure-ssl-redirect
+
+         SECURE_REDIRECT = True
