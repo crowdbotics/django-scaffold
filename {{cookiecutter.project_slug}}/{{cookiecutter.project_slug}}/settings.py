@@ -182,7 +182,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'){% if cookiecutter.is_mobile == "y" %}, os.path.join(BASE_DIR, 'web_build/static'){% endif %}]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'){% if cookiecutter.is_mobile == "y" %}, os.path.join(BASE_DIR, 'web_build'){% endif %}]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/mediafiles/'

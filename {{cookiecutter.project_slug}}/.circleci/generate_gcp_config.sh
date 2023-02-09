@@ -23,7 +23,6 @@ jobs:
       - cloudrun/init
       - cloudrun/build:
           tag: 'gcr.io/${GOOGLE_PROJECT_ID}/${GOOGLE_SERVICE_NAME}'
-          source: "$BACKEND_PATH"
 
       - run:
           name: Run collectstatic and migrations
