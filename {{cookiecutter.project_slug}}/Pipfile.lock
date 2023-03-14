@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "195c10b6654a3d71604099bc62643a6a5d58eff80e2f0c0f70ecb7a66c29a0ac"
+            "sha256": "925f5ea330e1c64bb8e925a5e354b716b2f0fd3b9c8cca0ec5fa43e1a8bf2f17"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -337,11 +337,11 @@
         },
         "drf-spectacular": {
             "hashes": [
-                "sha256:789696f9845ef2397c52f66154aec6d96411baf6aa09a5d40c5f0b0e99f6b3d8",
-                "sha256:d58684e702f5ad436c5bd1735d46df0e123e64de883092d38f1debb9fa4a03c9"
+                "sha256:2b31c347c78ed7ed9f021f9e0fcf4e03e86ca6bfc43cb66401236f38f30fd46d",
+                "sha256:3c954a86fbefab93c20f3d39edab1d435f7b16c8291883e40fba5e34265ed461"
             ],
             "index": "pypi",
-            "version": "==0.25.1"
+            "version": "==0.26.0"
         },
         "et-xmlfile": {
             "hashes": [
@@ -384,9 +384,6 @@
             "version": "==3.9.1"
         },
         "google-api-core": {
-            "extras": [
-
-            ],
             "hashes": [
                 "sha256:4b9bb5d5a380a0befa0573b302651b8a9a89262c1730e37bf423cec511804c22",
                 "sha256:ce222e27b0de0d7bc63eb043b956996d6dccab14cc3b690aaea91c9cc99dc16e"
