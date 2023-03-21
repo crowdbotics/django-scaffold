@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8bd20c08091ab931ac71690d8ff9352efbd1e95f853ef2a071bc14a9d1cfa242"
+            "sha256": "e28059e2286b545955d2a39b829fd6b11093db9485e839a20fe5fe992907150c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -42,11 +42,11 @@
         },
         "botocore": {
             "hashes": [
-                "sha256:01b9e066b9eea719ee852e91841b92c7371f6bd388cf6186b5d55508e0f7fa1b",
-                "sha256:3748b79e6fc95c19d890aa7439a53b9d468a4c4918439b2ba5cc3c13bfaff817"
+                "sha256:5f5f1c8125f8c331f561ca0a7a892f709df206714c306c48fd907eee469926cb",
+                "sha256:e9ffd4a2fc415c313eda03713c212e3121084fdcb21e20aac5b15924a4ae5a9d"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.29.94"
+            "version": "==1.29.95"
         },
         "cachetools": {
             "hashes": [
@@ -369,11 +369,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:51f37ff9df710159d6d736d0ba1c75e063430a8c806b91334d7794305b5a6114",
-                "sha256:5aaa16fa9cfde7d117eef70b6b293a705021e57158f3fa6b44ed1b70202d2065"
+                "sha256:20272ff42eaa3fd0a83d1c4ad27a6c0a58ebded4e48411a635b31643087d4bd6",
+                "sha256:daf4fc907cdc009bfde011db845d9847e0293baa701c49607bac1184f11e5d95"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==17.6.0"
+            "version": "==18.2.0"
         },
         "filelock": {
             "hashes": [
@@ -412,11 +412,11 @@
         },
         "google-cloud-secret-manager": {
             "hashes": [
-                "sha256:d4104e11d921d235411ed4951273ac5ed6823c5fc6b9707dd0509978e9ae7bd2",
-                "sha256:e451f06253a568f56bc52d9a7ae78fb731930723cf82ed6d6a83fa57f3828e4e"
+                "sha256:3b52b9a9df36a3e3e7cd6678d060bed0f4a05b366fa79865ec8985c51831e56c",
+                "sha256:c6227eac647ddcf7e395a99420c4e55c0d6e23577771f91e03e39a1068824c5d"
             ],
             "index": "pypi",
-            "version": "==2.13.0"
+            "version": "==2.16.0"
         },
         "google-cloud-storage": {
             "hashes": [
@@ -510,11 +510,11 @@
         },
         "googleapis-common-protos": {
             "hashes": [
-                "sha256:c727251ec025947d545184ba17e3578840fc3a24a0516a020479edab660457df",
-                "sha256:ca3befcd4580dab6ad49356b46bf165bb68ff4b32389f028f1abd7c10ab9519a"
+                "sha256:4168fcb568a826a52f23510412da405abd93f4d23ba544bb68d943b14ba3cb44",
+                "sha256:b287dc48449d1d41af0c69f4ea26242b5ae4c3d7249a38b0984c86a4caffff1f"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.58.0"
+            "version": "==1.59.0"
         },
         "grpc-google-iam-v1": {
             "hashes": [
