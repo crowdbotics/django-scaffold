@@ -381,6 +381,9 @@
             "version": "==3.12.0"
         },
         "google-api-core": {
+            "extras": [
+                "grpc"
+            ],
             "hashes": [
                 "sha256:4b9bb5d5a380a0befa0573b302651b8a9a89262c1730e37bf423cec511804c22",
                 "sha256:ce222e27b0de0d7bc63eb043b956996d6dccab14cc3b690aaea91c9cc99dc16e"
@@ -733,11 +736,11 @@
         },
         "pipenv": {
             "hashes": [
-                "sha256:98e5aed45bbae89832bedd874828b327adc6b429043e1d75fe1a833f0010604d",
-                "sha256:ee86355e1965bbcabf6702a01622a5bbb7f086c45e93ed4a1ccc106bab54021e"
+                "sha256:1a9d37cc03e9c0d92ae646a79c40aa2d9c3bf529c7878533e74a7c56f2076179",
+                "sha256:21c9e03c4c48fe3717fd1a2c1387269d10c3fee88126e368f508465b0405b10b"
             ],
             "index": "pypi",
-            "version": "==2023.4.29"
+            "version": "==2023.5.19"
         },
         "pkgutil-resolve-name": {
             "hashes": [
