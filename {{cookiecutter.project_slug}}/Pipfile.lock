@@ -42,11 +42,11 @@
         },
         "botocore": {
             "hashes": [
-                "sha256:dd0af0de58c12df39e043be3ad864a47d8b8ef10eedde15a73504ff75dcc261b",
-                "sha256:f374bea656bf9025ad685f47e7b8ff9e20b1a2584823855ba1c4c58957768612"
+                "sha256:6f35d59e230095aed7cd747604fe248fa384bebb7d09549077892f936a8ca3df",
+                "sha256:988b948be685006b43c4bbd8f5c0cb93e77c66deb70561994e0c5b31b5a67210"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.29.163"
+            "version": "==1.29.165"
         },
         "cachetools": {
             "hashes": [
@@ -350,11 +350,11 @@
         },
         "exceptiongroup": {
             "hashes": [
-                "sha256:232c37c63e4f682982c8b6459f33a8981039e5fb8756b2074364e5055c498c9e",
-                "sha256:d484c3090ba2889ae2928419117447a14daf3c1231d5e30d0aae34f354f01785"
+                "sha256:12c3e887d6485d16943a309616de20ae5582633e0a2eda17f4e10fd61c1e8af5",
+                "sha256:e346e69d186172ca7cf029c8c1d16235aa0e04035e5750b4b95039e65204328f"
             ],
             "markers": "python_version < '3.11'",
-            "version": "==1.1.1"
+            "version": "==1.1.2"
         },
         "factory-boy": {
             "hashes": [
@@ -381,9 +381,6 @@
             "version": "==3.12.2"
         },
         "google-api-core": {
-            "extras": [
-
-            ],
             "hashes": [
                 "sha256:25d29e05a0058ed5f19c61c0a78b1b53adea4d9364b464d014fbda941f6d1c9a",
                 "sha256:d92a5a92dc36dd4f4b9ee4e55528a90e432b059f93aee6ad857f9de8cc7ae94a"
@@ -736,11 +733,11 @@
         },
         "pipenv": {
             "hashes": [
-                "sha256:624ea93feee40d49269fbb6a875a752b61e57e52255f9e9742247b20304a4f40",
-                "sha256:e85566b988754dafd71489ff3d5d54b9c65fa13c0db78f5c19060f10038411f6"
+                "sha256:116061545d4e2281cbc799f7736a715ee5ddf0a6f63c09f4263a4a6a0779fe93",
+                "sha256:404de9ff6a2464e20e52aaad71db2d4f8f2900f2177fc45a47f6315686cb2e5b"
             ],
             "index": "pypi",
-            "version": "==2023.6.18"
+            "version": "==2023.7.3"
         },
         "pkgutil-resolve-name": {
             "hashes": [
