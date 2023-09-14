@@ -7,7 +7,7 @@ from .utils import posixpath_to_modulepath
 # Crowdbotics' official modules working properly.
 
 try:
-    admins = Path(".").rglob('admin.py')
+    admins = Path(".").rglob("admin.py")
 
     for admin in admins:
         module = import_module(posixpath_to_modulepath(admin), package="modules")

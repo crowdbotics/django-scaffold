@@ -28,8 +28,6 @@ def get_options(module_slug, option_key):
     )
 
     options_module = posixpath_to_modulepath(module_options_file)
-    default_value = getattr(
-        importlib.import_module(options_module), option_key
-    )
+    default_value = getattr(importlib.import_module(options_module), option_key)
 
     return option_value if option_value else default_value
