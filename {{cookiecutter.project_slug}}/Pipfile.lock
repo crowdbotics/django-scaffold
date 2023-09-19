@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c155865c2aa63959438fc0249128e3af582c70cd519d3a8308e78dc6175e3da3"
+            "sha256": "133c112bf0e07f2408f2ad5c1de399c86ae2daee267a201f0e64ea5bf00bd272"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -284,10 +284,10 @@
         },
         "django-allauth": {
             "hashes": [
-                "sha256:120e265f802b65738899c6cb627b827fde46a4d03067034c633f516c2adf3e3e"
+                "sha256:347044c4e268e085ef4b4b26ea5fdc9d40576872d55e630f1736e1c9a7761529"
             ],
             "index": "pypi",
-            "version": "==0.54.0"
+            "version": "==0.56.1"
         },
         "django-bootstrap4": {
             "hashes": [
@@ -393,6 +393,9 @@
             "version": "==3.12.4"
         },
         "google-api-core": {
+            "extras": [
+                "grpc"
+            ],
             "hashes": [
                 "sha256:25d29e05a0058ed5f19c61c0a78b1b53adea4d9364b464d014fbda941f6d1c9a",
                 "sha256:d92a5a92dc36dd4f4b9ee4e55528a90e432b059f93aee6ad857f9de8cc7ae94a"
