@@ -4,7 +4,7 @@ import sys
 
 REMOVE_PATHS = [
     '{% if cookiecutter.is_mobile != "y" %} web_build {% endif %}',
-    '{% if cookiecutter.is_mobile == "y" %} .github {% endif %}'
+    '{% if cookiecutter.is_mobile == "y" %} .github {% endif %}',
 ]
 
 for path in REMOVE_PATHS:
