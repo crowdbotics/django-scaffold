@@ -20,12 +20,9 @@ try:
         if not module_name == "modules":
             module_url = module_name.replace("_", "-")
             urlpatterns += [
-                path(f"{module_url}/",
-                     include(
-                        posixpath_to_modulepath(
-                            url.relative_to(base_dir)
-                        )
-                     )
+                path(
+                    f"{module_url}/",
+                    include(posixpath_to_modulepath(url.relative_to(base_dir))),
                 )  # noqa
             ]
 except (ImportError, IndexError, ProgrammingError):
