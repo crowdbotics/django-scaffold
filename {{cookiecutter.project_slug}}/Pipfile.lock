@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7b49384e44b35d50e7e476892eac4ae49d05d820ff3914461d3cfd2ffbef1792"
+            "sha256": "2016a10e9ba777a815aa5f6c9f4e4ce2d01997cbe73a68069abdfd51b60e72a4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,6 +46,7 @@
                 "sha256:aa861e5568a564a5ce2fff5413d6ae2cda0eed7399b3a949bc861a20915e2046"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==1.28.59"
         },
         "botocore": {
@@ -253,6 +254,7 @@
                 "sha256:efc8ad4e6fc4f1752ebfb58aefece8b4e3c4cae940b0994d43649bdfce8d0d4f"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==41.0.4"
         },
         "defusedxml": {
@@ -283,6 +285,7 @@
                 "sha256:ec87f934c83b520217399f4793506e36cccccc84e899623510ee9c7289f80573"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.5'",
             "version": "==4.0.1"
         },
         "django": {
@@ -291,6 +294,7 @@
                 "sha256:dec2a116787b8e14962014bf78e120bba454135108e1af9e9b91ade7b2964c40"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==3.2.20"
         },
         "django-allauth": {
@@ -298,6 +302,7 @@
                 "sha256:120e265f802b65738899c6cb627b827fde46a4d03067034c633f516c2adf3e3e"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==0.54.0"
         },
         "django-bootstrap4": {
@@ -306,6 +311,7 @@
                 "sha256:c2c09d0ad93c96e85e15e5541089aa567fd51257cf80f142ea5b84bbd34dc18e"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==22.3"
         },
         "django-environ": {
@@ -314,6 +320,7 @@
                 "sha256:f32a87aa0899894c27d4e1776fa6b477e8164ed7f6b3e410a62a6d72caaf64be"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6' and python_version < '4'",
             "version": "==0.11.2"
         },
         "django-extensions": {
@@ -322,6 +329,7 @@
                 "sha256:9238b9e016bb0009d621e05cf56ea8ce5cce9b32e91ad2026996a7377ca28069"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==3.1.5"
         },
         "django-import-export": {
@@ -330,6 +338,7 @@
                 "sha256:d02e31908c965d512cc6f7ef6e72935177647b15d3846050d0f094177fca0d86"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==3.3.1"
         },
         "django-storages": {
@@ -338,6 +347,7 @@
                 "sha256:a2c327d67792eec04c7f5f5bb2900b21f426de8a3a811cea85fac7904bdccf36"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==1.14.1"
         },
         "djangorestframework": {
@@ -346,6 +356,7 @@
                 "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==3.14.0"
         },
         "drf-spectacular": {
@@ -354,6 +365,7 @@
                 "sha256:c0002a820b11771fdbf37853deb371947caf0159d1afeeffe7598e964bc1db94"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==0.26.5"
         },
         "et-xmlfile": {
@@ -378,6 +390,7 @@
                 "sha256:bc76d97d1a65bbd9842a6d722882098eb549ec8ee1081f9fb2e8ff29f0c300f1"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==3.3.0"
         },
         "faker": {
@@ -409,11 +422,12 @@
         },
         "google-auth": {
             "hashes": [
-                "sha256:164cba9af4e6e4e40c3a4f90a1a6c12ee56f14c0b4868d1ca91b32826ab334ce",
-                "sha256:d61d1b40897407b574da67da1a833bdc10d5a11642566e506565d1b1a46ba873"
+                "sha256:5a9af4be520ba33651471a0264eead312521566f44631cbb621164bc30c8fd40",
+                "sha256:c2e253347579d483004f17c3bd0bf92e611ef6c7ba24d41c5c59f2e7aeeaf088"
             ],
             "index": "pypi",
-            "version": "==2.22.0"
+            "markers": "python_version >= '3.7'",
+            "version": "==2.23.2"
         },
         "google-cloud-core": {
             "hashes": [
@@ -429,6 +443,7 @@
                 "sha256:6cab5cbf1927a34c586e4af90437eea3d44ff4b41b9a82ec86fcff09a5ac26ea"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==2.16.3"
         },
         "google-cloud-storage": {
@@ -437,6 +452,7 @@
                 "sha256:9b6ae7b509fc294bdacb84d0f3ea8e20e2c54a8b4bbe39c5707635fec214eff3"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==2.9.0"
         },
         "google-crc32c": {
@@ -693,6 +709,7 @@
                 "sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==23.2"
         },
         "pillow": {
@@ -753,6 +770,7 @@
                 "sha256:fd2a5403a75b54661182b75ec6132437a181209b901446ee5724b589af8edef1"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==10.0.1"
         },
         "pipenv": {
@@ -761,6 +779,7 @@
                 "sha256:a07ad06655336a5d0f7c065f1dbc43d1b4c274762020c7bef18db1c694fc2637"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==2023.10.3"
         },
         "pkgutil-resolve-name": {
@@ -827,6 +846,7 @@
                 "sha256:f3d42bd42302293767b84206d9a446abc67ed4a133e4fe04dad8952de06c2091"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==2.9"
         },
         "pyasn1": {
@@ -870,6 +890,7 @@
                 "sha256:a766259cfab564a2ad52cb1aae1b881a75c3eb7e34ca3779697c23ed47c47069"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==7.4.2"
         },
         "python-dateutil": {
@@ -948,6 +969,7 @@
                 "sha256:fd66fc5d0da6d9815ba2cebeb4205f95818ff4b79c3ebe268e75d961704af52f"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==6.0.1"
         },
         "referencing": {
@@ -1186,6 +1208,7 @@
                 "sha256:780a4082c5fbc0fde6a2fcfe5e26e6efc1e8f425730863c04085769781f51eba"
             ],
             "index": "pypi",
+            "markers": "python_full_version >= '3.7.0'",
             "version": "==2.1.2"
         },
         "whitenoise": {
@@ -1194,6 +1217,7 @@
                 "sha256:5a4aff543ee860fbe40d743e556adf92ccd41b7df45697cae074afdf657056b9"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==6.0.0"
         },
         "xlrd": {
