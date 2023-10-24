@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "24567fcb0c718c4d8f0b5975bc01ce51d87222520cc12b07185226d00df53a56"
+            "sha256": "a14f0133111dbef3f48560c606f55549aef12015cca2da4aca6bcf1c372b4613"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -282,11 +282,11 @@
         },
         "dj-rest-auth": {
             "hashes": [
-                "sha256:ec87f934c83b520217399f4793506e36cccccc84e899623510ee9c7289f80573"
+                "sha256:2f574edd7bcc9a421e6e1d9d47f7b1eb56b71eb797927be135c995ea546dd9b5"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.5'",
-            "version": "==4.0.1"
+            "markers": "python_version >= '3.6'",
+            "version": "==5.0.1"
         },
         "django": {
             "hashes": [
@@ -395,11 +395,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:a62a3fd3bfa3122d4f57dfa26a1cc37d76751a76c8ddd63cf9d24078c57913a4",
-                "sha256:e28090068293c5a83e7f4d636417d45fae1031ca8a8136cc2415549ebc2111e2"
+                "sha256:5990380a8ee81cf189d6b85d5fdc1fb43772cb136aca0385a08ff24ef01b9fdf",
+                "sha256:91438f6b1713274ec3f24970ba303617be86ce5caf6f6a0776f1d04777b6ff5f"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==19.11.0"
+            "version": "==19.12.0"
         },
         "filelock": {
             "hashes": [
