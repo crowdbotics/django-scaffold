@@ -403,11 +403,11 @@
         },
         "filelock": {
             "hashes": [
-                "sha256:08c21d87ded6e2b9da6728c3dff51baf1dcecf973b768ef35bcbc3447edb9ad4",
-                "sha256:2e6f249f1f3654291606e046b09f1fd5eac39b360664c27f5aad072012f8bcbd"
+                "sha256:521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e",
+                "sha256:57dbda9b35157b05fb3e58ee91448612eb674172fab98ee235ccb0b5bee19a1c"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==3.12.4"
+            "version": "==3.13.1"
         },
         "google-api-core": {
             "extras": [
@@ -775,12 +775,12 @@
         },
         "pipenv": {
             "hashes": [
-                "sha256:0809debd75a4f8432ee10027531286c576760859653e51a103a9a9275fdac455",
-                "sha256:a07ad06655336a5d0f7c065f1dbc43d1b4c274762020c7bef18db1c694fc2637"
+                "sha256:82ca27a60511c5cedbe1c5938b9f1bc4d786394e37c2b5a67edd1623fa4c090f",
+                "sha256:a28a93ef66e5ce204cc33cab6df30cca80ceda1f0074f25cc251ee46da85ab39"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7'",
-            "version": "==2023.10.3"
+            "markers": "python_version >= '3.8'",
+            "version": "==2023.10.24"
         },
         "pkgutil-resolve-name": {
             "hashes": [
