@@ -11,6 +11,7 @@ services:
       - ./:/opt/webapp
     ports:
       - "8000:${PORT}"
+
   postgres:
     environment:
       POSTGRES_PASSWORD: <postgres_pwd>

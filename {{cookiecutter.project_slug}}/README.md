@@ -61,7 +61,8 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
    $ cp .env.example .env
    ```
 1. Update `.env` and `docker-compose.override.yml` replacing all `<placeholders>`
-   1. Use `python -c 'from secrets import token_urlsafe; print("SECRET_KEY=" + token_urlsafe(50))'` to generate the random `SECRET_KEY`
+1. Create a secret and use it in you `.env` file as `SECRET=<new generated secret>`.
+   1. Use `python -c 'from secrets import token_urlsafe; print("SECRET_KEY=" + token_urlsafe(50))'` to generate the random.
 1. Start up the containers:
 
    ```sh
@@ -85,18 +86,20 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 
 ## Local Setup (Alternative to Docker)
 
-1. [Postgresql](https://www.postgresql.org/download/)
-2. [Python](https://www.python.org/downloads/release/python-365/)
+1. [Postgresql](https://www.postgresql.org/download/), or SQLite as an alterantive;
+1. [Python](https://www.python.org/downloads/release/python-365/);
 
 ### Installation
 
 1. Install [pipenv](https://pypi.org/project/pipenv/)
-2. Clone this repo and `cd {{cookiecutter.project_slug}}`
-3. Run `pip install --user --upgrade pipenv` to get the latest pipenv version.
-4. Run `pipenv --python 3.8`
-5. Run `pipenv install`
-6. Run `cp .env.example .env`
-7. Update .env file `DATABASE_URL` with your `database_name`, `database_user`, `database_password`, if you use postgresql.
+1. Clone this repo and `cd {{cookiecutter.project_slug}}`
+1. Run `pip install --user --upgrade pipenv` to get the latest pipenv version.
+1. Run `pipenv --python 3.8`
+1. Run `pipenv install`
+1. Run `cp .env.example .env`
+1. Create a secret and use it in you `.env` file as `SECRET=<new generated secret>`.
+   1. Use `python -c 'from secrets import token_urlsafe; print("SECRET_KEY=" + token_urlsafe(50))'` to generate the random.
+1. Update .env file `DATABASE_URL` with your `database_name`, `database_user`, `database_password`, if you use postgresql.
    Can alternatively set it to `sqlite:////tmp/my-tmp-sqlite.db`, if you want to use sqlite for local development.
 
 ### Getting Started
@@ -104,7 +107,19 @@ This project is set up to run using [Docker Compose](https://docs.docker.com/com
 1. Run `pipenv shell`
 2. Run `python manage.py makemigrations`
 3. Run `python manage.py migrate`
-4. Run `python manage.py runserver`
+4. Start your `postgres` and `redis` using docker services:
+
+```shell
+$ docker-compose up postgres redis
+```
+You can now use their exposed ports in your `.env` file;
+
+5. Run `python manage.py runserver`
+6. Create a superuser if required:
+   ```sh
+   $ python manage.py createsuperuser
+   ```
+   You will find an activation link in the server log output.
 
 # Usage
 
@@ -123,3 +138,4 @@ The Django Backend is pre-configured to enabled certain security configurations 
 1. https://docs.djangoproject.com/en/3.2/ref/settings/#secure-ssl-redirect
 
          SECURE_REDIRECT = True
+ 

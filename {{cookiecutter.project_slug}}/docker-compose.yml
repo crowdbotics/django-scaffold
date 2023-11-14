@@ -5,7 +5,9 @@ services:
     depends_on:
       - postgres
       - redis
+
   postgres:
     image: postgres:12
+
   redis:
     image: redis:5
