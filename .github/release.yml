@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Repo Clone 
         run: |
-          git clone https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/<repo-name>.git
+          git clone https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/django-scaffold.git
       
       - name: Checkout branch
         working-directory: ${{ env.working-directory }}
