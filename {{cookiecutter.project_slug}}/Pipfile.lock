@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f0ba7e23a2d722420881de0c62594e5d46d75236e7319c0b0430c4a57d3db8f9"
+            "sha256": "f81913c7348ea3111c3a56f2126b1055ab36ed16cb745cbc4abe413818003e7a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -59,11 +59,11 @@
         },
         "cachetools": {
             "hashes": [
-                "sha256:95ef631eeaea14ba2e36f06437f36463aac3a096799e876ee55e5cdccb102590",
-                "sha256:dce83f2d9b4e1f732a8cd44af8e8fab2dbe46201467fc98b3ef8f269092bf62b"
+                "sha256:086ee420196f7b2ab9ca2db2520aca326318b68fe5ba8bc4d49cca91add450f2",
+                "sha256:861f35a13a451f94e301ce2bec7cac63e881232ccce7ed67fab9b5df4d3beaa1"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==5.3.1"
+            "version": "==5.3.2"
         },
         "certifi": {
             "hashes": [
@@ -422,12 +422,12 @@
         },
         "google-auth": {
             "hashes": [
-                "sha256:164cba9af4e6e4e40c3a4f90a1a6c12ee56f14c0b4868d1ca91b32826ab334ce",
-                "sha256:d61d1b40897407b574da67da1a833bdc10d5a11642566e506565d1b1a46ba873"
+                "sha256:3f445c8ce9b61ed6459aad86d8ccdba4a9afed841b2d1451a11ef4db08957424",
+                "sha256:97327dbbf58cccb58fc5a1712bba403ae76668e64814eb30f7316f7e27126b81"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.6'",
-            "version": "==2.22.0"
+            "markers": "python_version >= '3.7'",
+            "version": "==2.26.2"
         },
         "google-cloud-core": {
             "hashes": [
@@ -851,11 +851,11 @@
         },
         "pyasn1": {
             "hashes": [
-                "sha256:87a2121042a1ac9358cabcaf1d07680ff97ee6404333bacca15f76aa8ad01a57",
-                "sha256:97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde"
+                "sha256:4439847c58d40b1d0a573d07e3856e95333f1976294494c325775aeca506eb58",
+                "sha256:6d391a96e59b23130a5cfa74d6fd7f388dbbe26cc8f1edf39fdddf08d9d6676c"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
-            "version": "==0.5.0"
+            "version": "==0.5.1"
         },
         "pyasn1-modules": {
             "hashes": [
