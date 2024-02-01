@@ -1,4 +1,4 @@
-name: release-notes
+name: create-github-release
 
 on:
   workflow_dispatch:
@@ -17,6 +17,10 @@ jobs:
       - name: Repo Clone 
         run: |
           git clone https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/django-scaffold.git
+
+      - name: Clone Reusable Actions Repo
+        run: |
+          git clone -b master https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/github-actions.git
       
       - name: Checkout branch
         working-directory: ${{ env.working-directory }}
@@ -31,8 +35,9 @@ jobs:
           fi
       
       - name: Run Release Workflow
-        uses: crowdbotics/github-actions/create-github-release@master
+        uses: ./github-actions/create-github-release
         with:
           working-directory: ${{ env.working-directory }}
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+          release_branch: ${{ github.event.client_payload.release_branch }}
