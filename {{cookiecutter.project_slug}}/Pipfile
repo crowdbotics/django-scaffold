@@ -9,7 +9,7 @@ name = "pypi"
 python_version = "3.8"
 
 [packages]
-cryptography = "~=41.0.4"
+cryptography = "~=42.0.2"
 django = "==3.2.23"
 "boto3" = "~=1.28.78"
 django-environ = "~=0.11.2"
