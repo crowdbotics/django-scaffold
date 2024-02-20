@@ -36,8 +36,17 @@ jobs:
       
       - name: Run Release Workflow
         uses: ./github-actions/create-github-release
+        id: release
         with:
           working-directory: ${{ env.working-directory }}
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
           release_branch: ${{ github.event.client_payload.release_branch }}
+
+      - name: Update DJANGO_SCAFFOLD_REPO_BRANCH Environment Variable
+        uses: ./github-actions/publish-release-sha
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_TOKEN }}
+          heroku_app_name: 'crowdbotics-slack'
+          git_sha: ${{ steps.release.outputs.tag_version }}
+          env_var_name: 'DJANGO_SCAFFOLD_REPO_BRANCH'
