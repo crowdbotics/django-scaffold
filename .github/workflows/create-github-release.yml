@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       working-directory: ./django-scaffold
-
+    environment: production
     steps:
       - name: Repo Clone
         id: repo-clone 
