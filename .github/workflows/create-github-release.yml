@@ -12,17 +12,20 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       working-directory: ./django-scaffold
-
+    environment: production
     steps:
-      - name: Repo Clone 
+      - name: Repo Clone
+        id: repo-clone 
         run: |
           git clone https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/django-scaffold.git
 
       - name: Clone Reusable Actions Repo
+        id: reusable-actions-clone
         run: |
           git clone -b master https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/github-actions.git
       
       - name: Checkout branch
+        id: checkout
         working-directory: ${{ env.working-directory }}
         run: |
           if [ ${{ github.event.client_payload.release_branch }} == "master" ]; then
@@ -36,8 +39,25 @@ jobs:
       
       - name: Run Release Workflow
         uses: ./github-actions/create-github-release
+        id: release
         with:
           working-directory: ${{ env.working-directory }}
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
           release_branch: ${{ github.event.client_payload.release_branch }}
+
+      - name: Update DJANGO_SCAFFOLD_REPO_BRANCH Environment Variable
+        id: update-env-var
+        uses: ./github-actions/publish-release-sha
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_TOKEN }}
+          heroku_app_name: 'crowdbotics-slack'
+          git_sha: ${{ steps.release.outputs.tag_version }}
+          env_var_name: 'DJANGO_SCAFFOLD_REPO_BRANCH'
+      
+      - uses: act10ns/slack@v2
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
