@@ -343,12 +343,12 @@
         },
         "django-import-export": {
             "hashes": [
-                "sha256:2eac09e8cec8670f36e24314760448011ad23c51e8fb930d55f50d0c3c926da0",
-                "sha256:4deabc557801d368093608c86fd0f4831bc9540e2ea41ca2f023e2efb3eb6f48"
+                "sha256:50535a5f8e690559a937ee1fcc137e920da9deba8e9945f5472ca600ca5a2b71",
+                "sha256:fe1e260a421ff22900841a634e891af73dc1f1350c558e2e116a834c1d134b4d"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==3.3.8"
+            "version": "==4.0.1"
         },
         "django-storages": {
             "hashes": [
