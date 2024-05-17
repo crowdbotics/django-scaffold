@@ -36,6 +36,10 @@ jobs:
       - run:
           name: Push Docker image to ACR
           command: docker push "$AZURE_REGISTRY_NAME.azurecr.io/$AZURE_APP_NAME:latest"
+      - run:
+          name: Webhook Failed
+          command: bash "$BACKEND_PATH.circleci/webhook_callback.sh" "failure"
+          when: on_fail
 
   deploy:
     executor: python-executor
