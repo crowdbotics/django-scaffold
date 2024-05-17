@@ -22,6 +22,8 @@ from google.oauth2 import service_account
 from google.cloud import secretmanager
 from google.auth.exceptions import DefaultCredentialsError
 from google.api_core.exceptions import PermissionDenied
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
 from modules.manifest import get_modules
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -43,6 +45,16 @@ try:
     payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
     env.read_env(io.StringIO(payload))
 except (DefaultCredentialsError, PermissionDenied):
+    pass
+
+try:
+    credentials = DefaultAzureCredential()
+    vault_url = env.str("AZURE_KEYVAULT_RESOURCEENDPOINT", "")
+    vault_secret_name = env.str("AZURE_KEY_VAULT_SECRET_NAME", "secrets")
+    client = SecretClient(vault_url=vault_url, credential=credentials)
+    secret = client.get_secret(vault_secret_name)
+    env.read_env(io.StringIO(secret.value))
+except Exception as e:
     pass
 
 
