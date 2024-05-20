@@ -37,7 +37,7 @@ env.read_env(env_file)
 DEBUG = env.bool("DEBUG", default=False)
 
 try:
-    # Pull secrets from Secret Manager
+    # Pull secrets from Google Cloud Secret Manager
     _, project = google.auth.default()
     client = secretmanager.SecretManagerServiceClient()
     settings_name = os.environ.get("SETTINGS_NAME", "django_settings")
@@ -48,6 +48,7 @@ except (DefaultCredentialsError, PermissionDenied):
     pass
 
 try:
+    # Pull secrets from Aure KeyVault
     credentials = DefaultAzureCredential()
     vault_url = env.str("AZURE_KEYVAULT_RESOURCEENDPOINT", "")
     vault_secret_name = env.str("AZURE_KEY_VAULT_SECRET_NAME", "secrets")
