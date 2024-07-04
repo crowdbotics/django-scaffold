@@ -235,6 +235,10 @@ EMAIL_HOST_PASSWORD = env.str("SENDGRID_PASSWORD", "")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+DEFAULT_FROM_EMAIL = env.str(
+    "DEFAULT_FROM_EMAIL", "{{cookiecutter.project_name}} Support <support@{{cookiecutter.custom_domain}}>"
+)
+
 
 # AWS S3 config
 AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID", "")
