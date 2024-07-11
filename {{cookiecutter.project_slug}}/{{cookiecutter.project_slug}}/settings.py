@@ -310,6 +310,7 @@ if AS_BUCKET_NAME:
     AZURE_TOKEN_CREDENTIAL = DefaultAzureCredential()
     AS_STATIC_CONTAINER = env.str("AS_STATIC_CONTAINER", "static")
     AS_MEDIA_CONTAINER = env.str("AS_MEDIA_CONTAINER", "media")
+    AZURE_URL_EXPIRATION_SECS  = env.int("AZURE_URL_EXPIRATION_SECS", 3600)
     DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.storage_backends.AzureMediaStorage"
     STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.storage_backends.AzureStaticStorage"
 

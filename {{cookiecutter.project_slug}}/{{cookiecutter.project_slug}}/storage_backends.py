@@ -7,4 +7,3 @@ class AzureStaticStorage(AzureStorage):
 
 class AzureMediaStorage(AzureStorage):
     azure_container = settings.AS_MEDIA_CONTAINER
-    expiration_secs = 3600
