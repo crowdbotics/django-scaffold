@@ -303,4 +303,14 @@ if GS_BUCKET_NAME:
     STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
     GS_DEFAULT_ACL = "publicRead"
 
+# Configuration for Azure Storage
+AS_BUCKET_NAME = env.str("AS_BUCKET_NAME", "")
+if AS_BUCKET_NAME:
+    AZURE_ACCOUNT_NAME = AS_BUCKET_NAME
+    AZURE_TOKEN_CREDENTIAL = DefaultAzureCredential()
+    AS_STATIC_CONTAINER = env.str("AS_STATIC_CONTAINER", "static")
+    AS_MEDIA_CONTAINER = env.str("AS_MEDIA_CONTAINER", "media")
+    DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.storage_backends.AzureMediaStorage"
+    STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.storage_backends.AzureStaticStorage"
+
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
