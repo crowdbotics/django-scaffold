@@ -46,6 +46,24 @@ jobs:
           JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
           release_branch: ${{ github.event.client_payload.release_branch }}
 
+      - name: Azure login
+        uses: azure/login@v2.1.1
+        with:
+          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+
+      - name: Set up kubelogin for non-interactive login
+        uses: azure/use-kubelogin@v1
+        with:
+          kubelogin-version: "v0.0.25"
+
+      - name: Get K8s context
+        uses: azure/aks-set-context@v4
+        with:
+          resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
+          cluster-name: ${{ secrets.AZURE_CLUSTER_NAME }}
+          admin: "false"
+          use-kubelogin: "true"
+
       - name: Update DJANGO_SCAFFOLD_REPO_BRANCH Environment Variable
         id: update-env-var
         uses: ./github-actions/set-azure-env-var
@@ -56,7 +74,7 @@ jobs:
           app_namespace: cb-core
           env_var: DJANGO_SCAFFOLD_REPO_BRANCH
           env_value: ${{ steps.release.outputs.tag_version }}
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GIT_TOKEN }}
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
       
       - uses: act10ns/slack@v2
