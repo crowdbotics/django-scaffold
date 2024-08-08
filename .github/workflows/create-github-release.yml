@@ -12,17 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       working-directory: ./django-scaffold
-    environment: production
     steps:
       - name: Repo Clone
         id: repo-clone 
         run: |
           git clone https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/django-scaffold.git
-
-      - name: Clone Reusable Actions Repo
-        id: reusable-actions-clone
-        run: |
-          git clone -b master https://${{ secrets.GIT_TOKEN }}@github.com/crowdbotics/github-actions.git
       
       - name: Checkout branch
         id: checkout
