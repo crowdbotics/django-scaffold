@@ -3,7 +3,8 @@ from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
 from allauth.account import app_settings as allauth_settings
 from allauth.account.forms import ResetPasswordForm
-from allauth.utils import email_address_exists, generate_unique_username
+from allauth.utils import generate_unique_username
+from allauth.account.utils import assess_unique_email
 from allauth.account.adapter import get_adapter
 from allauth.account.utils import setup_user_email
 from rest_framework import serializers
@@ -38,7 +39,7 @@ class SignupSerializer(serializers.ModelSerializer):
     def validate_email(self, email):
         email = get_adapter().clean_email(email)
         if allauth_settings.UNIQUE_EMAIL:
-            if email and email_address_exists(email):
+            if email and assess_unique_email(email):
                 raise serializers.ValidationError(
                     _("A user is already registered with this e-mail address.")
                 )
