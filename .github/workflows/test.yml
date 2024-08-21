@@ -43,6 +43,7 @@ jobs:
       - name: Run scaffold tests
         working-directory: tmp_cookiecutter_output_2/testproject
         run: |
-          echo "Installing requirements"
+          echo "Installing PipFile dependencies"
+          pipenv install
           pipenv run python manage.py migrate
           pipenv run python manage.py test
