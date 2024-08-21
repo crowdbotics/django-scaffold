@@ -42,6 +42,8 @@ jobs:
 
       - name: Run scaffold tests
         working-directory: tmp_cookiecutter_output_2/testproject
+         env:
+          SECRET_KEY: "4f#s9d!a$rwk@2wp1&c^3m8*yzf%n0k+g$hb7j*ilqz1!h(cxp"
         run: |
           echo "Installing PipFile dependencies"
           pipenv install
