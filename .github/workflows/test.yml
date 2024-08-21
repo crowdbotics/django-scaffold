@@ -16,20 +16,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
+          python-version: '3.9'
 
       - name: Run a simple test
         run: echo "This is a test that always succeeds!"
 
       - name: Install Cookiecutter
         run: pip install cookiecutter
-
-      - name: List the contents of the current directory
-        run: ls
-
-      - name: Remove existing tmp_cookiecutter_output directory if it exists
-        run: |
-          rm -rf tmp_cookiecutter_output
 
       - name: Scaffold a new project
         run: |
@@ -40,12 +33,12 @@ jobs:
           project_generated_name="test-project" \
           owner_email="juan@cm.com "
 
-      - name: List the scaffolded project
-        run: | 
-          ls tmp_cookiecutter_output_2
-
-      - name: Check the scaffolded project
+      - name: Install the requirements
         run: |
           cd tmp_cookiecutter_output_2
           cd testproject
+          pip install -r requirements.txt
+
+      - name: Run scaffold tests
+        run: |
           python manage.py test
