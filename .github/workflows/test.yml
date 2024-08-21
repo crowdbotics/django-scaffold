@@ -19,15 +19,13 @@ jobs:
       - name: Install Cookiecutter
         run: pip install cookiecutter
 
-      - name: Create a tmp directory
-        run: mkdir tmp_cookiecutter_output
-
       - name: Scaffold a new project
         run: |
           cookiecutter . --no-input --output-dir tmp_cookiecutter_output
 
       - name: List the scaffolded project
-        run: ls tmp_cookiecutter_output
+        run: | 
+        ls tmp_cookiecutter_output
 
       - name: Check the scaffolded project
         run: |
