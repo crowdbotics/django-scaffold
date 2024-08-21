@@ -24,24 +24,31 @@ jobs:
       - name: Install Cookiecutter
         run: pip install cookiecutter
 
+      
+      - name: Install Pipenv and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv install --dev
+      
       - name: Scaffold a new project
         run: |
-          cookiecutter https://github.com/crowdbotics/django-scaffold \
+          pipenv run cookiecutter https://github.com/crowdbotics/django-scaffold \
           --checkout test-PI-264 \
           --no-input --output-dir tmp_cookiecutter_output_2 \
           project_name="Test project" \
           project_generated_name="test-project" \
           owner_email="juan@cm.com "
 
+
       - name: Install the requirements
         run: |
           cd tmp_cookiecutter_output_2
           ls
           cd testproject
-          echo "Installing requirements"
-          ls
-          pip install -r requirements.txt
 
       - name: Run scaffold tests
         run: |
-          python manage.py test
+          echo "Installing requirements"
+          pipenv run python manage.py migrate
+          pipenv run python manage.py test
