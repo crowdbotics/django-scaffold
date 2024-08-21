@@ -41,5 +41,5 @@ jobs:
 
       - name: Check the scaffolded project
         run: |
-          cd my-new-project
+          cd tmp_cookiecutter_output_2
           python manage.py test
