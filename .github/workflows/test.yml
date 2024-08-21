@@ -19,6 +19,10 @@ jobs:
       - name: Install Cookiecutter
         run: pip install cookiecutter
 
+      - name: Remove existing tmp_cookiecutter_output directory if it exists
+        run: |
+          rm -rf tmp_cookiecutter_output
+
       - name: Scaffold a new project
         run: |
           cookiecutter . --no-input --output-dir tmp_cookiecutter_output
