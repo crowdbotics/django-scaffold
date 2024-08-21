@@ -19,6 +19,9 @@ jobs:
       - name: Install Cookiecutter
         run: pip install cookiecutter
 
+      - name: List the contents of the current directory
+        run: ls
+
       - name: Remove existing tmp_cookiecutter_output directory if it exists
         run: |
           rm -rf tmp_cookiecutter_output
