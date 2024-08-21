@@ -13,6 +13,11 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
       - name: Run a simple test
         run: echo "This is a test that always succeeds!"
 
