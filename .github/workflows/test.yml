@@ -20,7 +20,8 @@ jobs:
         run: pip install cookiecutter
 
       - name: Scaffold a new project
-        run: cookiecutter . --no-input
+        run: |
+          cookiecutter . --no-input
 
       - name: Check the scaffolded project
         run: |
