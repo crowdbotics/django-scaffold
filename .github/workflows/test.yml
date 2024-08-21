@@ -25,7 +25,7 @@ jobs:
 
       - name: List the scaffolded project
         run: | 
-        ls tmp_cookiecutter_output
+          ls tmp_cookiecutter_output
 
       - name: Check the scaffolded project
         run: |
