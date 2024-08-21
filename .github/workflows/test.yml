@@ -1,0 +1,17 @@
+name: test-scaffold-updates
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+
+      - name: Run a simple test
+        run: echo "This is a test that always succeeds!"
