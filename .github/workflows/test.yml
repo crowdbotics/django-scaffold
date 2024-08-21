@@ -28,11 +28,11 @@ jobs:
 
       - name: Scaffold a new project
         run: |
-          cookiecutter . --no-input --output-dir tmp_cookiecutter_output
+          cookiecutter https://github.com/crowdbotics/django-scaffold --checkout test-PI-264 --output-dir tmp_cookiecutter_output_2
 
       - name: List the scaffolded project
         run: | 
-          ls tmp_cookiecutter_output
+          ls tmp_cookiecutter_output_2
 
       - name: Check the scaffolded project
         run: |
