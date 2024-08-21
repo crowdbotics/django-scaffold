@@ -28,7 +28,12 @@ jobs:
 
       - name: Scaffold a new project
         run: |
-          cookiecutter https://github.com/crowdbotics/django-scaffold --checkout test-PI-264 --output-dir tmp_cookiecutter_output_2
+          cookiecutter https://github.com/crowdbotics/django-scaffold \
+          --checkout test-PI-264 \
+          --no-input --output-dir tmp_cookiecutter_output_2 \
+          project_name: "Test project" \
+          project_generated_name: "test-project" \
+          owner_email: "juan@cm.com "\
 
       - name: List the scaffolded project
         run: | 
