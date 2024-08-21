@@ -40,14 +40,8 @@ jobs:
           project_generated_name="test-project" \
           owner_email="juan@cm.com "
 
-
-      - name: Install the requirements
-        run: |
-          cd tmp_cookiecutter_output_2
-          ls
-          cd testproject
-
       - name: Run scaffold tests
+        working-directory: tmp_cookiecutter_output_2/testproject
         run: |
           echo "Installing requirements"
           pipenv run python manage.py migrate
