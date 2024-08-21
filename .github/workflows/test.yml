@@ -15,3 +15,14 @@ jobs:
 
       - name: Run a simple test
         run: echo "This is a test that always succeeds!"
+
+      - name: Install Cookiecutter
+        run: pip install cookiecutter
+
+      - name: Scaffold a new project
+        run: cookiecutter . --no-input
+
+      - name: Check the scaffolded project
+        run: |
+          cd my-new-project
+          python manage.py test
