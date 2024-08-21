@@ -36,7 +36,10 @@ jobs:
       - name: Install the requirements
         run: |
           cd tmp_cookiecutter_output_2
+          ls
           cd testproject
+          echo "Installing requirements"
+          ls
           pip install -r requirements.txt
 
       - name: Run scaffold tests
