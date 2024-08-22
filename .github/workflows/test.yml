@@ -18,34 +18,32 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Run a simple test
-        run: echo "This is a test that always succeeds!"
-
       - name: Install Cookiecutter
         run: pip install cookiecutter
-
       
-      - name: Install Pipenv and dependencies
+      - name: Install Pipenv
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-          pipenv install --dev
       
-      - name: Scaffold a new project
+      - name: Scaffold a new project with Cookiecutter
         run: |
           pipenv run cookiecutter https://github.com/crowdbotics/django-scaffold \
-          --checkout test-PI-264 \
-          --no-input --output-dir tmp_cookiecutter_output_2 \
+          --checkout ${{ github.ref_name }} \
+          --no-input --output-dir tmp_cookiecutter_output \
           project_name="Test project" \
           project_generated_name="test-project" \
-          owner_email="juan@cm.com "
+          owner_email="juan@crowdbotics.com "
 
-      - name: Run scaffold tests
-        working-directory: tmp_cookiecutter_output_2/testproject
-        env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }} 
+      - name: Install Scaffold dependencies
+        working-directory: tmp_cookiecutter_output/testproject
         run: |
-          echo "Installing PipFile dependencies"
           pipenv install
+
+      - name: Run Scaffold tests
+        working-directory: tmp_cookiecutter_output/testproject
+        env:
+          SECRET_KEY: "4f#s9d!a$rwk@2wp1&c^3m8*yzf%n0k+g$hb7j*ilqz1!h(cxp" 
+        run: |
           pipenv run python manage.py migrate
           pipenv run python manage.py test
