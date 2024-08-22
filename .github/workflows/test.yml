@@ -29,7 +29,7 @@ jobs:
       - name: Scaffold a new project with Cookiecutter
         run: |
           pipenv run cookiecutter https://github.com/crowdbotics/django-scaffold \
-          --checkout ${{ github.ref_name }} \
+          --checkout ${{ github.head_ref }} \
           --no-input --output-dir tmp_cookiecutter_output \
           project_name="Test project" \
           project_generated_name="test-project" \
@@ -43,7 +43,7 @@ jobs:
       - name: Run Scaffold tests
         working-directory: tmp_cookiecutter_output/testproject
         env:
-          SECRET_KEY: "4f#s9d!a$rwk@2wp1&c^3m8*yzf%n0k+g$hb7j*ilqz1!h(cxp" 
+          SECRET_KEY: "4f#s9d!a$rwk@2wp1&c^3m8*yzf%n0k+g$hb7j*ilqz1!h(cxp"
         run: |
           pipenv run python manage.py migrate
           pipenv run python manage.py test
