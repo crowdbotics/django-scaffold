@@ -33,7 +33,9 @@ jobs:
           --no-input --output-dir tmp_cookiecutter_output \
           project_name="Test project" \
           project_generated_name="test-project" \
-          owner_email="juan@crowdbotics.com "
+          owner_email="juan@crowdbotics.com " \
+          echo "head name" 
+          echo ${{ github.head_ref }}
 
       - name: Install Scaffold dependencies
         working-directory: tmp_cookiecutter_output/testproject
