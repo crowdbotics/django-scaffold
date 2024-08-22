@@ -33,7 +33,6 @@ jobs:
           --no-input --output-dir tmp_cookiecutter_output \
           project_name="Test project" \
           project_generated_name="test-project" \
-          owner_email="juan@crowdbotics.com " 
 
       - name: Install Scaffold dependencies
         working-directory: tmp_cookiecutter_output/testproject
@@ -43,7 +42,7 @@ jobs:
       - name: Run Scaffold tests
         working-directory: tmp_cookiecutter_output/testproject
         env:
-          SECRET_KEY: "4f#s9d!a$rwk@2wp1&c^3m8*yzf%n0k+g$hb7j*ilqz1!h(cxp"
+          SECRET_KEY: "thisisasimplekey"
         run: |
           pipenv run python manage.py migrate
           pipenv run python manage.py test
