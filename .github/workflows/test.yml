@@ -1,0 +1,48 @@
+name: test-scaffold-updates
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Cookiecutter
+        run: pip install cookiecutter
+      
+      - name: Install Pipenv
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+      
+      - name: Scaffold a new project with Cookiecutter
+        run: |
+          pipenv run cookiecutter https://github.com/crowdbotics/django-scaffold \
+          --checkout ${{ github.head_ref }} \
+          --no-input --output-dir tmp_cookiecutter_output \
+          project_name="Test project" \
+          project_generated_name="test-project" \
+
+      - name: Install Scaffold dependencies
+        working-directory: tmp_cookiecutter_output/testproject
+        run: |
+          pipenv install
+
+      - name: Run Scaffold tests
+        working-directory: tmp_cookiecutter_output/testproject
+        env:
+          SECRET_KEY: "thisisasimplekey"
+        run: |
+          pipenv run python manage.py migrate
+          pipenv run python manage.py test
