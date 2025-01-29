@@ -68,6 +68,8 @@ SECRET_KEY = env.str("SECRET_KEY")
 ALLOWED_HOSTS = env.list("HOST", default=["*"])
 SITE_ID = 1
 
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
+
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = env.bool("SECURE_REDIRECT", default=False)
 
