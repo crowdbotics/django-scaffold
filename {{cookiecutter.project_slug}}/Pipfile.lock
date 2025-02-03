@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e669880b3463f46b46f0df63733e9b1f94a4784e0d96e1bef5fb68f1ec5930be"
+            "sha256": "7180cf5a083471fa5ae859b8841bb7b7d06683adba16ede6147a38ca14d7bdb8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -417,12 +417,12 @@
         },
         "django-import-export": {
             "hashes": [
-                "sha256:16ecc5a9f0df46bde6eb278a3e65ebda0ee1db55656f36440e9fb83f40ab85a3",
-                "sha256:730ae2443a02b1ba27d8dba078a27ae9123adfcabb78161b4f130843607b3df9"
+                "sha256:143611d9d3c8b000c54e33db122c8d283eef38167acd7a854d15b9ad77c328e7",
+                "sha256:61e078cea307a6199a7e905840640e55db3521d7c81be224fd8b6576ce9bd0fc"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==4.1.1"
+            "markers": "python_version >= '3.9'",
+            "version": "==4.3.5"
         },
         "django-storages": {
             "hashes": [
@@ -1241,19 +1241,19 @@
         },
         "sqlparse": {
             "hashes": [
-                "sha256:9e37b35e16d1cc652a2545f0997c1deb23ea28fa1f3eefe609eee3063c3b105f",
-                "sha256:e99bc85c78160918c3e1d9230834ab8d80fc06c59d03f8db2618f65f65dda55e"
+                "sha256:09f67787f56a0b16ecdbde1bfc7f5d9c3371ca683cfeaa8e6ff60b4807ec9272",
+                "sha256:cf2196ed3418f3ba5de6af7e82c694a9fbdbfecccdfc72e281548517081f16ca"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==0.5.2"
+            "version": "==0.5.3"
         },
         "tablib": {
             "hashes": [
-                "sha256:9821caa9eca6062ff7299fa645e737aecff982e6b2b42046928a6413c8dabfd9",
-                "sha256:f6661dfc45e1d4f51fa8a6239f9c8349380859a5bfaa73280645f046d6c96e33"
+                "sha256:35bdb9d4ec7052232f8803908f9c7a9c3c65807188b70618fa7a7d8ccd560b4d",
+                "sha256:94d8bcdc65a715a0024a6d5b701a5f31e45bd159269e62c73731de79f048db2b"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==3.5.0"
+            "markers": "python_version >= '3.9'",
+            "version": "==3.8.0"
         },
         "tomli": {
             "hashes": [
