@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e49809d3884589c21349fbb5f3e0c8926e11eeaa8fae1e0d1a0b2a2b47c9881d"
+            "sha256": "3d63deda77c458fc84fce4d660cca9dff455ed1948b0168d77e1ca766c4e7457"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -77,20 +77,20 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:83e560faaec38a956dfb3d62e05e1703ee50432b45b788c09e25107c5058bd71",
-                "sha256:e0abd794a7a591d90558e92e29a9f8837d25ece8e3c120e530526fe27eba5fca"
+                "sha256:82f4599a34f5eb66e916b9ac8547394f6e5899c19580e74b60237db04cf66d1e",
+                "sha256:fc462b9fd738bd8a1c121d94d237c6b6a05a2c1cc709d16f5223acb752f7310b"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.99"
+            "version": "==1.37.23"
         },
         "botocore": {
             "hashes": [
-                "sha256:1eab44e969c39c5f3d9a3104a0836c24715579a455f12b3979a31d7cde51b3c3",
-                "sha256:b22d27b6b617fc2d7342090d6129000af2efd20174215948c0d7ae2da0fab445"
+                "sha256:3a249c950cef9ee9ed7b2278500ad83a4ad6456bc433a43abd1864d1b61b2acb",
+                "sha256:ffbe1f5958adb1c50d72d3ad1018cb265fe349248c08782d334601c0814f0e38"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.99"
+            "version": "==1.37.23"
         },
         "cachetools": {
             "hashes": [
@@ -1125,11 +1125,11 @@
         },
         "s3transfer": {
             "hashes": [
-                "sha256:244a76a24355363a68164241438de1b72f8781664920260c48465896b712a41e",
-                "sha256:29edc09801743c21eb5ecbc617a152df41d3c287f67b615f73e5f750583666a7"
+                "sha256:559f161658e1cf0a911f45940552c696735f5c74e64362e515f333ebed87d679",
+                "sha256:ac265fa68318763a03bf2dc4f39d5cbd6a9e178d81cc9483ad27da33637e320d"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==0.10.4"
+            "version": "==0.11.4"
         },
         "setuptools": {
             "hashes": [
