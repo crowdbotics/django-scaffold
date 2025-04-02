@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5fc6800941a8c1117fa222195a5b341a3683779f49465961b65c681eff336790"
+            "sha256": "e49809d3884589c21349fbb5f3e0c8926e11eeaa8fae1e0d1a0b2a2b47c9881d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -434,12 +434,12 @@
         },
         "factory-boy": {
             "hashes": [
-                "sha256:a2cdbdb63228177aa4f1c52f4b6d83fab2b8623bf602c7dedd7eb83c0f69c04c",
-                "sha256:bc76d97d1a65bbd9842a6d722882098eb549ec8ee1081f9fb2e8ff29f0c300f1"
+                "sha256:1c39e3289f7e667c4285433f305f8d506efc2fe9c73aaea4151ebd5cdea394fc",
+                "sha256:866862d226128dfac7f2b4160287e899daf54f2612778327dd03d0e2cb1e3d03"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7'",
-            "version": "==3.3.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==3.3.3"
         },
         "faker": {
             "hashes": [
@@ -451,11 +451,11 @@
         },
         "filelock": {
             "hashes": [
-                "sha256:533dc2f7ba78dc2f0f531fc6c4940addf7b70a481e269a5a3b93be94ffbe8338",
-                "sha256:ee4e77401ef576ebb38cd7f13b9b28893194acc20a8e68e18730ba9c0e54660e"
+                "sha256:adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2",
+                "sha256:c401f4f8377c4464e6db25fff06205fd89bdd83b65eb0488ed1b160f780e21de"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==3.17.0"
+            "version": "==3.18.0"
         },
         "google-api-core": {
             "extras": [
@@ -470,12 +470,12 @@
         },
         "google-auth": {
             "hashes": [
-                "sha256:0054623abf1f9c83492c63d3f47e77f0a544caa3d40b2d98e099a611c2dd5d00",
-                "sha256:42664f18290a6be591be5329a96fe30184be1a1badb7292a7f686a9659de9ca0"
+                "sha256:8285113607d3b80a3f1543b75962447ba8a09fe85783432a784fdeef6ac094c4",
+                "sha256:e7dae6694313f434a2727bf2906f27ad259bae090d7aa896590d86feec3d9d4a"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.7'",
-            "version": "==2.37.0"
+            "version": "==2.38.0"
         },
         "google-cloud-core": {
             "hashes": [
@@ -802,20 +802,20 @@
         },
         "pipenv": {
             "hashes": [
-                "sha256:59bd549299475e47d94b1713c5cd392ffcd3fb66f062ca82366554aa94be9c38",
-                "sha256:bd542b63103a684a909e3af26cd11d2cc39b0acf4a2a8525835b18360e58de9a"
+                "sha256:ab26ee98a7d83d342c1f562ee0564094ab1de091e5d5cec4eeaa95fb600de998",
+                "sha256:e8ea6105c1cdda7d5c19df7bd6439a006751f3d4e017602c791e7b51314adf84"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==2024.3.0"
+            "version": "==2024.4.1"
         },
         "platformdirs": {
             "hashes": [
-                "sha256:357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907",
-                "sha256:73e575e1408ab8103900836b97580d5307456908a03e92031bab39e4554cc3fb"
+                "sha256:a03875334331946f13c549dbd8f4bac7a13a50a895a0eb1e8c6a8ace80d40a94",
+                "sha256:eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==4.3.6"
+            "markers": "python_version >= '3.9'",
+            "version": "==4.3.7"
         },
         "pluggy": {
             "hashes": [
@@ -1133,11 +1133,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:199466a166ff664970d0ee145839f5582cb9bca7a0a3a2e795b6a9cb2308e9c6",
-                "sha256:43b4ee60e10b0d0ee98ad11918e114c70701bc6051662a9a675a0496c1a158f4"
+                "sha256:137525e6afb9022f019d6e884a319017f9bf879a0d8783985d32cbc8683cab93",
+                "sha256:4a612c80e1f1d71b80e4906ce730152e8dec23df439f82731d9d0b608d7b700d"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==76.0.0"
+            "version": "==78.0.2"
         },
         "six": {
             "hashes": [
