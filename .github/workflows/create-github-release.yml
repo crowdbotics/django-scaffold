@@ -43,23 +43,3 @@ jobs:
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
           release_branch: ${{ github.event.client_payload.release_branch }}
-
-      - name: Update DJANGO_SCAFFOLD_REPO_BRANCH Environment Variable
-        id: update-env-var
-        uses: ./github-actions/set-azure-env-var
-        with:
-          resource_group: ${{ secrets.AZURE_RESOURCE_GROUP }}
-          cluster_name: ${{ secrets.AZURE_CLUSTER_NAME }}
-          app_name: crowdbotics-app
-          app_namespace: cb-core
-          env_var: DJANGO_SCAFFOLD_REPO_BRANCH
-          env_value: ${{ steps.release.outputs.tag_version }}
-          token: ${{ secrets.TOKEN }}
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-      
-      - uses: act10ns/slack@v2
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        with:
-          status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
