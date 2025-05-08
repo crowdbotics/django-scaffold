@@ -10,7 +10,7 @@ python_version = "3.9"
 
 [packages]
 cryptography = "~=44.0.2"
-django = "==4.2.20"
+django = "==4.2.21"
 "boto3" = "~=1.38.8"
 django-environ = "~=0.11.2"
 django-storages = "~=1.14"
