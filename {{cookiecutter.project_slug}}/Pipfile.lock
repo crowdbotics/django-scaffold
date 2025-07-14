@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8e9e98f39c5f5ce6a9c4992c3b7bf3cd3014b3db0046a66537b3d3176161924d"
+            "sha256": "641615a365550f67d43b316d4f1d3cd4dae3336ca56201f1918e8db352bd2d9e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,11 +18,11 @@
     "default": {
         "asgiref": {
             "hashes": [
-                "sha256:3e1e3ecc849832fe52ccf2cb6686b7a55f82bb1d6aee72a58826471390335e47",
-                "sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590"
+                "sha256:a5ab6582236218e5ef1648f242fd9f10626cfd4de8dc377db215d5d5098e3142",
+                "sha256:f3bba7092a48005b5f5bacd747d36ee4a5a61f4a269a6df590b43144355ebd2c"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==3.8.1"
+            "markers": "python_version >= '3.9'",
+            "version": "==3.9.1"
         },
         "attrs": {
             "hashes": [
@@ -355,11 +355,11 @@
         },
         "django-allauth": {
             "hashes": [
-                "sha256:f15f49defb09e0604dad5214e53a69a1f723cb03176bb115c8930bcd19b91749"
+                "sha256:47daa3b0e11a1d75724ea32995de37bd2b8963e9e4cce2b3a7fd64eb6d3b3c48"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7'",
-            "version": "==0.63.6"
+            "markers": "python_version >= '3.8'",
+            "version": "==65.10.0"
         },
         "django-bootstrap4": {
             "hashes": [
@@ -1211,11 +1211,11 @@
         },
         "typing-extensions": {
             "hashes": [
-                "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d",
-                "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+                "sha256:38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36",
+                "sha256:d1e1e3b58374dc93031d6eda2420a48ea44a36c2b4766a4fdeb3710755731d76"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==4.12.2"
+            "markers": "python_version >= '3.9'",
+            "version": "==4.14.1"
         },
         "tzdata": {
             "hashes": [
